@@ -1,0 +1,45 @@
+%% ShopEase database ownership: each service connects only to its own database.
+%% Dashed arrows are REST API calls between services, never database access.
+flowchart LR
+    client(["Client"])
+    gw["API Gateway<br/>(no business database)"]
+    client -->|HTTPS| gw
+
+    subgraph svc["Services"]
+        auth["Authentication Service"]
+        user["User Service"]
+        product["Product Service"]
+        order["Order Service"]
+        payment["Payment Service"]
+    end
+
+    gw -->|HTTP| auth
+    gw -->|HTTP| user
+    gw -->|HTTP| product
+    gw -->|HTTP| order
+    gw -->|HTTP| payment
+
+    subgraph mysql["MySQL (dev: one server, five logical databases)"]
+        auth_db[("auth_db<br/>auth_users<br/>refresh_tokens<br/>service_clients")]
+        user_db[("user_db<br/>user_profiles<br/>user_addresses")]
+        product_db[("product_db<br/>categories<br/>products<br/>inventory<br/>stock_reservations<br/>inventory_movements")]
+        order_db[("order_db<br/>orders<br/>order_items<br/>order_status_history")]
+        payment_db[("payment_db<br/>payments<br/>payment_status_history<br/>refunds")]
+    end
+
+    auth ==>|"auth_svc user"| auth_db
+    user ==>|"user_svc user"| user_db
+    product ==>|"product_svc user"| product_db
+    order ==>|"order_svc user"| order_db
+    payment ==>|"payment_svc user"| payment_db
+
+    order -.->|"REST: prices, reservations"| product
+    order -.->|"REST: address lookup"| user
+    payment -.->|"REST: payable amount, payment result"| order
+
+    classDef gateway fill:#fff3cd,stroke:#b08800,color:#000
+    classDef service fill:#dbeafe,stroke:#1d4ed8,color:#000
+    classDef db fill:#dcfce7,stroke:#15803d,color:#000
+    class gw gateway
+    class auth,user,product,order,payment service
+    class auth_db,user_db,product_db,order_db,payment_db db

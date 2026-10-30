@@ -1,0 +1,72 @@
+%% ShopEase system architecture (proposed design, not implemented).
+%% Solid lines without arrowheads = database ownership. Labelled arrows = network calls.
+flowchart LR
+    subgraph legend["Legend"]
+        direction TB
+        lg_svc["Service"] ---|"solid line: owns this database"| lg_db[("Database")]
+        lg_a["Caller"] -->|"labelled arrow: REST call over the network"| lg_b["Callee"]
+        lg_c["Any service"] -.->|"dotted arrow: JWKS keys / service token (cached)"| lg_d["Auth Service"]
+        lg_ext["Dashed box: external boundary (mock)"]
+    end
+
+    client(["Customer / Client<br/>browser, mobile app, Postman"])
+
+    subgraph edge["Public edge"]
+        gw["API Gateway :8000<br/>routing, JWT check, rate limiting, X-Request-ID<br/>no business database"]
+    end
+
+    subgraph internal["Internal network: not trusted on its own, every call carries a service token"]
+        auth["Authentication Service :8001<br/>register, login, issue JWT, JWKS"]
+        user["User Service :8002<br/>profiles, addresses"]
+        product["Product Service :8003<br/>catalog, prices, stock reservations"]
+        order["Order Service :8004<br/>orders, status, stock coordination"]
+        payment["Payment Service :8005<br/>payments, reconciliation, refunds"]
+
+        subgraph mysql["MySQL :3306 (dev: one server, five logical databases)"]
+            auth_db[("auth_db<br/>auth_users, refresh_tokens,<br/>service_clients")]
+            user_db[("user_db<br/>user_profiles, user_addresses")]
+            product_db[("product_db<br/>categories, products, inventory,<br/>stock_reservations, inventory_movements")]
+            order_db[("order_db<br/>orders, order_items,<br/>order_status_history")]
+            payment_db[("payment_db<br/>payments, payment_status_history,<br/>refunds")]
+        end
+    end
+
+    subgraph ext["External boundary"]
+        provider["Payment Provider<br/>DEV MOCK now, real provider = future integration"]
+    end
+
+    client -->|"HTTPS, Authorization: Bearer JWT"| gw
+    gw -->|"/api/auth/* (login returns JWT)"| auth
+    gw -->|"/api/users/*"| user
+    gw -->|"/api/products/*, /api/categories"| product
+    gw -->|"/api/orders/*"| order
+    gw -->|"/api/payments/*"| payment
+
+    order -->|"price-check, reserve, confirm, release stock"| product
+    order -->|"delivery address lookup"| user
+    payment -->|"payable amount, payment-result"| order
+    payment -->|"charge, get_status, refund (idempotency key)"| provider
+
+    gw -.->|"JWKS (cached)"| auth
+    user -.->|"JWKS"| auth
+    product -.->|"JWKS"| auth
+    order -.->|"JWKS, service token"| auth
+    payment -.->|"JWKS, service token"| auth
+
+    auth ---|"owns"| auth_db
+    user ---|"owns"| user_db
+    product ---|"owns"| product_db
+    order ---|"owns"| order_db
+    payment ---|"owns"| payment_db
+
+    classDef gateway fill:#fff3cd,stroke:#b08800,color:#000
+    classDef service fill:#dbeafe,stroke:#1d4ed8,color:#000
+    classDef db fill:#dcfce7,stroke:#15803d,color:#000
+    classDef external fill:#f3f4f6,stroke:#6b7280,color:#000,stroke-dasharray: 5 5
+    classDef client fill:#fce7f3,stroke:#be185d,color:#000
+    class gw gateway
+    class auth,user,product,order,payment,lg_svc,lg_a,lg_b,lg_c,lg_d service
+    class auth_db,user_db,product_db,order_db,payment_db,lg_db db
+    class provider,lg_ext external
+    class client client
+    style ext stroke-dasharray: 5 5

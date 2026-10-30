@@ -1,0 +1,159 @@
+%% ShopEase checkout sequence (proposed design, not implemented).
+%% Follows the two-step checkout (ADR-13, accepted): POST /api/orders, then POST /api/payments.
+%% Conventions: ->> = synchronous call, -->> = response, --x = no response (timeout).
+%% State changes are written as "order A → B" / "payment A → B".
+sequenceDiagram
+    autonumber
+    actor C as Client
+    participant GW as API Gateway
+    participant AU as Auth Service
+    participant AUDB as auth_db
+    participant US as User Service
+    participant USDB as user_db
+    participant PR as Product Service
+    participant PRDB as product_db
+    participant OR as Order Service
+    participant ORDB as order_db
+    participant PA as Payment Service
+    participant PADB as payment_db
+    participant PP as Payment Provider (dev mock)
+
+    rect rgba(128, 128, 128, 0.08)
+    Note over C,AUDB: Steps 1-2: register, log in, receive JWT
+    C->>GW: POST /api/auth/register {email, password}
+    GW->>AU: forward with X-Request-ID (timeout 5s)
+    AU->>AUDB: INSERT auth_users (password hash only)
+    AU-->>GW: 201 {user_id}
+    GW-->>C: 201 Created
+    C->>GW: POST /api/auth/login {email, password}
+    GW->>AU: forward (timeout 5s)
+    AU->>AUDB: SELECT auth_users, verify hash
+    AU-->>GW: 200 {access_token (JWT), refresh_token}
+    GW-->>C: 200 OK with JWT
+    end
+
+    rect rgba(128, 128, 128, 0.08)
+    Note over C,PRDB: Step 3: browse products (public route)
+    C->>GW: GET /api/products?category_id=...
+    GW->>PR: forward (timeout 5s)
+    PR->>PRDB: SELECT products, inventory
+    PR-->>GW: 200 page of products
+    GW-->>C: 200 OK
+    end
+
+    rect rgba(128, 128, 128, 0.08)
+    Note over C,ORDB: Steps 4-6: submit order, check prices, reserve stock
+    C->>GW: POST /api/orders (Bearer JWT, Idempotency-Key K1)
+    Note over GW: Verify JWT signature and expiry with cached JWKS
+    GW->>OR: forward with JWT and X-Request-ID (timeout 8s)
+    OR->>ORDB: Look up K1 and return the stored response if already processed
+    OR->>PR: POST /internal/products/price-check (timeout 1.5s)
+    PR->>PRDB: SELECT price, status, availability
+    PR-->>OR: 200 current prices
+    OR->>US: GET /internal/users/{user_id}/addresses/{address_id} (timeout 1.5s)
+    US->>USDB: SELECT address (owner check)
+    US-->>OR: 200 address
+    OR->>ORDB: INSERT order PENDING with item price snapshots
+    OR->>PR: POST /internal/reservations {order_id, items} (timeout 2s)
+    PR->>PRDB: Conditional UPDATE inventory and INSERT reservation in one transaction
+    alt Stock reserved
+        PR-->>OR: 201 reservation with expires_at
+        OR->>ORDB: order PENDING → AWAITING_PAYMENT
+        OR-->>GW: 201 order AWAITING_PAYMENT with payment_due_by
+        GW-->>C: 201 Created
+    else Insufficient stock
+        PR-->>OR: 409 OUT_OF_STOCK (nothing reserved)
+        OR->>ORDB: order PENDING → CANCELLED (reason OUT_OF_STOCK)
+        OR-->>GW: 409 OUT_OF_STOCK
+        GW-->>C: 409 Conflict
+    else Product Service timeout (reservation outcome unknown)
+        PR--xOR: no response within 2s
+        Note over OR,PR: At most 1 retry, only if the 7s request deadline allows
+        OR->>PR: POST /internal/reservations/{order_id}/release (idempotent, timeout 1.5s)
+        PR-->>OR: 200 released or nothing to release
+        Note over OR,PR: If release also fails, a background job retries and the reservation expires on its own
+        OR->>ORDB: order PENDING → CANCELLED (reason DEPENDENCY_TIMEOUT)
+        OR-->>GW: 503 DEPENDENCY_UNAVAILABLE (order cancelled)
+        GW-->>C: 503, safe to submit again
+    end
+    end
+
+    rect rgba(128, 128, 128, 0.08)
+    Note over C,PP: Steps 7-8: pay for the order, record the final order state
+    C->>GW: POST /api/payments {order_id, payment_method_token} Idempotency-Key K2
+    GW->>PA: forward with JWT and X-Request-ID (timeout 20s)
+    PA->>PADB: Look up K2 and reject if the order already has an active payment
+    PA->>OR: GET /internal/orders/{order_id}/payable (timeout 1.5s)
+    OR->>ORDB: SELECT order
+    OR-->>PA: 200 {amount, currency, user_id, status, payment_due_by}
+    Note over PA: Check owner matches JWT sub, status AWAITING_PAYMENT, not past due
+    PA->>PADB: INSERT payment INITIATED (idempotency_key K2)
+    PA->>PP: charge(amount, token, provider idempotency key = payment_id) (timeout 10s)
+    alt Payment succeeded
+        PP-->>PA: SUCCEEDED with provider reference
+        PA->>PADB: payment INITIATED → SUCCEEDED
+        PA->>OR: POST /internal/orders/{order_id}/payment-result SUCCEEDED (timeout 4s)
+        OR->>PR: POST /internal/reservations/{order_id}/confirm (idempotent, timeout 1.5s)
+        alt Stock confirmed
+            PR->>PRDB: Deduct stock, reservation CONFIRMED
+            PR-->>OR: 200 confirmed
+            OR->>ORDB: order AWAITING_PAYMENT → PAID
+            OR-->>PA: 200 accepted
+            PA-->>GW: 201 payment SUCCEEDED
+            GW-->>C: 201 Created
+        else Reservation expired, stock no longer available
+            PR-->>OR: 409 RESERVATION_EXPIRED
+            OR->>ORDB: order AWAITING_PAYMENT → CANCELLED (reason STOCK_UNAVAILABLE)
+            OR-->>PA: 409 ORDER_NOT_FULFILLABLE
+            PA->>PP: refund(payment_id) with refund idempotency key (timeout 10s)
+            PP-->>PA: REFUNDED
+            PA->>PADB: payment SUCCEEDED → REFUNDED
+            PA-->>GW: 409 ORDER_NOT_FULFILLABLE (payment refunded)
+            GW-->>C: 409 Conflict
+        end
+        Note over PA,OR: If the payment-result call fails, the payment stays SUCCEEDED and a pending notification is retried on a bounded schedule
+    else Payment declined
+        PP-->>PA: DECLINED
+        PA->>PADB: payment INITIATED → FAILED
+        PA->>OR: POST /internal/orders/{order_id}/payment-result FAILED (timeout 4s)
+        OR->>ORDB: Record failed attempt, order stays AWAITING_PAYMENT
+        OR-->>PA: 200 accepted
+        PA-->>GW: 422 PAYMENT_DECLINED
+        GW-->>C: 422, may retry with another method and a new key before payment_due_by
+    else Uncertain result (provider timeout)
+        PP--xPA: no response within 10s
+        PA->>PADB: payment INITIATED → PROCESSING (needs reconciliation)
+        PA-->>GW: 202 payment PROCESSING
+        GW-->>C: 202 Accepted, poll GET /api/payments/{payment_id}
+        Note over PA,PP: Never send a new charge. Reconcile with the provider.
+        loop Reconciliation at 30s, 2m, 10m, 1h, 6h, 24h (max 6 checks, then manual review)
+            PA->>PP: get_status(payment_id) (timeout 5s)
+            PP-->>PA: SUCCEEDED, FAILED or still unknown
+        end
+        PA->>PADB: payment PROCESSING → SUCCEEDED or FAILED
+        PA->>OR: POST /internal/orders/{order_id}/payment-result (timeout 4s)
+        OR-->>PA: 200 accepted (handled as in the branches above)
+    end
+    end
+
+    rect rgba(128, 128, 128, 0.08)
+    Note over C,PADB: Step 9: order history and payment status
+    C->>GW: GET /api/orders (Bearer JWT)
+    GW->>OR: forward (timeout 5s)
+    OR->>ORDB: SELECT orders WHERE user_id = JWT sub
+    OR-->>GW: 200 paginated orders
+    GW-->>C: 200 OK
+    C->>GW: GET /api/payments/{payment_id} (Bearer JWT)
+    GW->>PA: forward (timeout 5s)
+    PA->>PADB: SELECT payment (owner check)
+    PA-->>GW: 200 payment status
+    GW-->>C: 200 OK
+    end
+
+    rect rgba(128, 128, 128, 0.08)
+    Note over OR,PRDB: Background expiry job in Order Service (runs every minute)
+    OR->>ORDB: Find AWAITING_PAYMENT orders past payment_due_by plus grace period
+    OR->>ORDB: order AWAITING_PAYMENT → CANCELLED (reason PAYMENT_TIMEOUT)
+    OR->>PR: POST /internal/reservations/{order_id}/release (idempotent, timeout 1.5s)
+    PR-->>OR: 200 released
+    end
