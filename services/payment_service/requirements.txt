@@ -1,0 +1,15 @@
+# Runtime dependencies for payment_service. Versions are pinned and kept identical across services
+# (see README "Dependency strategy"). The shopease-shared package is installed separately.
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+pydantic==2.14.2
+pydantic-settings==2.16.2
+SQLAlchemy==2.1.6
+alembic==1.20.1
+PyMySQL==1.2.3
+# Required by PyMySQL for MySQL 8 caching_sha2_password authentication.
+cryptography==50.0.2
+# Verifies RS256 tokens (crypto backend: cryptography).
+PyJWT==2.15.1
+# Calls to other services (app/clients.py).
+httpx==0.28.1
