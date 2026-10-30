@@ -1,0 +1,329 @@
+# ShopEase local development stack (docs/local_development.md).
+#
+#   python scripts/generate_jwt_key.py      # once: secrets/jwt_private.pem (git-ignored)
+#   python scripts/init_dev_env.py          # once: .env with random dev passwords (git-ignored)
+#   docker compose up --build -d            # MySQL → migrations → bootstrap → services → gateway
+#
+# Startup order is enforced with depends_on:
+#   mysql (healthy) → <svc>_migrate jobs (completed) → auth_bootstrap (completed)
+#   → services (healthy = their database is reachable) → api_gateway
+# Each service restarts on its own (restart: unless-stopped) and needs no other service to boot.
+#
+# Isolation: MySQL is on the `data` network only and is NOT published to the host. The
+# gateway is on `edge` only, so it can't reach the database. Published ports bind to 127.0.0.1.
+# Every container receives only the variables it needs; values come from .env.
+
+name: shopease
+
+x-common-env: &common-env
+  APP_ENV: ${APP_ENV:-development}
+  LOG_LEVEL: ${LOG_LEVEL:-INFO}
+  DOCS_ENABLED: ${DOCS_ENABLED:-true}
+  JWT_ISSUER: ${JWT_ISSUER:-shopease-auth}
+  JWT_AUDIENCE: ${JWT_AUDIENCE:-shopease-api}
+  JWT_SERVICE_AUDIENCE: ${JWT_SERVICE_AUDIENCE:-shopease-internal}
+  # Container-to-container traffic uses Compose service names as DNS names.
+  JWKS_URL: http://auth_service:8001/api/auth/.well-known/jwks.json
+
+x-db-host: &db-host
+  MYSQL_HOST: mysql
+  MYSQL_PORT: "3306"
+
+x-service: &service
+  restart: unless-stopped
+  networks: [edge, data]
+
+# One-off migration jobs: Alembic as the per-service migration user (DDL on its own database).
+x-migrate: &migrate
+  restart: "no"
+  command: ["alembic", "upgrade", "head"]
+  networks: [data]
+  depends_on:
+    mysql:
+      condition: service_healthy
+
+x-ready: &ready
+  interval: 10s
+  timeout: 3s
+  retries: 6
+  start_period: 20s
+
+services:
+  # --- Database: one server, five logical databases (OPEN-02) -------------------------------
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    networks: [data]
+    # Only what the init script needs to create databases and users.
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:?set in .env}"
+      AUTH_DB_NAME: ${AUTH_DB_NAME:-auth_db}
+      AUTH_DB_USER: ${AUTH_DB_USER:-auth_svc}
+      AUTH_DB_PASSWORD: "${AUTH_DB_PASSWORD:?set in .env}"
+      AUTH_DB_MIGRATION_USER: ${AUTH_DB_MIGRATION_USER:-auth_migrator}
+      AUTH_DB_MIGRATION_PASSWORD: "${AUTH_DB_MIGRATION_PASSWORD:?set in .env}"
+      USER_DB_NAME: ${USER_DB_NAME:-user_db}
+      USER_DB_USER: ${USER_DB_USER:-user_svc}
+      USER_DB_PASSWORD: "${USER_DB_PASSWORD:?set in .env}"
+      USER_DB_MIGRATION_USER: ${USER_DB_MIGRATION_USER:-user_migrator}
+      USER_DB_MIGRATION_PASSWORD: "${USER_DB_MIGRATION_PASSWORD:?set in .env}"
+      PRODUCT_DB_NAME: ${PRODUCT_DB_NAME:-product_db}
+      PRODUCT_DB_USER: ${PRODUCT_DB_USER:-product_svc}
+      PRODUCT_DB_PASSWORD: "${PRODUCT_DB_PASSWORD:?set in .env}"
+      PRODUCT_DB_MIGRATION_USER: ${PRODUCT_DB_MIGRATION_USER:-product_migrator}
+      PRODUCT_DB_MIGRATION_PASSWORD: "${PRODUCT_DB_MIGRATION_PASSWORD:?set in .env}"
+      ORDER_DB_NAME: ${ORDER_DB_NAME:-order_db}
+      ORDER_DB_USER: ${ORDER_DB_USER:-order_svc}
+      ORDER_DB_PASSWORD: "${ORDER_DB_PASSWORD:?set in .env}"
+      ORDER_DB_MIGRATION_USER: ${ORDER_DB_MIGRATION_USER:-order_migrator}
+      ORDER_DB_MIGRATION_PASSWORD: "${ORDER_DB_MIGRATION_PASSWORD:?set in .env}"
+      PAYMENT_DB_NAME: ${PAYMENT_DB_NAME:-payment_db}
+      PAYMENT_DB_USER: ${PAYMENT_DB_USER:-payment_svc}
+      PAYMENT_DB_PASSWORD: "${PAYMENT_DB_PASSWORD:?set in .env}"
+      PAYMENT_DB_MIGRATION_USER: ${PAYMENT_DB_MIGRATION_USER:-payment_migrator}
+      PAYMENT_DB_MIGRATION_PASSWORD: "${PAYMENT_DB_MIGRATION_PASSWORD:?set in .env}"
+    # Not published: use `docker compose exec mysql mysql -uroot -p`. To reach it from host
+    # tools, add `ports: ["127.0.0.1:3307:3306"]` in a docker-compose.override.yml.
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./deploy/mysql/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      # TCP ping: fails during first-run initialisation (temporary server without networking).
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 30s
+
+  # --- Migrations (one job per service) ------------------------------------------------------
+  auth_migrate:
+    <<: *migrate
+    image: shopease/auth_service:dev
+    build: {context: ., dockerfile: services/auth_service/Dockerfile}
+    environment:
+      <<: [*common-env, *db-host]
+      AUTH_DB_NAME: ${AUTH_DB_NAME:-auth_db}
+      AUTH_DB_MIGRATION_USER: ${AUTH_DB_MIGRATION_USER:-auth_migrator}
+      AUTH_DB_MIGRATION_PASSWORD: ${AUTH_DB_MIGRATION_PASSWORD}
+
+  user_migrate:
+    <<: *migrate
+    image: shopease/user_service:dev
+    build: {context: ., dockerfile: services/user_service/Dockerfile}
+    environment:
+      <<: [*common-env, *db-host]
+      USER_DB_NAME: ${USER_DB_NAME:-user_db}
+      USER_DB_MIGRATION_USER: ${USER_DB_MIGRATION_USER:-user_migrator}
+      USER_DB_MIGRATION_PASSWORD: ${USER_DB_MIGRATION_PASSWORD}
+
+  product_migrate:
+    <<: *migrate
+    image: shopease/product_service:dev
+    build: {context: ., dockerfile: services/product_service/Dockerfile}
+    environment:
+      <<: [*common-env, *db-host]
+      PRODUCT_DB_NAME: ${PRODUCT_DB_NAME:-product_db}
+      PRODUCT_DB_MIGRATION_USER: ${PRODUCT_DB_MIGRATION_USER:-product_migrator}
+      PRODUCT_DB_MIGRATION_PASSWORD: ${PRODUCT_DB_MIGRATION_PASSWORD}
+
+  order_migrate:
+    <<: *migrate
+    image: shopease/order_service:dev
+    build: {context: ., dockerfile: services/order_service/Dockerfile}
+    environment:
+      <<: [*common-env, *db-host]
+      ORDER_DB_NAME: ${ORDER_DB_NAME:-order_db}
+      ORDER_DB_MIGRATION_USER: ${ORDER_DB_MIGRATION_USER:-order_migrator}
+      ORDER_DB_MIGRATION_PASSWORD: ${ORDER_DB_MIGRATION_PASSWORD}
+
+  payment_migrate:
+    <<: *migrate
+    image: shopease/payment_service:dev
+    build: {context: ., dockerfile: services/payment_service/Dockerfile}
+    environment:
+      <<: [*common-env, *db-host]
+      PAYMENT_DB_NAME: ${PAYMENT_DB_NAME:-payment_db}
+      PAYMENT_DB_MIGRATION_USER: ${PAYMENT_DB_MIGRATION_USER:-payment_migrator}
+      PAYMENT_DB_MIGRATION_PASSWORD: ${PAYMENT_DB_MIGRATION_PASSWORD}
+
+  # Registers svc:order and svc:payment in auth_db with the secrets from .env (idempotent).
+  auth_bootstrap:
+    image: shopease/auth_service:dev
+    build: {context: ., dockerfile: services/auth_service/Dockerfile}
+    restart: "no"
+    networks: [data]
+    command:
+      - sh
+      - -c
+      - >-
+        python -m app.cli ensure-service-client svc:order --secret-env ORDER_SERVICE_CLIENT_SECRET
+        --scope products:read --scope inventory:reserve --scope addresses:read &&
+        python -m app.cli ensure-service-client svc:payment --secret-env PAYMENT_SERVICE_CLIENT_SECRET
+        --scope orders:read --scope orders:payment
+    environment:
+      <<: [*common-env, *db-host]
+      AUTH_DB_NAME: ${AUTH_DB_NAME:-auth_db}
+      AUTH_DB_USER: ${AUTH_DB_USER:-auth_svc}
+      AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD}
+      ORDER_SERVICE_CLIENT_SECRET: "${ORDER_SERVICE_CLIENT_SECRET:?set in .env}"
+      PAYMENT_SERVICE_CLIENT_SECRET: "${PAYMENT_SERVICE_CLIENT_SECRET:?set in .env}"
+    depends_on:
+      auth_migrate:
+        condition: service_completed_successfully
+
+  # --- Business services (runtime users: DML on their own database only) ------------------------
+  auth_service:
+    <<: *service
+    image: shopease/auth_service:dev
+    build: {context: ., dockerfile: services/auth_service/Dockerfile}
+    environment:
+      <<: [*common-env, *db-host]
+      AUTH_DB_NAME: ${AUTH_DB_NAME:-auth_db}
+      AUTH_DB_USER: ${AUTH_DB_USER:-auth_svc}
+      AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD}
+      # Only auth_service receives the private signing key (a Compose secret, read-only).
+      JWT_PRIVATE_KEY_PATH: /run/secrets/jwt_private_key
+      JWT_KEY_ID: ${JWT_KEY_ID:-shopease-1}
+      JWT_ACCESS_TOKEN_MINUTES: ${JWT_ACCESS_TOKEN_MINUTES:-15}
+      JWT_SERVICE_TOKEN_MINUTES: ${JWT_SERVICE_TOKEN_MINUTES:-5}
+      REFRESH_TOKEN_DAYS: ${REFRESH_TOKEN_DAYS:-14}
+      MAX_FAILED_LOGINS: ${MAX_FAILED_LOGINS:-5}
+      LOCKOUT_MINUTES: ${LOCKOUT_MINUTES:-15}
+    secrets: [jwt_private_key]
+    ports: ["127.0.0.1:${AUTH_SERVICE_HOST_PORT:-8001}:8001"]
+    healthcheck:
+      <<: *ready
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health/ready', timeout=2)"]
+    depends_on:
+      auth_bootstrap:
+        condition: service_completed_successfully
+
+  user_service:
+    <<: *service
+    image: shopease/user_service:dev
+    build: {context: ., dockerfile: services/user_service/Dockerfile}
+    environment:
+      <<: [*common-env, *db-host]
+      USER_DB_NAME: ${USER_DB_NAME:-user_db}
+      USER_DB_USER: ${USER_DB_USER:-user_svc}
+      USER_DB_PASSWORD: ${USER_DB_PASSWORD}
+    ports: ["127.0.0.1:${USER_SERVICE_HOST_PORT:-8002}:8002"]
+    healthcheck:
+      <<: *ready
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8002/health/ready', timeout=2)"]
+    depends_on:
+      user_migrate:
+        condition: service_completed_successfully
+
+  product_service:
+    <<: *service
+    image: shopease/product_service:dev
+    build: {context: ., dockerfile: services/product_service/Dockerfile}
+    environment:
+      <<: [*common-env, *db-host]
+      PRODUCT_DB_NAME: ${PRODUCT_DB_NAME:-product_db}
+      PRODUCT_DB_USER: ${PRODUCT_DB_USER:-product_svc}
+      PRODUCT_DB_PASSWORD: ${PRODUCT_DB_PASSWORD}
+      RESERVATION_TTL_MINUTES: ${RESERVATION_TTL_MINUTES:-15}
+      RESERVATION_SWEEP_SECONDS: ${RESERVATION_SWEEP_SECONDS:-60}
+    ports: ["127.0.0.1:${PRODUCT_SERVICE_HOST_PORT:-8003}:8003"]
+    healthcheck:
+      <<: *ready
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8003/health/ready', timeout=2)"]
+    depends_on:
+      product_migrate:
+        condition: service_completed_successfully
+
+  order_service:
+    <<: *service
+    image: shopease/order_service:dev
+    build: {context: ., dockerfile: services/order_service/Dockerfile}
+    environment:
+      <<: [*common-env, *db-host]
+      ORDER_DB_NAME: ${ORDER_DB_NAME:-order_db}
+      ORDER_DB_USER: ${ORDER_DB_USER:-order_svc}
+      ORDER_DB_PASSWORD: ${ORDER_DB_PASSWORD}
+      AUTH_SERVICE_URL: http://auth_service:8001
+      USER_SERVICE_URL: http://user_service:8002
+      PRODUCT_SERVICE_URL: http://product_service:8003
+      ORDER_SERVICE_CLIENT_ID: svc:order
+      ORDER_SERVICE_CLIENT_SECRET: ${ORDER_SERVICE_CLIENT_SECRET}
+      ORDER_SWEEP_SECONDS: ${ORDER_SWEEP_SECONDS:-30}
+      STUCK_PENDING_SECONDS: ${STUCK_PENDING_SECONDS:-120}
+    ports: ["127.0.0.1:${ORDER_SERVICE_HOST_PORT:-8004}:8004"]
+    healthcheck:
+      <<: *ready
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8004/health/ready', timeout=2)"]
+    depends_on:
+      order_migrate:
+        condition: service_completed_successfully
+      auth_bootstrap:
+        condition: service_completed_successfully
+
+  payment_service:
+    <<: *service
+    image: shopease/payment_service:dev
+    build: {context: ., dockerfile: services/payment_service/Dockerfile}
+    environment:
+      <<: [*common-env, *db-host]
+      PAYMENT_DB_NAME: ${PAYMENT_DB_NAME:-payment_db}
+      PAYMENT_DB_USER: ${PAYMENT_DB_USER:-payment_svc}
+      PAYMENT_DB_PASSWORD: ${PAYMENT_DB_PASSWORD}
+      # DEVELOPMENT ONLY: the mock provider moves no money and is refused when
+      # APP_ENV=production (docs/payment_processing.md).
+      PAYMENT_PROVIDER: mock
+      AUTH_SERVICE_URL: http://auth_service:8001
+      ORDER_SERVICE_URL: http://order_service:8004
+      PAYMENT_SERVICE_CLIENT_ID: svc:payment
+      PAYMENT_SERVICE_CLIENT_SECRET: ${PAYMENT_SERVICE_CLIENT_SECRET}
+      PAYMENT_SWEEP_SECONDS: ${PAYMENT_SWEEP_SECONDS:-15}
+    ports: ["127.0.0.1:${PAYMENT_SERVICE_HOST_PORT:-8005}:8005"]
+    healthcheck:
+      <<: *ready
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8005/health/ready', timeout=2)"]
+    depends_on:
+      payment_migrate:
+        condition: service_completed_successfully
+      auth_bootstrap:
+        condition: service_completed_successfully
+
+  # --- Single public entry point -------------------------------------------------------------
+  api_gateway:
+    image: shopease/api_gateway:dev
+    build: {context: ., dockerfile: api_gateway/Dockerfile}
+    restart: unless-stopped
+    networks: [edge]
+    environment:
+      <<: *common-env
+      AUTH_SERVICE_URL: http://auth_service:8001
+      USER_SERVICE_URL: http://user_service:8002
+      PRODUCT_SERVICE_URL: http://product_service:8003
+      ORDER_SERVICE_URL: http://order_service:8004
+      PAYMENT_SERVICE_URL: http://payment_service:8005
+      UPSTREAM_CONNECT_TIMEOUT_SECONDS: ${UPSTREAM_CONNECT_TIMEOUT_SECONDS:-1.0}
+      UPSTREAM_TIMEOUT_SECONDS: ${UPSTREAM_TIMEOUT_SECONDS:-5.0}
+      ORDER_UPSTREAM_TIMEOUT_SECONDS: ${ORDER_UPSTREAM_TIMEOUT_SECONDS:-10.0}
+      PAYMENT_UPSTREAM_TIMEOUT_SECONDS: ${PAYMENT_UPSTREAM_TIMEOUT_SECONDS:-20.0}
+      MAX_REQUEST_BODY_BYTES: ${MAX_REQUEST_BODY_BYTES:-1048576}
+      RATE_LIMIT_AUTH_PER_MINUTE: ${RATE_LIMIT_AUTH_PER_MINUTE:-20}
+      RATE_LIMIT_DEFAULT_PER_MINUTE: ${RATE_LIMIT_DEFAULT_PER_MINUTE:-0}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-}
+    ports: ["127.0.0.1:${GATEWAY_HOST_PORT:-8000}:8000"]
+    depends_on:
+      auth_service: {condition: service_healthy}
+      user_service: {condition: service_healthy}
+      product_service: {condition: service_healthy}
+      order_service: {condition: service_healthy}
+      payment_service: {condition: service_healthy}
+
+networks:
+  edge: {}
+  data: {}
+
+volumes:
+  mysql_data: {}
+
+secrets:
+  jwt_private_key:
+    # Overridable so disposable test stacks use their own key (scripts/run_integration.py).
+    file: ${JWT_PRIVATE_KEY_FILE:-./secrets/jwt_private.pem}

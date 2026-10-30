@@ -1,0 +1,35 @@
+# Build context for every image is the repository root; each Dockerfile copies only its own
+# component, the shared package and requirements. Everything below never enters an image.
+
+# Secrets and local configuration
+.env
+.env.*
+secrets
+**/*.pem
+**/*.key
+
+# Local environments, caches, build output
+.venv
+venv
+**/__pycache__
+**/*.pyc
+**/*.egg-info
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+
+# Not needed at runtime
+**/tests
+**/conftest.py
+docs
+scripts
+deploy
+*.md
+requirements-dev.txt
+docker-compose*.yml
+.git
+.gitignore
+.gitattributes
+.dockerignore
+.vscode
+.idea
