@@ -1,0 +1,1398 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ShopEase Order Service",
+    "description": "Orders and checkout coordination: server-side prices, stock reservation, payment results (two-step checkout: pay with `POST /api/payments`), status history and recovery. `POST /api/orders` requires an `Idempotency-Key`. See `docs/order_workflow.md`.\n\nAll errors use the ShopEase envelope (`ErrorResponse`). Every response carries `X-Request-ID`. Public routes (`/api/...`) are reached through the API Gateway on port 8000 with the same paths; `/internal/...` routes are for other services only. Use **Authorize** with an access token from `POST /api/auth/login`. Contracts: `docs/rest_api_notes.md`.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Liveness check",
+        "description": "The process is up and serving requests. Does not touch dependencies.",
+        "operationId": "liveness_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LivenessResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error, in the standard ShopEase envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Readiness check",
+        "description": "Checks the service's own dependencies. Returns 503 if any of them is unavailable.",
+        "operationId": "readiness_health_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "A dependency is unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error, in the standard ShopEase envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/orders": {
+      "post": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "Place an order (requires Idempotency-Key)",
+        "operationId": "create_order_api_orders_post",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9._:-]+$",
+              "description": "A unique value (e.g. a UUID) per intended order; reuse it on retries",
+              "title": "Idempotency-Key"
+            },
+            "description": "A unique value (e.g. a UUID) per intended order; reuse it on retries"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed (input values are never echoed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid or expired token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error, in the standard ShopEase envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "Order history (own orders; admins: all)",
+        "operationId": "list_orders_api_orders_get",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OrderStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Admins only",
+              "title": "User Id"
+            },
+            "description": "Admins only"
+          },
+          {
+            "name": "created_from",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Created From"
+            }
+          },
+          {
+            "name": "created_to",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Created To"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "created_at",
+                "-created_at"
+              ],
+              "type": "string",
+              "default": "-created_at",
+              "title": "Sort"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_OrderSummary_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed (input values are never echoed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid or expired token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error, in the standard ShopEase envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/orders/{order_id}": {
+      "get": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "Order details with status history",
+        "operationId": "get_order_api_orders__order_id__get",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Order Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed (input values are never echoed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid or expired token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error, in the standard ShopEase envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/orders/{order_id}/cancel": {
+      "post": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "Cancel an unpaid order (owner or admin)",
+        "operationId": "cancel_order_api_orders__order_id__cancel_post",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Order Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed (input values are never echoed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid or expired token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error, in the standard ShopEase envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/orders/{order_id}/status": {
+      "patch": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "Set fulfilment status (admin)",
+        "operationId": "update_status_api_orders__order_id__status_patch",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Order Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed (input values are never echoed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid or expired token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Authenticated, but the role or scope does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error, in the standard ShopEase envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/internal/orders/{order_id}/payable": {
+      "get": {
+        "tags": [
+          "internal"
+        ],
+        "summary": "Payable amount and status (scope orders:read)",
+        "operationId": "payable_internal_orders__order_id__payable_get",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Order Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayableRead"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed (input values are never echoed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid or expired token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Authenticated, but the role or scope does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error, in the standard ShopEase envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "serviceToken": []
+          }
+        ]
+      }
+    },
+    "/internal/orders/{order_id}/payment-result": {
+      "post": {
+        "tags": [
+          "internal"
+        ],
+        "summary": "Report a payment outcome; idempotent (scope orders:payment)",
+        "operationId": "payment_result_internal_orders__order_id__payment_result_post",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Order Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentResult"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentResultRead"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "ORDER_NOT_FULFILLABLE or ORDER_ALREADY_PAID: refund this payment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed (input values are never echoed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid or expired token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Authenticated, but the role or scope does not allow this",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Any other error, in the standard ShopEase envelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "serviceToken": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LivenessResponse": {
+        "properties": {
+          "service": {
+            "type": "string",
+            "title": "Service"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "environment": {
+            "type": "string",
+            "title": "Environment"
+          }
+        },
+        "type": "object",
+        "required": [
+          "service",
+          "status",
+          "version",
+          "environment"
+        ],
+        "title": "LivenessResponse"
+      },
+      "OrderCreate": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/OrderItemCreate"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Items"
+          },
+          "shipping_address_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Shipping Address Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "shipping_address_id"
+        ],
+        "title": "OrderCreate",
+        "description": "Prices and totals are never accepted from the client (extra fields are rejected).",
+        "examples": [
+          {
+            "items": [
+              {
+                "product_id": "9b8a7c6d-5e4f-4a3b-8c2d-1e0f9a8b7c61",
+                "quantity": 1
+              }
+            ],
+            "shipping_address_id": "7a1e4b2c-5d6f-4a8b-9c0d-2e3f4a5b6c71"
+          }
+        ]
+      },
+      "OrderItemCreate": {
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Product Id"
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Quantity"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "product_id",
+          "quantity"
+        ],
+        "title": "OrderItemCreate"
+      },
+      "OrderItemRead": {
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Product Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "unit_price": {
+            "type": "string",
+            "title": "Unit Price"
+          },
+          "quantity": {
+            "type": "integer",
+            "title": "Quantity"
+          },
+          "line_total": {
+            "type": "string",
+            "title": "Line Total"
+          }
+        },
+        "type": "object",
+        "required": [
+          "product_id",
+          "name",
+          "unit_price",
+          "quantity",
+          "line_total"
+        ],
+        "title": "OrderItemRead"
+      },
+      "OrderRead": {
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Order Id"
+          },
+          "user_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "User Id"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OrderStatus"
+          },
+          "payment_status": {
+            "$ref": "#/components/schemas/PaymentStatus"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/OrderItemRead"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total_amount": {
+            "type": "string",
+            "title": "Total Amount"
+          },
+          "currency": {
+            "type": "string",
+            "title": "Currency"
+          },
+          "shipping_address": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Shipping Address"
+          },
+          "payment_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Payment Id"
+          },
+          "payment_due_by": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Payment Due By"
+          },
+          "cancel_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cancel Reason"
+          },
+          "status_history": {
+            "items": {
+              "$ref": "#/components/schemas/StatusChangeRead"
+            },
+            "type": "array",
+            "title": "Status History"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "order_id",
+          "user_id",
+          "status",
+          "payment_status",
+          "items",
+          "total_amount",
+          "currency",
+          "shipping_address",
+          "payment_id",
+          "payment_due_by",
+          "cancel_reason",
+          "status_history",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "OrderRead"
+      },
+      "OrderStatus": {
+        "type": "string",
+        "enum": [
+          "PENDING",
+          "AWAITING_PAYMENT",
+          "PAID",
+          "SHIPPED",
+          "DELIVERED",
+          "CANCELLED"
+        ],
+        "title": "OrderStatus",
+        "description": "Transitions are in docs/service_communication.md \u00a72 and enforced by the service."
+      },
+      "OrderSummary": {
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Order Id"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OrderStatus"
+          },
+          "payment_status": {
+            "$ref": "#/components/schemas/PaymentStatus"
+          },
+          "total_amount": {
+            "type": "string",
+            "title": "Total Amount"
+          },
+          "currency": {
+            "type": "string",
+            "title": "Currency"
+          },
+          "item_count": {
+            "type": "integer",
+            "title": "Item Count"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "order_id",
+          "status",
+          "payment_status",
+          "total_amount",
+          "currency",
+          "item_count",
+          "created_at"
+        ],
+        "title": "OrderSummary"
+      },
+      "Page_OrderSummary_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/OrderSummary"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "limit",
+          "offset"
+        ],
+        "title": "Page[OrderSummary]"
+      },
+      "PayableRead": {
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Order Id"
+          },
+          "user_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "User Id"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OrderStatus"
+          },
+          "payment_status": {
+            "$ref": "#/components/schemas/PaymentStatus"
+          },
+          "payable": {
+            "type": "boolean",
+            "title": "Payable"
+          },
+          "amount": {
+            "type": "string",
+            "title": "Amount"
+          },
+          "currency": {
+            "type": "string",
+            "title": "Currency"
+          },
+          "payment_due_by": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Payment Due By"
+          }
+        },
+        "type": "object",
+        "required": [
+          "order_id",
+          "user_id",
+          "status",
+          "payment_status",
+          "payable",
+          "amount",
+          "currency",
+          "payment_due_by"
+        ],
+        "title": "PayableRead"
+      },
+      "PaymentResult": {
+        "properties": {
+          "payment_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Payment Id"
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "SUCCEEDED",
+              "FAILED",
+              "PROCESSING",
+              "REFUNDED"
+            ],
+            "title": "Outcome"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 255
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "payment_id",
+          "outcome"
+        ],
+        "title": "PaymentResult",
+        "examples": [
+          {
+            "outcome": "SUCCEEDED",
+            "payment_id": "8c0e2a4b-6d8f-4a0c-8e2b-4d6f8a0c2e41"
+          }
+        ]
+      },
+      "PaymentResultRead": {
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Order Id"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OrderStatus"
+          },
+          "payment_status": {
+            "$ref": "#/components/schemas/PaymentStatus"
+          }
+        },
+        "type": "object",
+        "required": [
+          "order_id",
+          "status",
+          "payment_status"
+        ],
+        "title": "PaymentResultRead"
+      },
+      "PaymentStatus": {
+        "type": "string",
+        "enum": [
+          "NONE",
+          "PROCESSING",
+          "FAILED",
+          "SUCCEEDED",
+          "REFUNDED"
+        ],
+        "title": "PaymentStatus",
+        "description": "Latest payment outcome reported by payment_service (the order status stays authoritative)."
+      },
+      "ReadinessResponse": {
+        "properties": {
+          "service": {
+            "type": "string",
+            "title": "Service"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "checks": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Checks"
+          }
+        },
+        "type": "object",
+        "required": [
+          "service",
+          "status",
+          "checks"
+        ],
+        "title": "ReadinessResponse"
+      },
+      "StatusChangeRead": {
+        "properties": {
+          "from_status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OrderStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "to_status": {
+            "$ref": "#/components/schemas/OrderStatus"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "changed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Changed At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "from_status",
+          "to_status",
+          "reason",
+          "changed_at"
+        ],
+        "title": "StatusChangeRead"
+      },
+      "StatusUpdate": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "SHIPPED",
+              "DELIVERED"
+            ],
+            "title": "Status"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "StatusUpdate",
+        "description": "Admin fulfilment. Cancellation has its own endpoint; PAID comes only from payments.",
+        "examples": [
+          {
+            "status": "SHIPPED"
+          }
+        ]
+      },
+      "ErrorBody": {
+        "properties": {
+          "code": {
+            "description": "Stable, machine-readable code",
+            "examples": [
+              "OUT_OF_STOCK"
+            ],
+            "title": "Code",
+            "type": "string"
+          },
+          "message": {
+            "description": "Human-readable; never contains internals",
+            "examples": [
+              "Not enough stock."
+            ],
+            "title": "Message",
+            "type": "string"
+          },
+          "details": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ErrorDetail"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Per-field problems, when relevant",
+            "title": "Details"
+          },
+          "request_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Correlation ID, also in the X-Request-ID header",
+            "examples": [
+              "req-7f3a9c2e"
+            ],
+            "title": "Request Id"
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "request_id"
+        ],
+        "title": "ErrorBody",
+        "type": "object"
+      },
+      "ErrorDetail": {
+        "properties": {
+          "field": {
+            "examples": [
+              "body.items[0].quantity"
+            ],
+            "title": "Field",
+            "type": "string"
+          },
+          "issue": {
+            "examples": [
+              "exceeds available stock (2)"
+            ],
+            "title": "Issue",
+            "type": "string"
+          }
+        },
+        "required": [
+          "field",
+          "issue"
+        ],
+        "title": "ErrorDetail",
+        "type": "object"
+      },
+      "ErrorResponse": {
+        "description": "Every error produced by ShopEase uses this envelope (docs/rest_api_notes.md \u00a71.8).",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorBody"
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "title": "ErrorResponse",
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "User access token from POST /api/auth/login (`Authorization: Bearer <token>`)."
+      },
+      "serviceToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Internal service token from POST /internal/auth/service-token (client credentials). Internal routes are never reachable through the gateway."
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "orders",
+      "description": "Customer orders and admin fulfilment"
+    },
+    {
+      "name": "internal",
+      "description": "Payable view and payment results for payment_service"
+    },
+    {
+      "name": "health",
+      "description": "Liveness and readiness"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+# Day 2 Progress Report — ShopEase
+
+**Date:** 2026-10-30
+**Focus:** Implementation of the Day 1 design: services, databases, security, checkout,
+gateway, containers, tests and documentation.
+**Status at end of Day 2:** all six components implemented, containerised and verified;
+the mock payment provider is the only provider. Results: [testing_report.md](testing_report.md).
+
+## Completed Tasks
+
+- [x] Repository structure and FastAPI skeletons for the gateway and five services; thin
+      shared package (ADR-14); pinned per-service requirements; `.gitignore`, `.env.example`
+- [x] Database layer per service: SQLAlchemy 2 models, request-scoped sessions with rollback,
+      Alembic histories with service-prefixed revision IDs; least-privilege MySQL users (ADR-15)
+- [x] Authentication: Argon2id passwords, RS256 JWT + JWKS, refresh rotation with reuse
+      detection, logout, password change, roles, lockout, client-credentials service tokens (ADR-16)
+- [x] Users: lazy profiles, owner-only addresses, admin read, internal address lookup
+- [x] Products: catalog, categories, search/filters, audited inventory, concurrency-safe
+      all-or-nothing reservations, expiry sweep (ADR-17)
+- [x] Orders: server-side pricing and snapshots, idempotent creation, compensation, status
+      machine and history, payable view, payment results, recovery job (ADR-18)
+- [x] Payments: idempotent payments, one active payment per order, mock provider behind an
+      adapter, reconciliation, result reporting with retries, automatic and admin refunds (ADR-19)
+- [x] API Gateway: route map, edge authentication, rate limits, header hygiene, per-route
+      timeouts, malformed/leaky upstream responses hidden, request IDs
+- [x] Docker: non-root images, Compose with migration and bootstrap jobs, health checks,
+      startup order, isolated networks, secrets, verified restarts
+- [x] Tests: unit, API, MySQL integration (incl. concurrency), cross-service integration,
+      OpenAPI documentation tests, Postman collection with Newman
+- [x] Documentation: final architecture, API reference, implemented schema, workflows,
+      security model, gateway, local development, testing guide and report, this report
+- [x] Final audit; Git repository initialised and work committed (not pushed)
+
+## Topics Learned
+
+- **Row locking for inventory:** `SELECT … FOR UPDATE` in a consistent key order, and why
+  MySQL's REPEATABLE READ gap locks deadlock concurrent inserts (READ COMMITTED fixed it).
+- **Idempotency in practice:** keys unique in storage, request fingerprints, replaying the
+  original answer, and letting a unique constraint settle concurrent duplicates.
+- **Unknown outcomes:** a timeout after a charge may have succeeded; record `PROCESSING`,
+  reconcile with the provider, never re-charge.
+- **Compensation without distributed transactions:** release reservations whose outcome is
+  unknown; refund payments an order can't accept; let one service arbitrate races.
+- **No transactions across network calls:** short local transactions with row locks and
+  re-checked state before every change.
+- **JWT verification details:** pinning the algorithm, audience separation for user and
+  service tokens, JWKS caching and fail-closed behaviour.
+- **Gateway hygiene:** stripping spoofable headers, hiding upstream crash pages, retrying only
+  requests that never left, per-route timeouts inside the caller's deadline.
+- **Alembic on MySQL and SQLite:** non-transactional DDL, dropping FK-backed indexes (error
+  1553), batch mode for SQLite, frozen constraint names.
+- **Containers:** readiness vs. liveness health checks, one-off migration jobs, Compose
+  secrets, per-container credentials, network isolation.
+- **Testing:** layers by marker, disposable environments, negative controls (removing a lock
+  to prove the concurrency test can fail), docs tests that check behaviour.
+
+## Files and Features Prepared
+
+| Area | Files |
+|------|-------|
+| Services | `api_gateway/`, `services/{auth,user,product,order,payment}_service/` (app, migrations, tests, Dockerfile, requirements) |
+| Shared | `shared/shopease_shared/` (settings, logging, request IDs, errors, health, security, OpenAPI) |
+| Infrastructure | `docker-compose.yml`, `deploy/mysql/init/01-create-databases.sh`, `.dockerignore`, `.gitattributes` |
+| Scripts | `init_dev_env.py`, `generate_jwt_key.py`, `auth_cli.py`, `init_local_databases.py`, `run_tests.py`, `run_integration.py`, `export_openapi.py`, `export_schema.py` |
+| Tests | per-component `tests/`, `tests/integration/`, `postman/` |
+| Docs | `final_architecture.md/.mmd`, `api_reference.md`, `openapi/*.json`, `database_ownership.md` (implemented schema), `database_setup.md`, `security_model.md`, `order_workflow.md`, `payment_processing.md`, `api_gateway.md`, `local_development.md`, `testing.md`, `testing_report.md`, `submission_checklist.md`, ADR-14 to ADR-19 |
+
+## Issues and Solutions
+
+| Issue | Solution |
+|-------|----------|
+| Autogenerated Alembic downgrades failed on MySQL (error 1553: index needed by a foreign key) | Downgrades drop tables only, children first; found by running migrations on real MySQL |
+| Concurrent reservations deadlocked through gap locks on not-yet-existing keys | Plain read for the existence check + unique key for duplicates; READ COMMITTED sessions; verified 5× on MySQL with a negative control |
+| HTTP client libraries logged full internal URLs and query strings | Silenced in the shared logging setup; services log sanitized `upstream call` lines |
+| Upstream crash pages could reach clients through the gateway | Non-envelope 5xx, malformed JSON and invalid statuses become `502` |
+| order_service and payment_service crashed in Docker (`httpx` missing from their requirements) | Added; import-vs-requirements audit of all components |
+| MySQL restarts logged tracebacks at ERROR from background jobs | Logged as one-line warnings; jobs retry |
+| OpenAPI documented FastAPI's `422` body and no auth | Shared post-processing: real error envelope, security schemes, examples; docs tests check behaviour |
+| Two responses (`200` reservation replay, `202` payment) had no schema | Found by the docs tests; fixed |
+| Port 8005 taken on the development machine; native MySQL on 3306 | Host ports configurable; MySQL not published; disposable MySQL on 3307 for tests |
+| Several of my own test and script mistakes (escaping, wrong counts, a removed active test) | Found by running everything; corrected and re-run before reporting |
+
+## Pending Work
+
+- [ ] Real payment provider adapter and signature-verified webhooks
+- [ ] Return stock automatically after a paid order is refunded; admin refund-and-cancel flow
+- [ ] Admin tooling for payments flagged for manual review
+- [ ] Access-token revocation list (jti) if immediate revocation is required
+- [ ] Shared rate-limit store (e.g. Redis) before running several gateway instances
+- [ ] Coordinated background jobs (leader election or SKIP LOCKED batching) for scale-out
+- [ ] CI pipeline running `run_tests.py`, the MySQL layer and `run_integration.py`
+- [ ] Load testing; independent security review; TLS and secret management for production
+- [ ] Confirm OPEN-12 (UUID as `CHAR(32)`) before data exists in a shared environment
+- [ ] Push to GitHub when instructed (repository is local only)

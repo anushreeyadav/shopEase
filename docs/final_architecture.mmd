@@ -1,0 +1,80 @@
+%% ShopEase architecture AS IMPLEMENTED (2026-10-30). Source for docs/final_architecture.md.
+%% Solid lines without arrowheads = database ownership. Labelled arrows = HTTP calls.
+%% Dotted arrows = public keys / service tokens from auth_service (cached).
+flowchart LR
+    subgraph legend["Legend"]
+        direction TB
+        lg_svc["Service"] ---|"owns this database"| lg_db[("Database")]
+        lg_a["Caller"] -->|"REST call (timeouts, bounded retries)"| lg_b["Callee"]
+        lg_c["Any component"] -.->|"JWKS keys / service token (cached)"| lg_d["Auth Service"]
+        lg_job[["Background job inside a service"]]
+    end
+
+    client(["Client<br/>browser · Postman · curl"])
+
+    subgraph edge["Docker network: edge"]
+        gw["API Gateway :8000 (127.0.0.1)<br/>route map · edge JWT check · rate limit<br/>X-Request-ID · strips identity headers<br/>no database"]
+        auth["Authentication Service :8001<br/>register · login · refresh · logout<br/>RS256 JWT + JWKS · service tokens"]
+        user["User Service :8002<br/>profiles · addresses"]
+        product["Product Service :8003<br/>catalog · categories · inventory<br/>reservations (row locks)"]
+        order["Order Service :8004<br/>orders · status machine<br/>checkout coordination"]
+        payment["Payment Service :8005<br/>payments · refunds · reconciliation"]
+    end
+
+    subgraph data["Docker network: data (not reachable from the gateway)"]
+        subgraph mysql["MySQL 8.4 — one server, five logical databases, not published to the host"]
+            auth_db[("auth_db<br/>auth_users · refresh_tokens<br/>service_clients")]
+            user_db[("user_db<br/>user_profiles · user_addresses")]
+            product_db[("product_db<br/>categories · products · inventory<br/>stock_reservations · inventory_movements")]
+            order_db[("order_db<br/>orders · order_items<br/>order_status_history")]
+            payment_db[("payment_db<br/>payments · payment_status_history<br/>refunds")]
+        end
+        jobs[["*_migrate jobs (Alembic, migration users)<br/>auth_bootstrap (service clients)"]]
+    end
+
+    mock["MOCK payment provider<br/>in-process, development only<br/>(real provider = future adapter)"]
+    sweep_p[["expiry sweep"]]
+    sweep_o[["recovery job"]]
+    sweep_pay[["reconcile + report retries"]]
+
+    client -->|"HTTP, Authorization: Bearer"| gw
+    gw -->|"/api/auth/*"| auth
+    gw -->|"/api/users/*"| user
+    gw -->|"/api/products/*, /api/categories/*"| product
+    gw -->|"/api/orders/* (10s)"| order
+    gw -->|"/api/payments/* (20s)"| payment
+
+    order -->|"price-check, reserve, confirm, release"| product
+    order -->|"address lookup + X-User-Token"| user
+    payment -->|"payable view, payment-result"| order
+    payment -->|"charge, get_status, refund (idempotency key)"| mock
+
+    gw -.->|"JWKS"| auth
+    user -.->|"JWKS"| auth
+    product -.->|"JWKS"| auth
+    order -.->|"JWKS + service token"| auth
+    payment -.->|"JWKS + service token"| auth
+
+    auth ---|"owns"| auth_db
+    user ---|"owns"| user_db
+    product ---|"owns"| product_db
+    order ---|"owns"| order_db
+    payment ---|"owns"| payment_db
+    jobs ---|"DDL per service"| mysql
+
+    product --- sweep_p
+    order --- sweep_o
+    payment --- sweep_pay
+
+    classDef gateway fill:#fff3cd,stroke:#b08800,color:#000
+    classDef service fill:#dbeafe,stroke:#1d4ed8,color:#000
+    classDef db fill:#dcfce7,stroke:#15803d,color:#000
+    classDef external fill:#f3f4f6,stroke:#6b7280,color:#000,stroke-dasharray: 5 5
+    classDef job fill:#ede9fe,stroke:#6d28d9,color:#000
+    classDef client fill:#fce7f3,stroke:#be185d,color:#000
+    class gw gateway
+    class auth,user,product,order,payment,lg_svc,lg_a,lg_b,lg_c,lg_d service
+    class auth_db,user_db,product_db,order_db,payment_db,lg_db db
+    class mock external
+    class jobs,sweep_p,sweep_o,sweep_pay,lg_job job
+    class client client
