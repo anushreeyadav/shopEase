@@ -1,0 +1,7 @@
+# Files executed inside Linux containers must keep LF line endings even on Windows checkouts
+# (a CRLF in deploy/mysql/init/*.sh breaks MySQL initialization).
+*.sh            text eol=lf
+Dockerfile      text eol=lf
+.env.example    text eol=lf
+*.py            text eol=lf
+*.yml           text eol=lf

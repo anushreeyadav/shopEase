@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shopease-shared"
+version = "0.1.0"
+description = "Thin cross-cutting helpers for ShopEase services (logging, request IDs, errors, health)."
+requires-python = ">=3.11"
+# Ranges only: each service pins exact versions in its own requirements.txt.
+dependencies = [
+    "fastapi>=0.115",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "PyJWT[crypto]>=2.10",
+]
+
+[tool.setuptools]
+packages = ["shopease_shared"]

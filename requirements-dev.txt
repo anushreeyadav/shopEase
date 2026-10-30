@@ -1,0 +1,14 @@
+# Local development environment: every service's runtime pins, the shared package, and test tools.
+# One virtual environment is enough because all services pin identical versions.
+-r api_gateway/requirements.txt
+-r services/auth_service/requirements.txt
+-r services/user_service/requirements.txt
+-r services/product_service/requirements.txt
+-r services/order_service/requirements.txt
+-r services/payment_service/requirements.txt
+-e ./shared
+
+pytest==9.2.0
+pytest-cov==7.1.0
+# Starlette's TestClient prefers httpx2 (it warns when falling back to httpx). Test-only.
+httpx2==2.16.0
