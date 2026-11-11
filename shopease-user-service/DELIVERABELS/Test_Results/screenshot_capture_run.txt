@@ -1,0 +1,56 @@
+Live screenshot capture run, 11 November 2026, 17:14-17:22 IST (11:44-11:52 UTC)
+Stacks: shopease-user-service (8002, user-mysql not published), shopease-auth-service (8001); both healthy.
+Tokens and passwords are not recorded here.
+
+== Swagger UI flow: python scripts/capture_swagger_screenshots.py (Edge headless via Playwright 1.65.0) ==
+registered asha.screenshot.1794397516@example.com on the Authentication Service
+saved 06_swagger_ui.png
+saved 05_health_endpoints.png          GET /health 200, GET /health/db 200 {"database":"connected"}
+saved 07_auth_login_token.png          POST /api/auth/login (8001) 200, auth user id 11
+saved 08_authorize_with_token.png      Authorize dialog: Authorized, value ******
+saved 09_create_profile.png            POST /api/users/profile 201 (profile 2330, auth_user_id 11)
+saved 10_get_profile.png               GET /api/users/profile 200
+saved 11_update_profile.png            PATCH /api/users/profile 200
+saved 12_create_address.png            POST /api/users/addresses 201 (HOME, 2076)
+                                       POST /api/users/addresses 201 (OFFICE, 2077), 201 (OTHER, 2078)
+saved 13_list_addresses.png            GET /api/users/addresses 200, 3 addresses
+saved 14_update_address.png            PUT /api/users/addresses/2077 200
+saved 15_set_default_address.png       PATCH /api/users/addresses/2077/default 200, is_default true
+saved 16_delete_address.png            DELETE /api/users/addresses/2078 200
+saved 17_unauthorized_401.png          GET /api/users/profile without a token 401
+saved 18a_deactivate_account.png       PATCH /api/users/account/deactivate 200
+saved 18_forbidden_403.png             GET /api/users/profile 403 "User profile is deactivated"
+15 screenshots saved; test user asha.screenshot.1794397516@example.com (profile now deactivated)
+Result: every step returned the expected status (the script exits on any other status).
+
+Two earlier attempts of the same script stopped on script timing errors (Swagger UI not yet expanded;
+two buttons matched one selector), not on API errors. They left auth user 9 (no profile) and
+auth user 10 (profile 2329, address 2075).
+
+== Console captures (real PowerShell console windows) ==
+01_project_structure.png, 01b_project_structure_app_tests.png   folder tree
+02_docker_containers.png   docker compose ps: user-mysql and user-service Up (healthy)
+03_migration_log.png       service image started against a throwaway MySQL 8.4 container with an empty
+                           shopease_user_db (0 tables): "Running upgrade  -> 8c2e3b6d4acf" and
+                           "Running upgrade 8c2e3b6d4acf -> 4f1a9d27c5e3", then Uvicorn started;
+                           afterwards 3 tables and alembic_version 4f1a9d27c5e3. Throwaway containers,
+                           network and one-time password removed afterwards.
+                           (A first attempt pointed a database with a different name at the image;
+                           alembic/env.py refused it: "expected 'shopease_user_db'", as designed.)
+04_mysql_tables.png        SHOW TABLES / DESCRIBE on shopease_user_db
+19_mysql_data.png          10 profiles, 14 addresses
+20_pytest_results.png      pytest -v: 518 passed, 1 warning in 17.49s
+
+== Checks ==
+docker compose logs --since 30m | grep -c eyJ : user service 0, auth service 0
+Before each Swagger capture: page text and form fields checked for the token, the password and any JWT; none found.
+Enclosing repository: last commit still f43126c; nothing committed or pushed.
+
+== Cross-user access: python scripts/capture_cross_user_screenshots.py (17:38 IST) ==
+user A: cross.a.1794398903@example.com, profile 2332
+user B: cross.b.1794398903@example.com, profile 2333
+user A's address: 2081
+saved 21_cross_user_access_denied.png      as B: GET /api/users/addresses/2081 404 "Address not found"
+saved 21b_cross_user_delete_denied.png     as B: DELETE /api/users/addresses/2081 404
+saved 21c_owner_still_has_address.png      as A: GET /api/users/addresses/2081 200, unchanged
+3 screenshots saved

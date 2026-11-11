@@ -1,0 +1,160 @@
+Postman collection run with the environment template, Newman 6.2.1 - 11 November 2026 17:37 IST
+Against the Docker containers (User Service 8002, Authentication Service 8001).
+Newman prints no response bodies: no token, password or generated email appears below.
+
+$ npx newman@6.2.1 run postman/ShopEase_User_Service.postman_collection.json -e postman/ShopEase_User_Service.postman_environment.json --color off
+(node:23324) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman
+
+ShopEase User Service
+
+□ 0 Health
+└ Service health
+  GET http://127.0.0.1:8002/health [200 OK, 192B, 40ms]
+  √  status is 200
+
+└ Database health
+  GET http://127.0.0.1:8002/health/db [200 OK, 163B, 21ms]
+  √  status is 200
+  √  database connected
+
+□ 1 Authentication Service (8001)
+└ Register test user
+  POST http://127.0.0.1:8001/api/auth/register [201 Created, 296B, 357ms]
+  √  status is 201
+
+└ Login
+  POST http://127.0.0.1:8001/api/auth/login [200 OK, 480B, 314ms]
+  √  status is 200
+
+└ Verify token
+  POST http://127.0.0.1:8001/api/auth/verify-token [200 OK, 263B, 9ms]
+  √  status is 200
+  √  valid
+
+□ 2 Authentication failures
+└ No token: 401
+  GET http://127.0.0.1:8002/api/users/profile [401 Unauthorized, 204B, 7ms]
+  √  status is 401
+
+□ 3 Profile
+└ Create profile
+  POST http://127.0.0.1:8002/api/users/profile [201 Created, 369B, 53ms]
+  √  status is 201
+
+└ Create profile again: 409
+  POST http://127.0.0.1:8002/api/users/profile [409 Conflict, 171B, 16ms]
+  √  status is 409
+
+└ Client-supplied auth_user_id: 422
+  POST http://127.0.0.1:8002/api/users/profile [422 Unprocessable Entity, 253B, 17ms]
+  √  status is 422
+
+└ Get profile
+  GET http://127.0.0.1:8002/api/users/profile [200 OK, 364B, 19ms]
+  √  status is 200
+
+└ Replace profile (PUT)
+  PUT http://127.0.0.1:8002/api/users/profile [200 OK, 372B, 31ms]
+  √  status is 200
+
+└ Update profile (PATCH)
+  PATCH http://127.0.0.1:8002/api/users/profile [200 OK, 383B, 44ms]
+  √  status is 200
+
+□ 4 Account
+└ Get account
+  GET http://127.0.0.1:8002/api/users/account [200 OK, 573B, 16ms]
+  √  status is 200
+  √  profile ACTIVE
+
+└ Update contact
+  PATCH http://127.0.0.1:8002/api/users/account/contact [200 OK, 383B, 32ms]
+  √  status is 200
+
+□ 5 Addresses
+└ Create first address (becomes default)
+  POST http://127.0.0.1:8002/api/users/addresses [201 Created, 431B, 32ms]
+  √  status is 201
+  √  is default
+
+└ Create second address
+  POST http://127.0.0.1:8002/api/users/addresses [201 Created, 430B, 32ms]
+  √  status is 201
+  √  not default
+
+└ List addresses
+  GET http://127.0.0.1:8002/api/users/addresses [200 OK, 728B, 17ms]
+  √  status is 200
+  √  exactly one default
+
+└ Get address
+  GET http://127.0.0.1:8002/api/users/addresses/2079 [200 OK, 426B, 22ms]
+  √  status is 200
+
+└ Replace address (PUT)
+  PUT http://127.0.0.1:8002/api/users/addresses/2079 [200 OK, 426B, 70ms]
+  √  status is 200
+
+└ Set second address as default
+  PATCH http://127.0.0.1:8002/api/users/addresses/2080/default [200 OK, 424B, 43ms]
+  √  status is 200
+  √  is default
+
+└ Get default address
+  GET http://127.0.0.1:8002/api/users/addresses/default [200 OK, 424B, 20ms]
+  √  status is 200
+  √  second address
+
+└ Delete the default address
+  DELETE http://127.0.0.1:8002/api/users/addresses/2080 [200 OK, 154B, 47ms]
+  √  status is 200
+
+└ Default promoted to the remaining address
+  GET http://127.0.0.1:8002/api/users/addresses/default [200 OK, 426B, 18ms]
+  √  status is 200
+  √  first address
+
+└ Deleted address: 404
+  GET http://127.0.0.1:8002/api/users/addresses/2080 [404 Not Found, 162B, 22ms]
+  √  status is 404
+
+□ 6 Deactivation (run last)
+└ Deactivate account (local profile only)
+  PATCH http://127.0.0.1:8002/api/users/account/deactivate [200 OK, 234B, 39ms]
+  √  status is 200
+  √  auth account unchanged
+
+└ Profile after deactivation: 403
+  GET http://127.0.0.1:8002/api/users/profile [403 Forbidden, 172B, 20ms]
+  √  status is 403
+
+└ Addresses after deactivation: 403
+  GET http://127.0.0.1:8002/api/users/addresses [403 Forbidden, 172B, 16ms]
+  √  status is 403
+
+└ Login still works on the Authentication Service
+  POST http://127.0.0.1:8001/api/auth/login [200 OK, 480B, 342ms]
+  √  status is 200
+
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │                28 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                28 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │                38 │                0 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 3.8s                                       │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 5.93kB (approx)                           │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 61ms [min: 7ms, max: 357ms, s.d.: 96ms] │
+└────────────────────────────────────────────────────────────────┘
+exit code: 0

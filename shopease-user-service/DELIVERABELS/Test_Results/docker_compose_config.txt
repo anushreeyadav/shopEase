@@ -1,0 +1,66 @@
+﻿name: shopease-user-service
+services:
+  user-mysql:
+    environment:
+      MYSQL_DATABASE: shopease_user_db
+      MYSQL_PASSWORD: <redacted>
+      MYSQL_ROOT_PASSWORD: <redacted>
+      MYSQL_USER: user_svc
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - mysqladmin ping -h 127.0.0.1 -uroot -p"$$MYSQL_ROOT_PASSWORD" --silent
+      timeout: 3s
+      interval: 5s
+      retries: 30
+      start_period: 30s
+    image: mysql:8.4
+    networks:
+      default: null
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: user_mysql_data
+        target: /var/lib/mysql
+        volume: {}
+  user-service:
+    build:
+      context: C:\Users\Administrator\ShopEase\shopease-user-service
+      dockerfile: Dockerfile
+    depends_on:
+      user-mysql:
+        condition: service_healthy
+        restart: true
+        required: true
+    environment:
+      API_PREFIX: /api
+      APP_ENV: development
+      APP_NAME: ShopEase User Service
+      APP_VERSION: 0.1.0
+      AUTH_SERVICE_TIMEOUT_SECONDS: "5"
+      AUTH_SERVICE_VERIFY_URL: http://host.docker.internal:8001/api/auth/verify-token
+      DOCS_ENABLED: "true"
+      LOG_LEVEL: INFO
+      MYSQL_DATABASE: shopease_user_db
+      MYSQL_HOST: user-mysql
+      MYSQL_PASSWORD: <redacted>
+      MYSQL_PORT: "3306"
+      MYSQL_USER: user_svc
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    image: shopease-user-service:dev
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 8002
+        published: "8002"
+        protocol: tcp
+    restart: unless-stopped
+networks:
+  default:
+    name: shopease-user-service_default
+volumes:
+  user_mysql_data:
+    name: shopease-user-service_user_mysql_data

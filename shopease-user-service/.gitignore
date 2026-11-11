@@ -1,0 +1,32 @@
+# Virtual environment
+.venv/
+venv/
+
+# Local configuration and secrets (the template is committed)
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Office lock files in DELIVERABELS/Word_Documents
+~$*
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

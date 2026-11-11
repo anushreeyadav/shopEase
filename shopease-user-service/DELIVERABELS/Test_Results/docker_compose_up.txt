@@ -1,0 +1,76 @@
+﻿docker :  Image shopease-user-service:dev Building 
+At line:6 char:8
++ $out = docker compose up --build -d 2>&1 | Out-String; $out | & $Py $ ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image shopease...e:dev Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+#1 [internal] load local bake definitions
+#1 reading from stdin 610B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.45kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.11-slim-bookworm
+#3 DONE 1.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 799B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 4.27kB 0.0s done
+#5 DONE 0.1s
+
+#6 [1/8] FROM docker.io/library/python:3.11-slim-bookworm@sha256:a83ba18aef0f865b1a4a611c2cf460fe446f2795673bbb9fe43be570439e3b39
+#6 resolve docker.io/library/python:3.11-slim-bookworm@sha256:a83ba18aef0f865b1a4a611c2cf460fe446f2795673bbb9fe43be570439e3b39
+#6 resolve docker.io/library/python:3.11-slim-bookworm@sha256:a83ba18aef0f865b1a4a611c2cf460fe446f2795673bbb9fe43be570439e3b39 0.1s done
+#6 DONE 0.1s
+
+#7 [2/8] WORKDIR /app
+#7 CACHED
+
+#8 [3/8] COPY requirements.txt .
+#8 CACHED
+
+#9 [4/8] RUN pip install -r requirements.txt
+#9 CACHED
+
+#10 [5/8] RUN groupadd --system app && useradd --system --gid app --no-create-home app
+#10 CACHED
+
+#11 [6/8] COPY app/ ./app/
+#11 DONE 0.1s
+
+#12 [7/8] COPY alembic/ ./alembic/
+#12 DONE 0.2s
+
+#13 [8/8] COPY alembic.ini .
+#13 DONE 0.2s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 0.6s done
+#14 exporting manifest sha256:8e57d4fca7a2000154f8d2122afc214c048c5ac951590a1b69acad73025a4630 0.1s done
+#14 exporting config sha256:1b1eb025ceec1735e03aac08e705ca5fb5cbe8c7bad1cbbc10f67411232295aa 0.1s done
+#14 exporting attestation manifest sha256:8b9a5ccc7761a189429aa184a343472fb4d61321af88d68ea6bed40e9962df1a 0.1s done
+#14 exporting manifest list sha256:bfda38f1e361405b8aff05469d667b11e2a1f025a97afaebb1b190b27a8bee98
+#14 exporting manifest list sha256:bfda38f1e361405b8aff05469d667b11e2a1f025a97afaebb1b190b27a8bee98 0.1s done
+#14 naming to docker.io/library/shopease-user-service:dev done
+#14 unpacking to docker.io/library/shopease-user-service:dev
+#14 unpacking to docker.io/library/shopease-user-service:dev 0.2s done
+#14 DONE 1.3s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image shopease-user-service:dev Built 
+ Container shopease-user-service-user-mysql-1 Running 
+ Container shopease-user-service-user-service-1 Recreate 
+ Container shopease-user-service-user-service-1 Recreated 
+ Container shopease-user-service-user-mysql-1 Waiting 
+ Container shopease-user-service-user-mysql-1 Healthy 
+ Container shopease-user-service-user-service-1 Starting 
+ Container shopease-user-service-user-service-1 Started 
+

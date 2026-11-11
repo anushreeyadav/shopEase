@@ -1,0 +1,33 @@
+﻿### Service health from the host
+GET http://127.0.0.1:8002/health -> {"status":"ok","service":"ShopEase User Service","version":"0.1.0"} [200]
+GET http://127.0.0.1:8002/health/db -> {"status":"ok","database":"connected"} [200]
+### No token -> 401
+GET /api/users/profile -> {"detail":"Could not validate credentials"} [401]
+### Schema in user-mysql (as the service's own DB user, via the container network)
+connected to shopease_user_db @ user-mysql | alembic 4f1a9d27c5e3 | tables ['alembic_version', 'user_addresses', 'user_profiles']
+### MySQL is not published on the host
+127.0.0.1:3309 reachable: False
+published ports of user-mysql: ''
+### Image contents and runtime user
+uid=999(app) gid=999(app) groups=999(app)
+alembic
+alembic.ini
+app
+requirements.txt
+.env files in image:
+(end)
+### Environment variables baked into the image
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LANG=C.UTF-8
+GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D
+PYTHON_VERSION=3.11.18
+PYTHON_SHA256=9120e0a653868f6e3698d36cdd99e5a58903ec9469e448f21d98f7b16d8fa290
+PYTHONDONTWRITEBYTECODE=1
+PYTHONUNBUFFERED=1
+PIP_NO_CACHE_DIR=1
+PIP_DISABLE_PIP_VERSION_CHECK=1
+APP_ENV=production
+LOG_LEVEL=INFO
+
+### .env and Git
+shopease-user-service/.gitignore:6:.env	.env | tracked: ''

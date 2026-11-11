@@ -1,0 +1,79 @@
+Final validation checks - 11 November 2026 (shopease-user-service)
+
+== Token search: the two access tokens of the final live audit (auth users 7 and 8)
+Searched in: docker compose logs user-service, the auth-service project's logs, and final_live_api_audit.txt
+token 1: user-service log whole=False signature=False; auth-service log whole=False signature=False; audit output whole=False signature=False first-60-chars=False
+token 2: user-service log whole=False signature=False; auth-service log whole=False signature=False; audit output whole=False signature=False first-60-chars=False
+token file deleted: yes
+
+== Rows in shopease_user_db after the live audit (user A = auth 7 deactivated, records kept)
++------+--------------+-----------------------+-----------+
+| id   | auth_user_id | full_name             | is_active |
++------+--------------+-----------------------+-----------+
+| 2327 |            7 | Audit User A Replaced |         0 |
+| 2328 |            8 | Audit User B          |         1 |
++------+--------------+-----------------------+-----------+
++------+--------------+--------------+------------+
+| id   | auth_user_id | address_type | is_default |
++------+--------------+--------------+------------+
+| 2071 |            7 | HOME         |          1 |
+| 2072 |            7 | OFFICE       |          0 |
+| 2074 |            8 | HOME         |          1 |
++------+--------------+--------------+------------+
++-------------------------------------+
+| profiles_with_more_than_one_default |
++-------------------------------------+
+|                                   0 |
++-------------------------------------+
+
+== Alembic inside the user-service container
+$ alembic current
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+4f1a9d27c5e3 (head)
+
+$ alembic check
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.schemas
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.tables
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.types
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.constraints
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.defaults
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.comments
+No new upgrade operations detected.
+
+$ alembic history
+8c2e3b6d4acf -> 4f1a9d27c5e3 (head), rename WORK address type to OFFICE
+<base> -> 8c2e3b6d4acf, create user and address tables
+
+== Docker Compose validation (run from PowerShell; Git Bash is not used for compose config because of its path rewriting)
+docker compose config --quiet: exit 0
+docker compose -f docker-compose.yml -f docker-compose.dev.yml config --quiet: exit 0
+resolved values (docker compose config):
+API_PREFIX: /api
+AUTH_SERVICE_VERIFY_URL: http://host.docker.internal:8001/api/auth/verify-token
+MYSQL_HOST: user-mysql
+published: "8002"
+
+== docker compose ps
+SERVICE        IMAGE                       STATUS                   PORTS
+user-mysql     mysql:8.4                   Up 8 minutes (healthy)   3306/tcp, 33060/tcp
+user-service   shopease-user-service:dev   Up 8 minutes (healthy)   127.0.0.1:8002->8002/tcp
+
+== Git
+git check-ignore -v .env: shopease-user-service/.gitignore:6:.env	.env
+git ls-files .env: '' (empty = not tracked)
+files in shopease-user-service tracked by the enclosing repository (C:/Users/Administrator/ShopEase): 0
+git add --dry-run . would include .env: False; .venv: False
+
+== Secret and token scan of the submission files (README.md, DELIVERABELS/**/*.md|txt|xml, postman/*, scripts/*.py: 44 files)
+Values checked: the 2 password values in this service's .env, and the 3 password/secret values (including the JWT secret) in shopease-auth-service/.env
+Found: none
+JWT-shaped strings (eyJ... with a second segment): none
+"access_token" with a value other than <redacted>: 1 match, scripts/live_api_audit.py line 29, which is the redaction regex itself (not a token)
+Word documents (4): read back with python-docx, no secret values and no JWT found
+
+== Other services
+Files modified on 11 November 2026 in ../shopease-auth-service and ../shopease-product-service (excluding .venv, __pycache__, .pytest_cache): 0 and 0
+Last commit of the enclosing repository: f43126c docs: finalize setup and test reports (nothing committed)

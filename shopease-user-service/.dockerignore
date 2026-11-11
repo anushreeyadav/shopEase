@@ -1,0 +1,52 @@
+# Keep the build context small and free of local or secret files.
+# The Dockerfile copies only named files and folders, so this is a second safety net.
+
+# Environment files and credentials: configuration comes from the container environment.
+.env
+.env.*
+**/.env
+**/.env.*
+*.pem
+*.key
+secrets/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python caches and test output
+**/__pycache__/
+**/*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+tests/
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# Documentation and deliverables
+DELIVERABELS/
+README.md
+
+# Version control, Docker files, editors, OS
+.git/
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

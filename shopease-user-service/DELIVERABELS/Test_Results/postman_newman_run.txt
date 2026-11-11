@@ -1,0 +1,156 @@
+Postman collection run with Newman 6.2.1 (Postman's command-line runner) - 11 November 2026
+Collection: postman/ShopEase_User_Service.postman_collection.json, against the Docker containers (User Service 8002, Authentication Service 8001)
+Newman prints no response bodies: no token, password or generated email appears below.
+
+newman
+
+ShopEase User Service
+
+Folder 0 Health
+Sub-folder Service health
+  GET http://127.0.0.1:8002/health [200 OK, 192B, 55ms]
+  Pass  status is 200
+
+Sub-folder Database health
+  GET http://127.0.0.1:8002/health/db [200 OK, 163B, 67ms]
+  Pass  status is 200
+  Pass  database connected
+
+Folder 1 Authentication Service (8001)
+Sub-folder Register test user
+  POST http://127.0.0.1:8001/api/auth/register [201 Created, 295B, 389ms]
+  Pass  status is 201
+
+Sub-folder Login
+  POST http://127.0.0.1:8001/api/auth/login [200 OK, 478B, 318ms]
+  Pass  status is 200
+
+Sub-folder Verify token
+  POST http://127.0.0.1:8001/api/auth/verify-token [200 OK, 262B, 8ms]
+  Pass  status is 200
+  Pass  valid
+
+Folder 2 Authentication failures
+Sub-folder No token: 401
+  GET http://127.0.0.1:8002/api/users/profile [401 Unauthorized, 204B, 56ms]
+  Pass  status is 401
+
+Folder 3 Profile
+Sub-folder Create profile
+  POST http://127.0.0.1:8002/api/users/profile [201 Created, 368B, 44ms]
+  Pass  status is 201
+
+Sub-folder Create profile again: 409
+  POST http://127.0.0.1:8002/api/users/profile [409 Conflict, 171B, 15ms]
+  Pass  status is 409
+
+Sub-folder Client-supplied auth_user_id: 422
+  POST http://127.0.0.1:8002/api/users/profile [422 Unprocessable Entity, 253B, 12ms]
+  Pass  status is 422
+
+Sub-folder Get profile
+  GET http://127.0.0.1:8002/api/users/profile [200 OK, 363B, 12ms]
+  Pass  status is 200
+
+Sub-folder Replace profile (PUT)
+  PUT http://127.0.0.1:8002/api/users/profile [200 OK, 371B, 29ms]
+  Pass  status is 200
+
+Sub-folder Update profile (PATCH)
+  PATCH http://127.0.0.1:8002/api/users/profile [200 OK, 382B, 34ms]
+  Pass  status is 200
+
+Folder 4 Account
+Sub-folder Get account
+  GET http://127.0.0.1:8002/api/users/account [200 OK, 571B, 16ms]
+  Pass  status is 200
+  Pass  profile ACTIVE
+
+Sub-folder Update contact
+  PATCH http://127.0.0.1:8002/api/users/account/contact [200 OK, 382B, 87ms]
+  Pass  status is 200
+
+Folder 5 Addresses
+Sub-folder Create first address (becomes default)
+  POST http://127.0.0.1:8002/api/users/addresses [201 Created, 431B, 91ms]
+  Pass  status is 201
+  Pass  is default
+
+Sub-folder Create second address
+  POST http://127.0.0.1:8002/api/users/addresses [201 Created, 430B, 42ms]
+  Pass  status is 201
+  Pass  not default
+
+Sub-folder List addresses
+  GET http://127.0.0.1:8002/api/users/addresses [200 OK, 728B, 29ms]
+  Pass  status is 200
+  Pass  exactly one default
+
+Sub-folder Get address
+  GET http://127.0.0.1:8002/api/users/addresses/2065 [200 OK, 426B, 23ms]
+  Pass  status is 200
+
+Sub-folder Replace address (PUT)
+  PUT http://127.0.0.1:8002/api/users/addresses/2065 [200 OK, 426B, 44ms]
+  Pass  status is 200
+
+Sub-folder Set second address as default
+  PATCH http://127.0.0.1:8002/api/users/addresses/2066/default [200 OK, 424B, 47ms]
+  Pass  status is 200
+  Pass  is default
+
+Sub-folder Get default address
+  GET http://127.0.0.1:8002/api/users/addresses/default [200 OK, 424B, 24ms]
+  Pass  status is 200
+  Pass  second address
+
+Sub-folder Delete the default address
+  DELETE http://127.0.0.1:8002/api/users/addresses/2066 [200 OK, 154B, 45ms]
+  Pass  status is 200
+
+Sub-folder Default promoted to the remaining address
+  GET http://127.0.0.1:8002/api/users/addresses/default [200 OK, 426B, 23ms]
+  Pass  status is 200
+  Pass  first address
+
+Sub-folder Deleted address: 404
+  GET http://127.0.0.1:8002/api/users/addresses/2066 [404 Not Found, 162B, 22ms]
+  Pass  status is 404
+
+Folder 6 Deactivation (run last)
+Sub-folder Deactivate account (local profile only)
+  PATCH http://127.0.0.1:8002/api/users/account/deactivate [200 OK, 234B, 43ms]
+  Pass  status is 200
+  Pass  auth account unchanged
+
+Sub-folder Profile after deactivation: 403
+  GET http://127.0.0.1:8002/api/users/profile [403 Forbidden, 172B, 22ms]
+  Pass  status is 403
+
+Sub-folder Addresses after deactivation: 403
+  GET http://127.0.0.1:8002/api/users/addresses [403 Forbidden, 172B, 21ms]
+  Pass  status is 403
+
+Sub-folder Login still works on the Authentication Service
+  POST http://127.0.0.1:8001/api/auth/login [200 OK, 478B, 453ms]
+  Pass  status is 200
+
+-------------------------------------------------------------------
+|                         |          executed |            failed |
+--------------------------+-------------------+--------------------
+|              iterations |                 1 |                 0 |
+--------------------------+-------------------+--------------------
+|                requests |                28 |                 0 |
+--------------------------+-------------------+--------------------
+|            test-scripts |                28 |                 0 |
+--------------------------+-------------------+--------------------
+|      prerequest-scripts |                 1 |                 0 |
+--------------------------+-------------------+--------------------
+|              assertions |                38 |                 0 |
+-------------------------------------------------------------------
+| total run duration: 4s                                          |
+-------------------------------------------------------------------
+| total data received: 5.92kB (approx)                            |
+-------------------------------------------------------------------
+| average response time: 73ms [min: 8ms, max: 453ms, s.d.: 111ms] |
+-------------------------------------------------------------------

@@ -1,0 +1,1942 @@
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 409 Conflict"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile?auth_user_id=7 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile?user_id=7 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile?id=1 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile?profile_id=1 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/7 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile/7 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/1 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/7 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/7 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/7/profile "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile?auth_user_id=7 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate?auth_user_id=7 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account?auth_user_id=7 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses?user_id=999 "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses?user_id=2 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/2 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/999999 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/2 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/3 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/4 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/5 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/6 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/7 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/2?user_id=1&auth_user_id=7 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/2?user_id=1&auth_user_id=7 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/2/default?user_id=1&auth_user_id=7 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/3 "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/2/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/2/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/4/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/4 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/3/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/2 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/2 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/2/default "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/2 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/999999 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/999999 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/999999/default "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/999999 "HTTP/1.1 404 Not Found"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/openapi.json "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 200 OK"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 403 Forbidden"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 403 Forbidden"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: DELETE http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/account "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/contact "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/account/deactivate "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/addresses/1/default "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/addresses/1 "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 401 Unauthorized"
+INFO     httpx:_client.py:1025 HTTP Request: PUT http://testserver/api/users/profile "HTTP/1.1 401 Unauthorized"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+ERROR    app.exception_handlers:exception_handlers.py:36 Database error: OperationalError
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 503 Service Unavailable"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+ERROR    app.core.security:security.py:134 Authentication service request failed: ConnectError
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 503 Service Unavailable"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+ERROR    app.exception_handlers:exception_handlers.py:36 Database error: OperationalError
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 503 Service Unavailable"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+ERROR    app.exception_handlers:exception_handlers.py:46 Unhandled error on GET /api/users/profile: RuntimeError
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 500 Internal Server Error"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+ERROR    app.exception_handlers:exception_handlers.py:46 Unhandled error on GET /api/users/profile: KeyError
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 500 Internal Server Error"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 500 Internal Server Error"
+ERROR    app.core.security:security.py:143 Authentication service returned status 500
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 503 Service Unavailable"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 502 Bad Gateway"
+ERROR    app.core.security:security.py:143 Authentication service returned status 502
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 503 Service Unavailable"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+ERROR    app.core.security:security.py:150 Authentication service returned a malformed verification response
+INFO     httpx:_client.py:1025 HTTP Request: GET http://testserver/api/users/profile "HTTP/1.1 503 Service Unavailable"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/profile "HTTP/1.1 201 Created"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: POST http://testserver/api/users/addresses "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 422 Unprocessable Entity"
+DEBUG    asyncio:proactor_events.py:629 Using proactor: IocpProactor
+INFO     httpx:_client.py:1025 HTTP Request: POST http://auth.test/api/auth/verify-token "HTTP/1.1 200 OK"
+INFO     httpx:_client.py:1025 HTTP Request: PATCH http://testserver/api/users/profile "HTTP/1.1 422 Unprocessable Entity"
