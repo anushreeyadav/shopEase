@@ -1,0 +1,27 @@
+# Recorded 2026-11-12 13:09:43 UTC
+## Image: settings baked in (docker image inspect)
+$ docker image inspect shopease-product-catalog-service:dev --format "{{json .Config.Env}} / {{json .Config.ExposedPorts}} / {{.Config.User}} / {{json .Config.Cmd}}"
+["PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","LANG=C.UTF-8","GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D","PYTHON_VERSION=3.11.18","PYTHON_SHA256=9120e0a653868f6e3698d36cdd99e5a58903ec9469e448f21d98f7b16d8fa290","PYTHONDONTWRITEBYTECODE=1","PYTHONUNBUFFERED=1","PIP_NO_CACHE_DIR=1","PIP_DISABLE_PIP_VERSION_CHECK=1","APP_ENV=production","LOG_LEVEL=INFO","SERVICE_HOST=0.0.0.0","SERVICE_PORT=8006"]
+{"8006/tcp":{}}
+user=app
+["sh","-c","python -m app.database.wait --timeout 60 && alembic upgrade head && exec python -m app"]
+
+## MySQL health check (docker inspect)
+status=healthy
+test=["CMD-SHELL","MYSQL_PWD=\"$MYSQL_PASSWORD\" mysql -h 127.0.0.1 -u\"$MYSQL_USER\" -N -e 'SELECT 1' \"$MYSQL_DATABASE\" > /dev/null"]
+
+## Named volume mounted by catalog-mysql
+volume shopease-product-catalog-service_catalog_mysql_data -> /var/lib/mysql
+
+## From this machine
+$ curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8006/health
+{"status":"ok","service":"ShopEase Product Catalog Service","version":"1.0.0"}  -> 200
+$ curl http://127.0.0.1:8006/docs
+  -> 200 text/html; charset=utf-8
+# A protected request with a well-formed but forged token: the catalog asks the Auth Service, which refuses it (401).
+# If the Auth Service were unreachable the answer would be 503.
+$ curl -X POST http://127.0.0.1:8006/api/categories/ -H "Authorization: Bearer <forged token>" -d {"name":"x"}
+{"detail":"Could not validate credentials"}  -> 401
+# MySQL is not published to this machine by docker-compose.yml:
+$ docker compose port catalog-mysql 3306
+  invalid IP:0

@@ -1,0 +1,79 @@
+# Recorded 2026-11-12 09:54:35 UTC
+# CATALOG_SERVICE_TEST_DB=mysql MYSQL_DATABASE=shopease_product_catalog_test_db python -m pytest -v tests/test_product_search.py
+============================= test session starts =============================
+platform win32 -- Python 3.11.0, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\Administrator\ShopEase\shopease-product-catalog-service\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: c:\Users\Administrator\ShopEase\shopease-product-catalog-service
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collecting ... collected 62 items
+
+tests/test_product_search.py::test_every_filter_combination[customer] PASSED [  1%]
+tests/test_product_search.py::test_every_filter_combination[admin, include_inactive] PASSED [  3%]
+tests/test_product_search.py::test_the_grid_is_not_trivial PASSED        [  4%]
+tests/test_product_search.py::test_search_matches_name_or_sku_ignoring_case PASSED [  6%]
+tests/test_product_search.py::test_search_treats_wildcards_literally PASSED [  8%]
+tests/test_product_search.py::test_filter_by_category PASSED             [  9%]
+tests/test_product_search.py::test_inactive_category_shows_nothing_to_customers PASSED [ 11%]
+tests/test_product_search.py::test_price_range_is_inclusive PASSED       [ 12%]
+tests/test_product_search.py::test_price_filter_uses_the_normal_price PASSED [ 14%]
+tests/test_product_search.py::test_filter_by_availability PASSED         [ 16%]
+tests/test_product_search.py::test_stock_changes_move_a_product_between_availability_filters PASSED [ 17%]
+tests/test_product_search.py::test_filter_by_brand PASSED                [ 19%]
+tests/test_product_search.py::test_spec_examples PASSED                  [ 20%]
+tests/test_product_search.py::test_sorting[name-asc] PASSED              [ 22%]
+tests/test_product_search.py::test_sorting[name-desc] PASSED             [ 24%]
+tests/test_product_search.py::test_sorting[price-asc] PASSED             [ 25%]
+tests/test_product_search.py::test_sorting[price-desc] PASSED            [ 27%]
+tests/test_product_search.py::test_sorting[created_at-asc] PASSED        [ 29%]
+tests/test_product_search.py::test_sorting[created_at-desc] PASSED       [ 30%]
+tests/test_product_search.py::test_default_sort_is_name_ascending PASSED [ 32%]
+tests/test_product_search.py::test_price_sort_is_numeric_not_text PASSED [ 33%]
+tests/test_product_search.py::test_ties_are_broken_by_id_in_the_same_direction PASSED [ 35%]
+tests/test_product_search.py::test_page_metadata PASSED                  [ 37%]
+tests/test_product_search.py::test_defaults PASSED                       [ 38%]
+tests/test_product_search.py::test_pages_cover_every_product_exactly_once PASSED [ 40%]
+tests/test_product_search.py::test_paging_applies_after_filters PASSED   [ 41%]
+tests/test_product_search.py::test_page_past_the_end_is_empty_with_correct_totals PASSED [ 43%]
+tests/test_product_search.py::test_no_matches PASSED                     [ 45%]
+tests/test_product_search.py::test_maximum_page_size PASSED              [ 46%]
+tests/test_product_search.py::test_hidden_products_never_appear_for_anonymous_visitors PASSED [ 48%]
+tests/test_product_search.py::test_search_for_a_hidden_product_by_exact_sku PASSED [ 50%]
+tests/test_product_search.py::test_include_inactive_needs_admin PASSED   [ 51%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params0-page-Input should be greater than or equal to 1] PASSED [ 53%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params1-page-Input should be greater than or equal to 1] PASSED [ 54%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params2-page-Input should be less than or equal to 100000] PASSED [ 56%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params3-page-Input should be a valid integer, unable to parse string as an integer] PASSED [ 58%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params4-page-Input should be a valid integer, unable to parse string as an integer] PASSED [ 59%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params5-page_size-Input should be greater than or equal to 1] PASSED [ 61%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params6-page_size-Input should be greater than or equal to 1] PASSED [ 62%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params7-page_size-Input should be less than or equal to 100] PASSED [ 64%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params8-sort_by-Input should be 'name', 'price' or 'created_at'] PASSED [ 66%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params9-sort_by-Input should be 'name', 'price' or 'created_at'] PASSED [ 67%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params10-sort_order-Input should be 'asc' or 'desc'] PASSED [ 69%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params11-sort_order-Input should be 'asc' or 'desc'] PASSED [ 70%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params12-availability-Input should be 'in_stock' or 'out_of_stock'] PASSED [ 72%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params13-min_price-Input should be greater than or equal to 0] PASSED [ 74%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params14-max_price-Input should be a valid decimal] PASSED [ 75%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params15-min_price-Decimal input should have no more than 2 decimal places] PASSED [ 77%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params16-max_price-Input should be a finite number] PASSED [ 79%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params17-max_price-max_price must not be lower than min_price] PASSED [ 80%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params18-category_id-Input should be a valid integer, unable to parse string as an integer] PASSED [ 82%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params19-category_id-Input should be greater than or equal to 1] PASSED [ 83%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params20-category_id-Input should be less than or equal to 2147483647] PASSED [ 85%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params21-search-String should have at least 1 character] PASSED [ 87%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params22-search-String should have at most 100 characters] PASSED [ 88%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params23-size-Unknown query parameter] PASSED [ 90%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params24-sort-Unknown query parameter] PASSED [ 91%]
+tests/test_product_search.py::test_invalid_query_parameters_are_422[params25-in_stock-Unknown query parameter] PASSED [ 93%]
+tests/test_product_search.py::test_several_invalid_parameters_are_reported_together PASSED [ 95%]
+tests/test_product_search.py::test_invalid_query_needs_no_token_and_reveals_nothing PASSED [ 96%]
+tests/test_product_search.py::test_filtering_and_paging_happen_in_the_database PASSED [ 98%]
+tests/test_product_search.py::test_only_one_page_of_rows_is_fetched PASSED [100%]
+
+============================= 62 passed in 44.07s =============================
+
+# Whole suite, MySQL 8.4 test database
+401 passed in 69.96s (0:01:09)
+# Whole suite, SQLite
+400 passed, 1 skipped in 46.40s

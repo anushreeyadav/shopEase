@@ -1,0 +1,39 @@
+newman
+
+ShopEase Product Catalog Service
+
+Folder 20c Simultaneous stock updates: verify consistency
+Sub-folder Stock is 0
+  GET http://127.0.0.1:8016/api/inventory/3793 [200 OK, 249B, 82ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  0
+
+Sub-folder History: initial 5 and exactly 5 stock-outs
+  GET http://127.0.0.1:8016/api/inventory/3793/history?page_size=100 [200 OK, 1.12kB, 33ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  6 transactions: 1 IN, 5 OUT
+  Pass  history replays without a gap: 5 > 4 > 3 > 2 > 1 > 0
+
+------------------------------------------------------------------
+|                         |          executed |           failed |
+--------------------------+-------------------+-------------------
+|              iterations |                 1 |                0 |
+--------------------------+-------------------+-------------------
+|                requests |                 2 |                0 |
+--------------------------+-------------------+-------------------
+|            test-scripts |                 4 |                0 |
+--------------------------+-------------------+-------------------
+|      prerequest-scripts |                 2 |                0 |
+--------------------------+-------------------+-------------------
+|              assertions |                 7 |                0 |
+------------------------------------------------------------------
+| total run duration: 404ms                                      |
+------------------------------------------------------------------
+| total data received: 1.15kB (approx)                           |
+------------------------------------------------------------------
+| average response time: 57ms [min: 33ms, max: 82ms, s.d.: 24ms] |
+------------------------------------------------------------------
+(node:14396) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)

@@ -1,0 +1,28 @@
+# Python 3.11. Versions match the other ShopEase services (shopease-auth-service and
+# shopease-user-service), which were tested with this set.
+
+# Web framework and server
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+
+# Database: MySQL 8 through SQLAlchemy ORM and the PyMySQL driver
+SQLAlchemy==2.1.6
+PyMySQL==1.2.3
+# Required by PyMySQL for MySQL 8 caching_sha2_password authentication.
+cryptography==50.0.2
+alembic==1.20.1
+
+# Validation and settings
+pydantic==2.14.2
+pydantic-settings==2.16.2
+python-dotenv==1.2.4
+
+# JWT: same library and version as shopease-auth-service. Used only to pre-check a token's
+# format and algorithm; the Authentication Service verifies the signature (see app/core/security.py).
+python-jose==3.5.0
+
+# HTTP client for the Authentication Service (also used by FastAPI's TestClient)
+httpx==0.28.1
+
+# Testing
+pytest==9.2.0

@@ -1,0 +1,26 @@
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\01_live_swagger_overview.png
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\02_live_list_products_parameters.png
+  response status 200 (expected 200)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\03_live_list_products_executed_200.png
+  response status 401 (expected 401)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\04_live_create_product_without_token_401.png
+  response status 404 (expected 404)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\05_live_get_missing_product_404.png
+  response status 200 (expected 200)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\06_live_health_200.png
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\07_test_authorized_as_admin.png
+  response status 201 (expected 201)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\08_test_create_product_201.png
+  response status 409 (expected 409)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\09_test_create_product_duplicate_sku_409.png
+  response status 200 (expected 200)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\10_test_search_filter_sort_page_200.png
+  response status 201 (expected 201)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\11_test_stock_in_201.png
+  response status 409 (expected 409)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\12_test_stock_out_insufficient_409.png
+  response status 200 (expected 200)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\13_test_inventory_history_200.png
+  response status 200 (expected 200)
+saved C:\Users\Administrator\ShopEase\shopease-product-catalog-service\DELIVERABELS\screenshots\14_test_low_stock_200.png
+14 screenshots

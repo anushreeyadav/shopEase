@@ -1,0 +1,24 @@
+Live customer check, 2026-11-13 11:37:20 UTC
+Authentication Service http://127.0.0.1:8001 (real), Catalog Service http://127.0.0.1:8006 (running container)
+
+Login as the customer account: HTTP 200, token received: True, role in the login answer: USER
+
+PASS  POST   /api/categories/                           expected 403, got 403  detail: Admin role required
+PASS  PUT    /api/categories/1                          expected 403, got 403  detail: Admin role required
+PASS  PATCH  /api/categories/1                          expected 403, got 403  detail: Admin role required
+PASS  DELETE /api/categories/1                          expected 403, got 403  detail: Admin role required
+PASS  POST   /api/products/                             expected 403, got 403  detail: Admin role required
+PASS  PUT    /api/products/1                            expected 403, got 403  detail: Admin role required
+PASS  PATCH  /api/products/1                            expected 403, got 403  detail: Admin role required
+PASS  DELETE /api/products/1                            expected 403, got 403  detail: Admin role required
+PASS  GET    /api/inventory/1                           expected 403, got 403  detail: Admin role required
+PASS  POST   /api/inventory/1/stock-in                  expected 403, got 403  detail: Admin role required
+PASS  POST   /api/inventory/1/stock-out                 expected 403, got 403  detail: Admin role required
+PASS  GET    /api/inventory/1/history                   expected 403, got 403  detail: Admin role required
+PASS  GET    /api/inventory/low-stock                   expected 403, got 403  detail: Admin role required
+PASS  GET    /api/products/?include_inactive=true       expected 403, got 403  detail: Admin role required
+PASS  GET    /api/categories/?include_inactive=true     expected 403, got 403  detail: Admin role required
+PASS  GET    /api/products/                             expected 200, got 200
+PASS  GET    /api/categories/                           expected 200, got 200
+
+17 passed, 0 failed. The token is not recorded.

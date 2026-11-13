@@ -1,0 +1,11 @@
+Auth Service container access log for the run above (docker logs --since 2026-11-12T06:51:45Z shopease-auth-service-auth-service-1).
+Requests from the Catalog Service container arrive from the Docker host gateway address.
+
+INFO:     172.23.0.1:53654 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.23.0.1:53654 - "POST /api/auth/verify-token HTTP/1.1" 401 Unauthorized
+INFO:     172.23.0.1:53654 - "POST /api/auth/verify-token HTTP/1.1" 401 Unauthorized
+INFO:     172.23.0.1:53654 - "POST /api/auth/verify-token HTTP/1.1" 401 Unauthorized
+INFO:     172.23.0.1:53656 - "POST /api/auth/verify-token HTTP/1.1" 401 Unauthorized
+INFO:     172.23.0.1:53656 - "POST /api/auth/verify-token HTTP/1.1" 401 Unauthorized
+INFO:     172.23.0.1:53656 - "POST /api/auth/verify-token HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:60808 - "GET /health HTTP/1.1" 200 OK

@@ -1,0 +1,93 @@
+Run: 2026-11-12 06:52:05 UTC
+Command: pytest tests/test_auth_integration.py tests/test_security.py -v -p no:warnings  (SQLite)
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.0, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\Administrator\ShopEase\shopease-product-catalog-service\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: c:\Users\Administrator\ShopEase\shopease-product-catalog-service
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collecting ... collected 71 items
+
+tests/test_auth_integration.py::test_missing_token_is_401_on_every_admin_route PASSED [  1%]
+tests/test_auth_integration.py::test_missing_or_non_bearer_credentials_are_401[] PASSED [  2%]
+tests/test_auth_integration.py::test_missing_or_non_bearer_credentials_are_401[Bearer] PASSED [  4%]
+tests/test_auth_integration.py::test_missing_or_non_bearer_credentials_are_401[Bearer ] PASSED [  5%]
+tests/test_auth_integration.py::test_missing_or_non_bearer_credentials_are_401[Basic dXNlcjpwYXNz] PASSED [  7%]
+tests/test_auth_integration.py::test_missing_or_non_bearer_credentials_are_401[Token abc.def.ghi] PASSED [  8%]
+tests/test_auth_integration.py::test_invalid_tokens_are_401[garbage] PASSED [  9%]
+tests/test_auth_integration.py::test_invalid_tokens_are_401[wrong-secret] PASSED [ 11%]
+tests/test_auth_integration.py::test_invalid_tokens_are_401[payload-altered] PASSED [ 12%]
+tests/test_auth_integration.py::test_invalid_tokens_are_401[alg-none] PASSED [ 14%]
+tests/test_auth_integration.py::test_invalid_tokens_are_401[unknown-user] PASSED [ 15%]
+tests/test_auth_integration.py::test_invalid_tokens_are_401[no-exp-or-iat] PASSED [ 16%]
+tests/test_auth_integration.py::test_invalid_tokens_are_401[non-numeric-sub] PASSED [ 18%]
+tests/test_auth_integration.py::test_expired_token_is_401 PASSED         [ 19%]
+tests/test_auth_integration.py::test_token_is_accepted_until_it_expires PASSED [ 21%]
+tests/test_auth_integration.py::test_admin_can_manage_categories_products_and_inventory PASSED [ 22%]
+tests/test_auth_integration.py::test_admin_can_see_inactive_records PASSED [ 23%]
+tests/test_auth_integration.py::test_customer_can_view_active_products_and_categories PASSED [ 25%]
+tests/test_auth_integration.py::test_customer_cannot_see_inactive_records PASSED [ 26%]
+tests/test_auth_integration.py::test_customer_is_403_on_every_admin_route PASSED [ 28%]
+tests/test_auth_integration.py::test_anonymous_visitors_can_browse PASSED [ 29%]
+tests/test_auth_integration.py::test_role_comes_from_the_auth_service_not_the_token PASSED [ 30%]
+tests/test_auth_integration.py::test_roles_are_matched_exactly PASSED    [ 32%]
+tests/test_auth_integration.py::test_inactive_user_is_403 PASSED         [ 33%]
+tests/test_auth_integration.py::test_auth_service_unavailable_fails_closed[down] PASSED [ 35%]
+tests/test_auth_integration.py::test_auth_service_unavailable_fails_closed[timeout] PASSED [ 36%]
+tests/test_auth_integration.py::test_auth_service_unavailable_fails_closed[error-500] PASSED [ 38%]
+tests/test_auth_integration.py::test_auth_service_unavailable_fails_closed[error-503] PASSED [ 39%]
+tests/test_auth_integration.py::test_auth_service_unavailable_fails_closed[wrong-url] PASSED [ 40%]
+tests/test_auth_integration.py::test_auth_service_unavailable_fails_closed[redirect] PASSED [ 42%]
+tests/test_auth_integration.py::test_auth_service_unavailable_fails_closed[not-json] PASSED [ 43%]
+tests/test_auth_integration.py::test_auth_service_unavailable_fails_closed[incomplete-json] PASSED [ 45%]
+tests/test_auth_integration.py::test_outage_does_not_leak_the_token PASSED [ 46%]
+tests/test_auth_integration.py::test_require_roles_rejects_an_empty_role_list PASSED [ 47%]
+tests/test_auth_integration.py::test_require_roles_lists_the_allowed_roles PASSED [ 49%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[post-/api/categories-body0] PASSED [ 50%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[patch-/api/categories/1-body1] PASSED [ 52%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[delete-/api/categories/1-None] PASSED [ 53%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[post-/api/products-body3] PASSED [ 54%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[patch-/api/products/1-body4] PASSED [ 56%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[delete-/api/products/1-None] PASSED [ 57%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[get-/api/inventory/1-None] PASSED [ 59%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[get-/api/inventory/low-stock-None] PASSED [ 60%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[get-/api/inventory/1/transactions-None] PASSED [ 61%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[post-/api/inventory/1/stock-in-body9] PASSED [ 63%]
+tests/test_security.py::test_admin_routes_reject_anonymous_and_customers[post-/api/inventory/1/stock-out-body10] PASSED [ 64%]
+tests/test_security.py::test_browsing_is_public PASSED                   [ 66%]
+tests/test_security.py::test_include_inactive_needs_admin[/api/categories] PASSED [ 67%]
+tests/test_security.py::test_include_inactive_needs_admin[/api/products] PASSED [ 69%]
+tests/test_security.py::test_include_inactive_needs_admin[/api/products/1] PASSED [ 70%]
+tests/test_security.py::test_include_inactive_needs_admin[/api/categories/1] PASSED [ 71%]
+tests/test_security.py::test_valid_token_is_accepted PASSED              [ 73%]
+tests/test_security.py::test_verification_fails_closed[401-body0-401] PASSED [ 74%]
+tests/test_security.py::test_verification_fails_closed[403-body1-403] PASSED [ 76%]
+tests/test_security.py::test_verification_fails_closed[500-body2-503] PASSED [ 77%]
+tests/test_security.py::test_verification_fails_closed[404-body3-503] PASSED [ 78%]
+tests/test_security.py::test_verification_fails_closed[200-body4-503] PASSED [ 80%]
+tests/test_security.py::test_verification_fails_closed[200-body5-401] PASSED [ 81%]
+tests/test_security.py::test_verification_fails_closed[200-body6-403] PASSED [ 83%]
+tests/test_security.py::test_verification_fails_closed[200-body7-503] PASSED [ 84%]
+tests/test_security.py::test_auth_service_down_is_503 PASSED             [ 85%]
+tests/test_security.py::test_oversized_token_is_rejected_without_a_request PASSED [ 87%]
+tests/test_security.py::test_malformed_tokens_are_rejected_without_a_request[not-a-jwt] PASSED [ 88%]
+tests/test_security.py::test_malformed_tokens_are_rejected_without_a_request[a.b] PASSED [ 90%]
+tests/test_security.py::test_malformed_tokens_are_rejected_without_a_request[a.b.c] PASSED [ 91%]
+tests/test_security.py::test_malformed_tokens_are_rejected_without_a_request[token3] PASSED [ 92%]
+tests/test_security.py::test_malformed_tokens_are_rejected_without_a_request[eyJhbGciOiAibm9uZSIsICJ0eXAiOiAiSldUIn0.eyJzdWIiOiAiMSIsICJyb2xlIjogIkFETUlOIn0.] PASSED [ 94%]
+tests/test_security.py::test_malformed_tokens_are_rejected_without_a_request[eyJ0eXAiOiAiSldUIn0.eyJzdWIiOiAiMSJ9.c2ln] PASSED [ 95%]
+tests/test_security.py::test_precheck_never_accepts_on_its_own PASSED    [ 97%]
+tests/test_security.py::test_bearer_token_end_to_end PASSED              [ 98%]
+tests/test_security.py::test_errors_do_not_echo_input PASSED             [100%]
+
+============================= 71 passed in 6.37s ==============================
+exit code: 0
+
+Command: pytest -q -p no:warnings  (whole suite, SQLite)
+......................................................................   [100%]
+214 passed in 11.37s
+
+Command: CATALOG_SERVICE_TEST_DB=mysql MYSQL_DATABASE=shopease_product_catalog_test_db pytest -q -p no:warnings  (whole suite, MySQL 8.4 test database)
+......................................................................   [100%]
+214 passed in 16.54s

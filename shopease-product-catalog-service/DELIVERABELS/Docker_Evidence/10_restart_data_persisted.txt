@@ -1,0 +1,37 @@
+# Recorded 2026-11-12 13:11:33 UTC
+$ docker compose up -d
+ Network shopease-product-catalog-service_default Creating 
+ Network shopease-product-catalog-service_default Created 
+ Container shopease-product-catalog-service-catalog-mysql-1 Creating 
+ Container shopease-product-catalog-service-catalog-mysql-1 Created 
+ Container shopease-product-catalog-service-catalog-service-1 Creating 
+ Container shopease-product-catalog-service-catalog-service-1 Created 
+ Container shopease-product-catalog-service-catalog-mysql-1 Starting 
+ Container shopease-product-catalog-service-catalog-mysql-1 Started 
+ Container shopease-product-catalog-service-catalog-mysql-1 Waiting 
+ Container shopease-product-catalog-service-catalog-mysql-1 Healthy 
+ Container shopease-product-catalog-service-catalog-service-1 Starting 
+ Container shopease-product-catalog-service-catalog-service-1 Started 
+$ docker compose ps --format "table {{.Service}}\t{{.Status}}"
+SERVICE           STATUS
+catalog-mysql     Up 13 seconds (healthy)
+catalog-service   Up 7 seconds (healthy)
+
+# Databases in the volume after down and up (same query as in 01_environment_and_state_before.txt):
+schema shopease_catalog_db
+schema shopease_product_catalog_db
+schema shopease_product_catalog_test_db
+shopease_product_catalog_db alembic_version = c4a7d2e91b30
+shopease_product_catalog_db rows: categories 0, products 0, inventory_transactions 0
+shopease_product_catalog_test_db alembic_version = 5b8e2f0c9d14
+user catalog_svc exists: 1
+
+# catalog-service log: it waited for the database, ran migrations (already at head), started
+catalog-service-1  | 2026-11-12 13:11:41,473 INFO app.database.wait: Database ready after 1 attempt(s)
+catalog-service-1  | INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+catalog-service-1  | INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+catalog-service-1  | INFO:     Started server process [1]
+catalog-service-1  | INFO:     Waiting for application startup.
+catalog-service-1  | INFO:     Application startup complete.
+catalog-service-1  | INFO:     Uvicorn running on http://0.0.0.0:8006 (Press CTRL+C to quit)
+catalog-service-1  | INFO:     127.0.0.1:40832 - "GET /health HTTP/1.1" 200 OK

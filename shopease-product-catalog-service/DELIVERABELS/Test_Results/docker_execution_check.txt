@@ -1,0 +1,16 @@
+# Recorded 2026-11-12 14:08:24 UTC
+# Docker stack used by the live run (B) and the live screenshots; full Docker evidence: DELIVERABELS/Docker_Evidence
+$ docker compose -f docker-compose.yml -f docker-compose.dev.yml ps --format "table {{.Service}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
+SERVICE           IMAGE                                  STATUS                    PORTS
+catalog-mysql     mysql:8.4                              Up 55 minutes (healthy)   127.0.0.1:3310->3306/tcp
+catalog-service   shopease-product-catalog-service:dev   Up 55 minutes (healthy)   127.0.0.1:8006->8006/tcp
+$ docker compose exec catalog-service python -c "<GET /health, /health/db, /docs inside the container>"
+/health 200 {"status":"ok","service":"ShopEase Product Catalog Service","version":"1.0.0"}
+/health/db 200 {"status":"ok","database":"connected"}
+/docs 200 Swagger UI page
+$ docker compose exec catalog-service alembic current
+c4a7d2e91b30 (head)
+# Authentication Service container used by run B:
+shopease-auth-service-auth-service-1 Up 9 hours (healthy) 127.0.0.1:8001->8001/tcp
+# Test database after all runs (rows of every Postman run deleted):
+products 0 | categories 0 | inventory_transactions 0

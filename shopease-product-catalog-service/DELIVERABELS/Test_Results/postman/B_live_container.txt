@@ -1,0 +1,228 @@
+newman
+
+ShopEase Product Catalog Service
+
+Folder 06 Retrieve product details using an invalid ID
+Sub-folder ID not a number
+  GET http://127.0.0.1:8006/api/products/abc [422 Unprocessable Entity, 273B, 37ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on product_id
+
+Sub-folder ID 0
+  GET http://127.0.0.1:8006/api/products/0 [422 Unprocessable Entity, 246B, 13ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on product_id
+
+Sub-folder ID above the database range
+  GET http://127.0.0.1:8006/api/products/2147483648 [422 Unprocessable Entity, 252B, 11ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on product_id
+
+Sub-folder ID that does not exist
+  GET http://127.0.0.1:8006/api/products/999999 [404 Not Found, 145B, 13ms]
+  Pass  no internal details in the response
+  Pass  status 404
+  Pass  detail: Product not found
+
+Folder 19 Access protected APIs without a JWT and with an invalid token
+Sub-folder No token: create product
+  POST http://127.0.0.1:8006/api/products/ [401 Unauthorized, 187B, 10ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: update product
+  PATCH http://127.0.0.1:8006/api/products/1 [401 Unauthorized, 187B, 7ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: delete product
+  DELETE http://127.0.0.1:8006/api/products/1 [401 Unauthorized, 187B, 10ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: stock-in
+  POST http://127.0.0.1:8006/api/inventory/1/stock-in [401 Unauthorized, 187B, 8ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: history
+  GET http://127.0.0.1:8006/api/inventory/1/history [401 Unauthorized, 187B, 7ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: low-stock report
+  GET http://127.0.0.1:8006/api/inventory/low-stock [401 Unauthorized, 187B, 7ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: create category
+  POST http://127.0.0.1:8006/api/categories/ [401 Unauthorized, 187B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: create product
+  POST http://127.0.0.1:8006/api/products/ [401 Unauthorized, 187B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: update product
+  PATCH http://127.0.0.1:8006/api/products/1 [401 Unauthorized, 187B, 7ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: delete product
+  DELETE http://127.0.0.1:8006/api/products/1 [401 Unauthorized, 187B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: stock-in
+  POST http://127.0.0.1:8006/api/inventory/1/stock-in [401 Unauthorized, 187B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: history
+  GET http://127.0.0.1:8006/api/inventory/1/history [401 Unauthorized, 187B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: low-stock report
+  GET http://127.0.0.1:8006/api/inventory/low-stock [401 Unauthorized, 187B, 4ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: create category
+  POST http://127.0.0.1:8006/api/categories/ [401 Unauthorized, 187B, 7ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: create product
+  POST http://127.0.0.1:8006/api/products/ [401 Unauthorized, 187B, 12ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: update product
+  PATCH http://127.0.0.1:8006/api/products/1 [401 Unauthorized, 187B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: delete product
+  DELETE http://127.0.0.1:8006/api/products/1 [401 Unauthorized, 187B, 14ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: stock-in
+  POST http://127.0.0.1:8006/api/inventory/1/stock-in [401 Unauthorized, 187B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: history
+  GET http://127.0.0.1:8006/api/inventory/1/history [401 Unauthorized, 187B, 10ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: low-stock report
+  GET http://127.0.0.1:8006/api/inventory/low-stock [401 Unauthorized, 187B, 10ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: create category
+  POST http://127.0.0.1:8006/api/categories/ [401 Unauthorized, 187B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Folder L Live service: public reads
+Sub-folder Health
+  GET http://127.0.0.1:8006/health [200 OK, 186B, 6ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+Sub-folder Database health
+  GET http://127.0.0.1:8006/health/db [200 OK, 146B, 8ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+Sub-folder List products
+  GET http://127.0.0.1:8006/api/products/ [200 OK, 170B, 10ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  paging fields
+  Pass  only active products
+
+Sub-folder Search, filter, page and sort
+  GET http://127.0.0.1:8006/api/products/?search=mobile&min_price=1000&max_price=5000&availability=in_stock&page=1&page_size=10&sort_by=price&sort_order=asc [200 OK, 170B, 12ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  page 1 of size 10
+  Pass  ascending prices
+
+Sub-folder List categories
+  GET http://127.0.0.1:8006/api/categories/ [200 OK, 109B, 14ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+----------------------------------------------------------------
+|                         |         executed |          failed |
+--------------------------+------------------+------------------
+|              iterations |                1 |               0 |
+--------------------------+------------------+------------------
+|                requests |               30 |               0 |
+--------------------------+------------------+------------------
+|            test-scripts |               60 |               0 |
+--------------------------+------------------+------------------
+|      prerequest-scripts |               30 |               0 |
+--------------------------+------------------+------------------
+|              assertions |              110 |               0 |
+----------------------------------------------------------------
+| total run duration: 2.7s                                     |
+----------------------------------------------------------------
+| total data received: 1.57kB (approx)                         |
+----------------------------------------------------------------
+| average response time: 10ms [min: 4ms, max: 37ms, s.d.: 5ms] |
+----------------------------------------------------------------
+(node:6444) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)

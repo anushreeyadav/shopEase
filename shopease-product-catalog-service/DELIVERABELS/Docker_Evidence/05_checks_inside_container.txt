@@ -1,0 +1,35 @@
+# Recorded 2026-11-12 13:09:25 UTC
+# Run inside the running container: docker compose exec catalog-service python - < check.py
+# (check.py is reproduced in README.md of this folder)
+GET /health -> 200 application/json
+  {"status":"ok","service":"ShopEase Product Catalog Service","version":"1.0.0"}
+GET /health/db -> 200 application/json
+  {"status":"ok","database":"connected"}
+GET /docs -> 200 text/html; charset=utf-8
+  <title>: ShopEase Product Catalog Service - Swagger UI
+  loads Swagger UI: True, points to: '/openapi.json'
+GET /openapi.json -> 200; title 'ShopEase Product Catalog Service', version 1.0.0, 12 paths
+POST http://host.docker.internal:8001/api/auth/verify-token (no token, straight from this container) -> 401
+  {"detail":"Could not validate credentials"}
+
+$ docker compose exec catalog-service sh -c "id; python --version; ls -A /app; ..."
+uid=999(app) gid=999(app) groups=999(app)
+Python 3.11.18
+files in /app:
+alembic
+alembic.ini
+app
+requirements.txt
+.env present in /app: no
+connection settings (passwords not shown):
+APP_ENV=development
+AUTH_SERVICE_VERIFY_URL=http://host.docker.internal:8001/api/auth/verify-token
+MYSQL_DATABASE=shopease_product_catalog_db
+MYSQL_HOST=catalog-mysql
+MYSQL_PORT=3306
+MYSQL_USER=catalog_svc
+SERVICE_HOST=0.0.0.0
+SERVICE_PORT=8006
+MYSQL_PASSWORD set: yes
+alembic current:
+c4a7d2e91b30 (head)

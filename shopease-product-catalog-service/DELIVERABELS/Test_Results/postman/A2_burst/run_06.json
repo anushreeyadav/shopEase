@@ -1,0 +1,5856 @@
+{
+  "collection": {
+    "item": [
+      {
+        "id": "c8fda5b0-a1e5-4e8c-91a4-e51761a85d50",
+        "name": "00 Setup",
+        "item": [
+          {
+            "id": "6f2e4430-b967-4737-86e9-5a55e9709f8d",
+            "name": "Health",
+            "request": {
+              "url": {
+                "path": [
+                  "health"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "5dd039d0-428b-493e-b73e-86c1b4e4c152",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "7d1e0a57-93dc-45f2-b2c1-6727e5722603",
+            "name": "Database health",
+            "request": {
+              "url": {
+                "path": [
+                  "health",
+                  "db"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "8cea8520-3f5a-4ff4-9dd7-059c9662327f",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "d09a64de-82aa-45fd-9810-96ee4b963cbc",
+            "name": "Create category Phones",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"PM{{run_id}} Phones\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "274a37ff-c553-4f74-9a88-fa568984c550",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));",
+                    "if (pm.response.code < 300) pm.environment.set('category_id', pm.response.json().id);"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "ae8d1173-ce5c-40fd-8977-d80e1cd71af7",
+            "name": "Create category Laptops",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"PM{{run_id}} Laptops\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "e3e5e4da-8033-43f9-ba80-ee6570180540",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));",
+                    "if (pm.response.code < 300) pm.environment.set('laptop_category_id', pm.response.json().id);"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "1210c34f-2202-433f-a53d-cb3e6fe02b2a",
+            "name": "Create category Archive",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"PM{{run_id}} Archive\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "667b2a1e-f64e-4c69-beaa-fa4557d61449",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));",
+                    "if (pm.response.code < 300) pm.environment.set('archive_category_id', pm.response.json().id);"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "fef27575-f5d3-43fb-89e9-20f366fc22e6",
+            "name": "Deactivate category Archive",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  "{{archive_category_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"is_active\": false\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "95847a92-d042-4745-8fd1-0719a5cb6a84",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "7bcf4ba6-b294-4cce-963a-49147bbe00f3",
+        "name": "01 Create a product with valid information",
+        "item": [
+          {
+            "id": "bb69d4a1-e3eb-4937-b2cf-23773f1772a2",
+            "name": "Create product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} Galaxy Mobile\",\n  \"sku\": \"PM{{run_id}}-mob-1\",\n  \"price\": \"1499.5\",\n  \"initial_stock\": 7,\n  \"discount_price\": \"1299.00\",\n  \"brand\": \"Galaxy\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "dac0d5f0-1636-4e79-b140-0bb959d8412c",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));",
+                    "if (pm.response.code < 300) pm.environment.set('product_id', pm.response.json().id);",
+                    "const p = pm.response.json();",
+                    "pm.test('SKU stored upper-case', () => pm.expect(p.sku).to.eql('PM' + pm.environment.get('run_id') + '-MOB-1'));",
+                    "pm.test('prices as two-place decimals', () => { pm.expect(p.price).to.eql('1499.50'); pm.expect(p.effective_price).to.eql('1299.00'); });",
+                    "pm.test('stock 7, active, in its category', () => { pm.expect(p.stock_quantity).to.eql(7); pm.expect(p.is_active).to.be.true; pm.expect(p.category_id).to.eql(Number(pm.environment.get('category_id'))); });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "a1fb32f2-8eb0-4bfd-b4eb-2f80aa51dffd",
+            "name": "Initial stock was recorded as an IN transaction",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "history"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "2e9021cf-4067-4523-9345-e7de417be880",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "const h = pm.response.json();",
+                    "pm.test('one IN 7 from 0, remarks Initial stock', () => { pm.expect(h.total).to.eql(1); const t = h.items[0]; pm.expect([t.transaction_type, t.quantity, t.previous_stock, t.updated_stock, t.remarks]).to.eql(['IN', 7, 0, 7, 'Initial stock']); });"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "c82a94ff-22f2-4282-add8-ba3a104c82c6",
+        "name": "02 Create a product with a duplicate SKU",
+        "item": [
+          {
+            "id": "5a487db1-f113-4ca1-8864-09483564ab95",
+            "name": "Same SKU",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} Copy\",\n  \"sku\": \"PM{{run_id}}-MOB-1\",\n  \"price\": \"1.00\",\n  \"initial_stock\": 0\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "17202c19-b364-495b-9652-fc61058409d5",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 409', () => pm.response.to.have.status(409));",
+                    "pm.test('detail: A product with this SKU already exists', () => pm.expect(pm.response.json().detail).to.eql(\"A product with this SKU already exists\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "42892ff5-39ed-4a4d-96f3-2deae53499e1",
+            "name": "Same SKU, other letter case",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"Copy\",\n  \"sku\": \"pm{{run_id}}-mob-1\",\n  \"price\": \"1.00\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "1d9c394e-1fff-4e98-b40c-7a4f721be058",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 409', () => pm.response.to.have.status(409));",
+                    "pm.test('detail: A product with this SKU already exists', () => pm.expect(pm.response.json().detail).to.eql(\"A product with this SKU already exists\"));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "60c5432e-c231-4a86-beed-278c19c67738",
+        "name": "03 Create a product with an invalid category",
+        "item": [
+          {
+            "id": "6f66f891-4d30-4ed6-a615-98589b0ce47e",
+            "name": "Category does not exist",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": 999999,\n  \"name\": \"PM{{run_id}} Orphan\",\n  \"sku\": \"PM{{run_id}}-BAD-CAT-1\",\n  \"price\": \"1.00\",\n  \"initial_stock\": 0\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a94adab0-3d45-406c-9961-dc3558d2158a",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on category_id', () => { const e = pm.response.json().errors.filter(x => x.field === 'category_id'); pm.expect(e.length).to.be.above(0); pm.expect(e.map(x => x.message)).to.include(\"category_id does not refer to an existing category\"); });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "0f80edd7-11c5-4363-af60-15a24b8c7129",
+            "name": "Category is inactive",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{archive_category_id}}\",\n  \"name\": \"PM{{run_id}} Orphan\",\n  \"sku\": \"PM{{run_id}}-BAD-CAT-2\",\n  \"price\": \"1.00\",\n  \"initial_stock\": 0\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "b85e310a-5696-47fc-a752-e4cca3686402",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on category_id', () => { const e = pm.response.json().errors.filter(x => x.field === 'category_id'); pm.expect(e.length).to.be.above(0); pm.expect(e.map(x => x.message)).to.include(\"category_id refers to an inactive category\"); });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "df5f8b64-d92e-4c0a-b2b8-600acae215c0",
+            "name": "Category ID not a number",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"abc\",\n  \"name\": \"PM{{run_id}} Orphan\",\n  \"sku\": \"PM{{run_id}}-BAD-CAT-3\",\n  \"price\": \"1.00\",\n  \"initial_stock\": 0\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "dd931509-149f-4682-960b-101a1863c539",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on category_id', () => { const e = pm.response.json().errors.filter(x => x.field === 'category_id'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "2befd52f-90e2-401c-90db-2e1584a84cba",
+        "name": "04 Create a product with a negative price",
+        "item": [
+          {
+            "id": "8a722d45-155c-4d59-a598-b3e0a29da016",
+            "name": "Negative price",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} Negative\",\n  \"sku\": \"PM{{run_id}}-NEG-1\",\n  \"price\": \"-0.01\",\n  \"initial_stock\": 0\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "5626cd8b-8c14-40b3-a083-00831410f8d3",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on price', () => { const e = pm.response.json().errors.filter(x => x.field === 'price'); pm.expect(e.length).to.be.above(0); pm.expect(e.map(x => x.message)).to.include(\"Input should be greater than or equal to 0\"); });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "df0b00cf-f8a4-4ebe-b2a3-85123d48bd4c",
+            "name": "Negative discount price",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} Negative\",\n  \"sku\": \"PM{{run_id}}-NEG-2\",\n  \"price\": \"10.00\",\n  \"initial_stock\": 0,\n  \"discount_price\": \"-1.00\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "7eac440f-c175-4e3c-84cc-dd6c4dc4f527",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on discount_price', () => { const e = pm.response.json().errors.filter(x => x.field === 'discount_price'); pm.expect(e.length).to.be.above(0); pm.expect(e.map(x => x.message)).to.include(\"Input should be greater than or equal to 0\"); });"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "9bab3777-ba11-4c8d-8f46-0ec71d1d0c33",
+        "name": "05 Retrieve all active products",
+        "item": [
+          {
+            "id": "26ea53f3-d9eb-4486-9f3d-055e4003421e",
+            "name": "Setup: product to be hidden",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} Retired Mobile\",\n  \"sku\": \"PM{{run_id}}-HIDDEN\",\n  \"price\": \"999.00\",\n  \"initial_stock\": 1\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "05e26dd3-6d55-4c49-ba30-9664ca7dcd25",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));",
+                    "if (pm.response.code < 300) pm.environment.set('hidden_id', pm.response.json().id);"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "a6ae810d-2db5-4911-afe5-5e7d2903b3b7",
+            "name": "Setup: deactivate it",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{hidden_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "DELETE",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "fb56de01-73ec-4f54-9a9e-606489243cb0",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "33522e49-225f-4061-bf7a-47d25c12c297",
+            "name": "List products, anonymous",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "category_id",
+                    "value": "{{category_id}}"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "38d3591c-0946-4c33-8dfe-bccbee8ba6b7",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "const b = pm.response.json(); const ids = b.items.map(p => p.id);",
+                    "pm.test('only active products', () => pm.expect(b.items.every(p => p.is_active)).to.be.true);",
+                    "pm.test('includes the new product', () => pm.expect(ids).to.include(Number(pm.environment.get('product_id'))));",
+                    "pm.test('leaves out the deactivated one', () => pm.expect(ids).to.not.include(Number(pm.environment.get('hidden_id'))));",
+                    "pm.test('paging fields', () => pm.expect(b).to.have.all.keys('items', 'total', 'page', 'page_size', 'total_pages'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "51a93d7e-ab73-4075-bf6c-6c4a5fa024cd",
+            "name": "Products of an inactive category are hidden",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "category_id",
+                    "value": "{{archive_category_id}}"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "89f3d3c3-6006-4407-9ad1-d9a9f5665f86",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('empty', () => pm.expect(pm.response.json().total).to.eql(0));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "b6b59e37-c4ca-46ad-8767-5e0f26f2466f",
+            "name": "Admin with include_inactive also sees it",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "category_id",
+                    "value": "{{category_id}}"
+                  },
+                  {
+                    "key": "include_inactive",
+                    "value": "true"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "3f3c4323-d32a-4082-b322-0753e2358c94",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('includes the deactivated product', () => pm.expect(pm.response.json().items.map(p => p.id)).to.include(Number(pm.environment.get('hidden_id'))));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "25297809-0943-47a1-8932-657f7a836e3a",
+        "name": "06 Retrieve product details using an invalid ID",
+        "item": [
+          {
+            "id": "f6559ecb-95f7-4f32-a241-419345c7711c",
+            "name": "ID not a number",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "abc"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "534bd3f8-59b9-494f-9d9b-f358fa27a611",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on product_id', () => { const e = pm.response.json().errors.filter(x => x.field === 'product_id'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "77aa2e31-3cc2-424b-acb6-2f92154e799c",
+            "name": "ID 0",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "0"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "97eb4376-545f-4cb0-bf30-233de69328a4",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on product_id', () => { const e = pm.response.json().errors.filter(x => x.field === 'product_id'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "1a16c3f2-d312-42ad-bcd2-802584eeddb5",
+            "name": "ID above the database range",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "2147483648"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "4b3f200f-8419-4e5b-88ab-54d9fd8efab9",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on product_id', () => { const e = pm.response.json().errors.filter(x => x.field === 'product_id'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "0c7104f8-c011-47fc-ad57-7ba3f5c4cddb",
+            "name": "ID that does not exist",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "999999"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "5b66137d-f897-40d4-83f5-06ef58082863",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 404', () => pm.response.to.have.status(404));",
+                    "pm.test('detail: Product not found', () => pm.expect(pm.response.json().detail).to.eql(\"Product not found\"));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "0ff3534f-ad5d-4eb5-ad5a-4fdf351b915b",
+        "name": "07 Update a product",
+        "item": [
+          {
+            "id": "1f79328b-89f0-4ae6-a385-9180d6021e3d",
+            "name": "Replace product (PUT)",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PUT",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} Galaxy Mobile\",\n  \"description\": \"2026 model\",\n  \"sku\": \"PM{{run_id}}-MOB-1\",\n  \"price\": \"1500.00\",\n  \"discount_price\": null,\n  \"image_url\": null,\n  \"brand\": \"Galaxy\",\n  \"is_active\": true\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "79f17e60-08cc-4b8d-9427-d118a40c6fdd",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "const p = pm.response.json();",
+                    "pm.test('fields replaced, stock unchanged', () => { pm.expect(p.description).to.eql('2026 model'); pm.expect(p.price).to.eql('1500.00'); pm.expect(p.discount_price).to.eql(null); pm.expect(p.stock_quantity).to.eql(7); });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "22d309a7-8b40-43e1-866d-6dbd7b1a1089",
+            "name": "PUT without every field",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PUT",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Only a name\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "22e86bdb-d48b-42d4-8d08-acfe99991063",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on sku', () => { const e = pm.response.json().errors.filter(x => x.field === 'sku'); pm.expect(e.length).to.be.above(0);  });",
+                    "pm.test('error on price', () => { const e = pm.response.json().errors.filter(x => x.field === 'price'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "0eacdede-0718-43f6-ae98-c0fd8ea5c7f4",
+            "name": "PUT a missing product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "999999"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PUT",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"X\",\n  \"description\": null,\n  \"sku\": \"PM{{run_id}}-X\",\n  \"price\": \"1.00\",\n  \"discount_price\": null,\n  \"image_url\": null,\n  \"brand\": null,\n  \"is_active\": true\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "5a45dfbc-e7e3-4147-946a-6801e8a80278",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 404', () => pm.response.to.have.status(404));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "8ff1600a-c3a5-4dbf-a534-967c5a7d7921",
+        "name": "08 Partially update a product",
+        "item": [
+          {
+            "id": "83711dc9-8904-4641-8c42-8a7c833b6374",
+            "name": "Change the price only (PATCH)",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"price\": \"1450.00\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "73ffac98-3d30-4446-8780-c4cc974048e6",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "const p = pm.response.json();",
+                    "pm.test('price changed, the rest kept', () => { pm.expect(p.price).to.eql('1450.00'); pm.expect(p.description).to.eql('2026 model'); pm.expect(p.stock_quantity).to.eql(7); });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "bf835dbd-21c9-452a-b163-b200c5f15e2d",
+            "name": "stock_quantity cannot be patched",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"stock_quantity\": 999\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "b004b534-e993-4174-8580-ec74b6561c95",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on stock_quantity', () => { const e = pm.response.json().errors.filter(x => x.field === 'stock_quantity'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "ea216e59-4991-464a-8d96-37bb1d53c890",
+            "name": "Discount not below price",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"discount_price\": \"1450.00\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "44104970-bf68-4269-8b94-50cb7c28150d",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on discount_price', () => { const e = pm.response.json().errors.filter(x => x.field === 'discount_price'); pm.expect(e.length).to.be.above(0); pm.expect(e.map(x => x.message)).to.include(\"discount_price must be lower than price\"); });"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "a92d66bf-124d-4ec3-ba6b-330c310c497d",
+        "name": "09 Delete or deactivate a product",
+        "item": [
+          {
+            "id": "bcd0cee4-223f-48cf-8991-19454ca8c8bd",
+            "name": "Setup: product to delete",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} To Delete\",\n  \"sku\": \"PM{{run_id}}-DEL-1\",\n  \"price\": \"5.00\",\n  \"initial_stock\": 2\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "1dfe4e00-4b86-441b-84f8-c248ab13443a",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));",
+                    "if (pm.response.code < 300) pm.environment.set('delete_id', pm.response.json().id);"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "02d03801-7f12-4660-b706-105150ae371b",
+            "name": "Delete (deactivate)",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{delete_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "DELETE",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "26eb248f-4282-431c-a6a3-85c2dd4a3b73",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('message', () => pm.expect(pm.response.json().message).to.eql('Product deactivated'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "ffa7d2f1-8d1e-4232-b529-3994b4f02491",
+            "name": "Customers no longer see it",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{delete_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "28166d20-8cb7-4a35-aee0-3f6564c29430",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 404', () => pm.response.to.have.status(404));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "47026e1b-fe11-443b-bc56-754861f6248c",
+            "name": "The record is kept, inactive",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{delete_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "include_inactive",
+                    "value": "true"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "578f2773-4484-4622-9f93-41f15aa18b28",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('is_active false', () => pm.expect(pm.response.json().is_active).to.be.false);"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "557cac3c-62c6-4ced-8013-b38c8955ae2c",
+            "name": "Its stock history is kept",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{delete_id}}",
+                  "history"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "3644b720-5762-47a8-a569-028828293dad",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('1 transaction', () => pm.expect(pm.response.json().total).to.eql(1));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "67ea8f87-114c-448a-a893-309ded3db6cd",
+            "name": "Delete a missing product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "999999"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "DELETE",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a79dea38-f792-4d39-8493-d62476a2905b",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 404', () => pm.response.to.have.status(404));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "bb6196fa-f703-4269-8b8c-45618aa19916",
+        "name": "10 Create a duplicate category",
+        "item": [
+          {
+            "id": "fa770e4b-1373-467e-a021-26c5648e15bf",
+            "name": "Same name, other letter case",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"pm{{run_id}} PHONES\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a2cd9ee4-7f3f-450c-ab53-16ed5a60609c",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 409', () => pm.response.to.have.status(409));",
+                    "pm.test('detail: A category with this name already exists', () => pm.expect(pm.response.json().detail).to.eql(\"A category with this name already exists\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "7207bca9-f7ff-4bc5-a77f-de1dfd5f3bbf",
+            "name": "Same name with extra spaces",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"  PM{{run_id}}   Phones \"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "07c5595a-7568-490c-91c1-c63bcee2b928",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 409', () => pm.response.to.have.status(409));",
+                    "pm.test('detail: A category with this name already exists', () => pm.expect(pm.response.json().detail).to.eql(\"A category with this name already exists\"));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "335c84f5-a9f6-4929-8897-1e1589be0be9",
+        "name": "11 Search and filter products",
+        "item": [
+          {
+            "id": "d6c77d2a-5142-493c-96e4-2ee06f421950",
+            "name": "Setup: Budget Phone 800, stock 12",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} Budget Phone\",\n  \"sku\": \"PM{{run_id}}-PHN-1\",\n  \"price\": \"800.00\",\n  \"initial_stock\": 12\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "71c7e2a2-4543-4a54-bc3c-165ec0ae903b",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "5517a6bb-d5d5-403a-89c6-efb7bb72b881",
+            "name": "Setup: Pixel Mobile 4500, stock 0",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} Pixel Mobile\",\n  \"sku\": \"PM{{run_id}}-MOB-2\",\n  \"price\": \"4500.00\",\n  \"initial_stock\": 0\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "d5b60d57-94b1-44ae-97f5-1bd9294200ce",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "56ad7ca6-a7ee-44e4-ae8e-09133bca0da3",
+            "name": "Setup: Ultrabook 5000, stock 7 (Laptops)",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{laptop_category_id}}\",\n  \"name\": \"PM{{run_id}} Ultrabook\",\n  \"sku\": \"PM{{run_id}}-LAP-1\",\n  \"price\": \"5000.00\",\n  \"initial_stock\": 7\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "de01f15c-97f3-4f31-a70a-627a75868e8f",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "824b9d3b-e447-482f-964a-7c6836da8116",
+            "name": "search=mobile in Phones",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "mobile"
+                  },
+                  {
+                    "key": "category_id",
+                    "value": "{{category_id}}"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "980eb80b-d147-4496-8964-a81feb7df9d0",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('SKUs in order: MOB-1, MOB-2', () => pm.expect(pm.response.json().items.map(p => p.sku)).to.eql(['PM' + pm.environment.get('run_id') + '-MOB-1', 'PM' + pm.environment.get('run_id') + '-MOB-2']));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "e67b9f6b-8038-4569-8647-248947fd13c5",
+            "name": "search by SKU part",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "pm{{run_id}}-lap"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "29ad05e3-ab5a-4701-837b-ca30c67bdb91",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('SKUs in order: LAP-1', () => pm.expect(pm.response.json().items.map(p => p.sku)).to.eql(['PM' + pm.environment.get('run_id') + '-LAP-1']));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "03a94ff5-1557-4b6a-baa2-d948c9cc729e",
+            "name": "category_id=Laptops",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "category_id",
+                    "value": "{{laptop_category_id}}"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "84ab4ab8-845f-4aa5-9a37-2359a2fc9c20",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('SKUs in order: LAP-1', () => pm.expect(pm.response.json().items.map(p => p.sku)).to.eql(['PM' + pm.environment.get('run_id') + '-LAP-1']));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "0dc723ea-d505-4fbe-833f-87fd67942e48",
+            "name": "min_price=1000&max_price=5000",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "PM{{run_id}}"
+                  },
+                  {
+                    "key": "min_price",
+                    "value": "1000"
+                  },
+                  {
+                    "key": "max_price",
+                    "value": "5000"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a8bf2f21-61be-457c-8615-a247b79fd77d",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('SKUs in order: MOB-1, MOB-2, LAP-1', () => pm.expect(pm.response.json().items.map(p => p.sku)).to.eql(['PM' + pm.environment.get('run_id') + '-MOB-1', 'PM' + pm.environment.get('run_id') + '-MOB-2', 'PM' + pm.environment.get('run_id') + '-LAP-1']));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "c6c70cf3-ee75-45b0-8d24-23993827f281",
+            "name": "availability=out_of_stock",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "PM{{run_id}}"
+                  },
+                  {
+                    "key": "availability",
+                    "value": "out_of_stock"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "5ab44e8e-d116-4e9d-8599-ff52c3affdd1",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('SKUs in order: MOB-2', () => pm.expect(pm.response.json().items.map(p => p.sku)).to.eql(['PM' + pm.environment.get('run_id') + '-MOB-2']));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "7036b6ee-c334-41e5-895c-f0bacf40a991",
+            "name": "Combined: mobile, Phones, in stock",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "mobile"
+                  },
+                  {
+                    "key": "category_id",
+                    "value": "{{category_id}}"
+                  },
+                  {
+                    "key": "availability",
+                    "value": "in_stock"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "331c0c5f-a045-41f4-8d95-bf10b12788c3",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('SKUs in order: MOB-1', () => pm.expect(pm.response.json().items.map(p => p.sku)).to.eql(['PM' + pm.environment.get('run_id') + '-MOB-1']));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "936337db-f636-4e76-9ab4-4ee2a74ad0c1",
+            "name": "max_price below min_price",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "min_price",
+                    "value": "50"
+                  },
+                  {
+                    "key": "max_price",
+                    "value": "10"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "71eb141a-d044-4ccc-8ccd-235a78486bb9",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on max_price', () => { const e = pm.response.json().errors.filter(x => x.field === 'max_price'); pm.expect(e.length).to.be.above(0); pm.expect(e.map(x => x.message)).to.include(\"max_price must not be lower than min_price\"); });"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "982bcdc2-0ad4-4c20-9fce-37b218fdd759",
+        "name": "12 Test pagination and sorting",
+        "item": [
+          {
+            "id": "0a4735b7-4493-4638-ba6d-f4bb03a22ea0",
+            "name": "Page 1, 2 per page, by price",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "PM{{run_id}}"
+                  },
+                  {
+                    "key": "page",
+                    "value": "1"
+                  },
+                  {
+                    "key": "page_size",
+                    "value": "2"
+                  },
+                  {
+                    "key": "sort_by",
+                    "value": "price"
+                  },
+                  {
+                    "key": "sort_order",
+                    "value": "asc"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "b1c930d4-7fb2-44fe-8e74-e64189a7962c",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('SKUs in order: PHN-1, MOB-1', () => pm.expect(pm.response.json().items.map(p => p.sku)).to.eql(['PM' + pm.environment.get('run_id') + '-PHN-1', 'PM' + pm.environment.get('run_id') + '-MOB-1']));",
+                    "const b = pm.response.json(); pm.test('total 4, 2 pages', () => pm.expect([b.total, b.page, b.page_size, b.total_pages]).to.eql([4, 1, 2, 2]));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "fa6bbeb9-270d-4ed8-886e-591aece58d49",
+            "name": "Page 2",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "PM{{run_id}}"
+                  },
+                  {
+                    "key": "page",
+                    "value": "2"
+                  },
+                  {
+                    "key": "page_size",
+                    "value": "2"
+                  },
+                  {
+                    "key": "sort_by",
+                    "value": "price"
+                  },
+                  {
+                    "key": "sort_order",
+                    "value": "asc"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "c2566c28-1a72-4736-8803-2daa671dee0c",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('SKUs in order: MOB-2, LAP-1', () => pm.expect(pm.response.json().items.map(p => p.sku)).to.eql(['PM' + pm.environment.get('run_id') + '-MOB-2', 'PM' + pm.environment.get('run_id') + '-LAP-1']));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "df6f0627-cac7-4bd2-9747-13e65607ed4a",
+            "name": "Price descending",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "PM{{run_id}}"
+                  },
+                  {
+                    "key": "sort_by",
+                    "value": "price"
+                  },
+                  {
+                    "key": "sort_order",
+                    "value": "desc"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "9fc46280-637a-4940-9136-f0c7a05c48aa",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('SKUs in order: LAP-1, MOB-2, MOB-1, PHN-1', () => pm.expect(pm.response.json().items.map(p => p.sku)).to.eql(['PM' + pm.environment.get('run_id') + '-LAP-1', 'PM' + pm.environment.get('run_id') + '-MOB-2', 'PM' + pm.environment.get('run_id') + '-MOB-1', 'PM' + pm.environment.get('run_id') + '-PHN-1']));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "1d2126cb-a740-482a-a2b3-c7297a5df345",
+            "name": "Name ascending (default)",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "PM{{run_id}}"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "0326e609-c0e5-49fc-84db-9e912c6fd2ce",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('SKUs in order: PHN-1, MOB-1, MOB-2, LAP-1', () => pm.expect(pm.response.json().items.map(p => p.sku)).to.eql(['PM' + pm.environment.get('run_id') + '-PHN-1', 'PM' + pm.environment.get('run_id') + '-MOB-1', 'PM' + pm.environment.get('run_id') + '-MOB-2', 'PM' + pm.environment.get('run_id') + '-LAP-1']));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "a053c195-d464-406f-a289-97b3e9d599d5",
+            "name": "Page past the end",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "PM{{run_id}}"
+                  },
+                  {
+                    "key": "page",
+                    "value": "9"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "9fe1805c-7e9f-41a5-811c-9501f0679eb6",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('no items, total 4', () => { pm.expect(pm.response.json().items).to.eql([]); pm.expect(pm.response.json().total).to.eql(4); });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "3f4fe64d-eca3-43d6-939e-56f6354c9777",
+            "name": "page=0",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "page",
+                    "value": "0"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "716c0b7d-7f5d-4799-9b5d-0a62f85e3705",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on page', () => { const e = pm.response.json().errors.filter(x => x.field === 'page'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "2d10e26d-2de0-4ed2-b3c0-bd2f45c13b0d",
+            "name": "page_size=101",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "page_size",
+                    "value": "101"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "db73c695-97f6-4d81-86a6-c6ecf81d1a2a",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on page_size', () => { const e = pm.response.json().errors.filter(x => x.field === 'page_size'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "a17c218d-2cfe-4f77-9d7d-b1794b466e0d",
+            "name": "sort_by not allowed",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "sort_by",
+                    "value": "id"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "9284c348-f6c3-4d87-99d5-cf241866a10e",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on sort_by', () => { const e = pm.response.json().errors.filter(x => x.field === 'sort_by'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "ca6d959c-54c8-4dc0-bb66-f061c81087d3",
+        "name": "13 Increase product stock",
+        "item": [
+          {
+            "id": "acb9476c-6804-40ff-bce4-c2d733615b98",
+            "name": "Stock-in 5",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "stock-in"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 5,\n  \"remarks\": \"Supplier delivery\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "2e76702f-786e-4df0-add8-e4f96cfcc7c3",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));",
+                    "const t = pm.response.json().transaction;",
+                    "pm.test('IN 5: 7 -> 12', () => pm.expect([t.transaction_type, t.quantity, t.previous_stock, t.updated_stock]).to.eql(['IN', 5, 7, 12]));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "6c862a20-cba8-46f9-9598-71334d6aef82",
+            "name": "Current stock is 12",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "f87984b9-437f-49eb-9ac7-d73e60509fa7",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('12', () => pm.expect(pm.response.json().stock_quantity).to.eql(12));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "10011780-5c1b-41e7-a21a-f19247920a97",
+        "name": "14 Decrease product stock",
+        "item": [
+          {
+            "id": "79c5d6a0-323f-42b2-adf9-31e6be62c832",
+            "name": "Stock-out 4",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "stock-out"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 4,\n  \"remarks\": \"Order 1001\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "528d229d-d896-4118-9af2-61447b5cd3ed",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));",
+                    "const t = pm.response.json().transaction;",
+                    "pm.test('OUT 4: 12 -> 8', () => pm.expect([t.transaction_type, t.quantity, t.previous_stock, t.updated_stock]).to.eql(['OUT', 4, 12, 8]));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "93f88cae-2a3f-49ff-aa1c-4c23571f11ff",
+        "name": "15 Attempt to reduce stock below zero",
+        "item": [
+          {
+            "id": "36a1c7fb-b419-4056-ae43-63fcc25f1982",
+            "name": "Stock-out 9 with 8 available",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "stock-out"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 9\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "9d80321b-ba90-4af7-976d-5cd63b609056",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 409', () => pm.response.to.have.status(409));",
+                    "pm.test('detail: Insufficient stock: 8 available, 9 requested', () => pm.expect(pm.response.json().detail).to.eql(\"Insufficient stock: 8 available, 9 requested\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "5bb5118f-e850-480a-a236-91573f0392f4",
+            "name": "Stock is still 8",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "119074db-8608-474e-8c88-618afd1cf65a",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('8', () => pm.expect(pm.response.json().stock_quantity).to.eql(8));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "3ceb8223-a6a2-464a-b5c8-935681d78ba2",
+            "name": "Quantity 0",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "stock-out"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 0\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a5cfbc32-a2f5-4b33-9667-513c679b73b9",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on quantity', () => { const e = pm.response.json().errors.filter(x => x.field === 'quantity'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "6c524dd4-ddaa-4e56-89a7-02b8bbb5fc82",
+            "name": "Negative quantity",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "stock-out"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": -1\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "d1497970-b4b9-4ee8-a94d-2f316f88781e",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 422', () => pm.response.to.have.status(422));",
+                    "pm.test('error on quantity', () => { const e = pm.response.json().errors.filter(x => x.field === 'quantity'); pm.expect(e.length).to.be.above(0);  });"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "1625d8c0-b302-42fe-bd4b-62a3053e1558",
+        "name": "16 Verify inventory transaction history",
+        "item": [
+          {
+            "id": "781ae8fd-090e-4fa8-9351-54b4a9359c05",
+            "name": "History",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "history"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "79918939-97c4-4abd-844b-2dfffe0a4635",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "const h = pm.response.json();",
+                    "pm.test('3 transactions, newest first', () => pm.expect(h.items.map(t => t.transaction_type + ' ' + t.quantity)).to.eql(['OUT 4', 'IN 5', 'IN 7']));",
+                    "pm.test('every field', () => pm.expect(h.items[0]).to.have.all.keys('id', 'product_id', 'transaction_type', 'quantity', 'previous_stock', 'updated_stock', 'remarks', 'created_at'));",
+                    "const rows = pm.response.json().items.slice().reverse();\nlet level = 0, broken = [];\nrows.forEach(r => { const s = r.transaction_type === 'IN' ? 1 : -1;\n  if (r.previous_stock !== level || r.updated_stock !== level + s * r.quantity || r.updated_stock < 0) broken.push(r.id);\n  level = r.updated_stock; });\npm.test('history replays without a gap: ' + rows.map(r => r.updated_stock).join(' > '), () => pm.expect(broken).to.eql([]));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "83819aaa-0414-417d-a1d3-e89e8f07126f",
+        "name": "17 Retrieve low-stock products",
+        "item": [
+          {
+            "id": "48afa983-3887-4400-b118-399e9e285f15",
+            "name": "Stock-out 4: down to 4",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "stock-out"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 4\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "ac4be7ad-db64-4283-8943-817048bb7e93",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));",
+                    "pm.test('is_low_stock', () => pm.expect(pm.response.json().stock.is_low_stock).to.be.true);"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "d6c3bfa2-0494-46fa-ba94-d462ef074b3c",
+            "name": "Low-stock report",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "low-stock"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "4aaa9439-120a-4873-b082-e9ec564b1d7e",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "const r = pm.response.json(); const mine = r.filter(x => x.sku.startsWith('PM' + pm.environment.get('run_id') + '-'));",
+                    "pm.test('this run: Pixel (0) and Galaxy (4); not Ultrabook (7) or Budget Phone (12)', () => pm.expect(mine.map(x => x.sku.split('-').slice(1).join('-') + ':' + x.stock_quantity)).to.eql(['MOB-2:0', 'MOB-1:4']));",
+                    "pm.test('all at or below the threshold', () => pm.expect(r.every(x => x.is_low_stock && x.stock_quantity <= x.low_stock_threshold)).to.be.true);"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "9ada2f8e-64f2-405a-b3f3-4bf2e30408c8",
+        "name": "18 Access administrative APIs as a CUSTOMER",
+        "item": [
+          {
+            "id": "883680bb-c6b3-4827-93d6-e33a90ecbc90",
+            "name": "Customer can view a product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{customer_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "96078bd3-761a-4fdf-9b6a-bfc21da37863",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "ae59f3eb-978e-46c1-883d-7c3282816f77",
+            "name": "Customer: create category",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"PM{{run_id}} Nope\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{customer_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "98dc403c-ffb7-4a63-bbc8-c0aebc8eba48",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 403', () => pm.response.to.have.status(403));",
+                    "pm.test('detail: Admin role required', () => pm.expect(pm.response.json().detail).to.eql(\"Admin role required\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "ab8e1ef6-4fae-42fc-964f-437ff9d982b5",
+            "name": "Customer: create product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} Nope\",\n  \"sku\": \"PM{{run_id}}-NOPE\",\n  \"price\": \"1.00\",\n  \"initial_stock\": 0\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{customer_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "451716f6-deca-4ae4-8e30-8cad5801b856",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 403', () => pm.response.to.have.status(403));",
+                    "pm.test('detail: Admin role required', () => pm.expect(pm.response.json().detail).to.eql(\"Admin role required\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "a8066cbb-68ad-4ce3-ac6e-59ae3276fdd9",
+            "name": "Customer: update product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"price\": \"0.01\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{customer_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "0d0b8102-e116-48a2-932f-755ccdd8af07",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 403', () => pm.response.to.have.status(403));",
+                    "pm.test('detail: Admin role required', () => pm.expect(pm.response.json().detail).to.eql(\"Admin role required\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "a2deccb6-2fc9-43b9-a5a4-28b1ca788772",
+            "name": "Customer: delete product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "DELETE",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{customer_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "781ed85b-ae89-4110-9684-c9476f6610f9",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 403', () => pm.response.to.have.status(403));",
+                    "pm.test('detail: Admin role required', () => pm.expect(pm.response.json().detail).to.eql(\"Admin role required\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "83107624-43e5-4746-b5ae-0cb5e8da5ded",
+            "name": "Customer: stock-in",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "stock-in"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 1\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{customer_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "caded8e7-ee45-4398-97f9-517fa2503a19",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 403', () => pm.response.to.have.status(403));",
+                    "pm.test('detail: Admin role required', () => pm.expect(pm.response.json().detail).to.eql(\"Admin role required\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "27cd9b56-0b15-4169-82d5-3e45d9573cb7",
+            "name": "Customer: stock-out",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "stock-out"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 1\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{customer_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "dd3a6bb6-c5ba-4243-bc02-b253ce2554a5",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 403', () => pm.response.to.have.status(403));",
+                    "pm.test('detail: Admin role required', () => pm.expect(pm.response.json().detail).to.eql(\"Admin role required\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "c567f270-c901-4b40-8538-35700aae9084",
+            "name": "Customer: history",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}",
+                  "history"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{customer_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "11ca33cf-2c50-4ec7-bd66-10a303f1c827",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 403', () => pm.response.to.have.status(403));",
+                    "pm.test('detail: Admin role required', () => pm.expect(pm.response.json().detail).to.eql(\"Admin role required\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "57ff8e30-baf2-4d65-b10a-85f8ee172633",
+            "name": "Customer: low-stock report",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "low-stock"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{customer_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "190bb93d-a9ff-4278-9de3-16f121179d00",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 403', () => pm.response.to.have.status(403));",
+                    "pm.test('detail: Admin role required', () => pm.expect(pm.response.json().detail).to.eql(\"Admin role required\"));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "a6416552-b3fe-47cf-845c-94a3afc81491",
+            "name": "Nothing changed",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "9ff577d8-d94d-42c8-bc0d-856054794b9a",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('stock still 4', () => pm.expect(pm.response.json().stock_quantity).to.eql(4));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "89beedc6-917e-41a5-8830-13986016e37a",
+        "name": "19 Access protected APIs without a JWT and with an invalid token",
+        "item": [
+          {
+            "id": "5cc27109-f5ef-4ab3-b092-92caf35d0433",
+            "name": "No token: create product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": 1,\n  \"name\": \"X\",\n  \"sku\": \"X-1\",\n  \"price\": \"1.00\"\n}"
+              },
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "3fac4487-aea9-4403-8ca9-b034abba3c40",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "031b5fc4-4771-42b5-bddc-b0a577184aaa",
+            "name": "No token: update product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "1"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"price\": \"0.01\"\n}"
+              },
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "8d7e96d0-0411-49aa-b382-48622dfd64c8",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "c053dba0-c785-4a89-8640-72e41cbff108",
+            "name": "No token: delete product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "1"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "DELETE",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "98bc30d1-b8e9-4ffa-899d-7c4dcbc6b068",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "1a380f05-e9bc-4c8a-b170-d1e6fb6b02d8",
+            "name": "No token: stock-in",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "1",
+                  "stock-in"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 1\n}"
+              },
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "aaadee79-8649-468d-a1fb-67f18b7087f4",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "7738608e-fa2c-4170-b46b-68ad40630591",
+            "name": "No token: history",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "1",
+                  "history"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "b597613b-b2f9-4177-923b-a0a11e4e5e7f",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "11665be8-957b-450c-9287-80ef86ea3df0",
+            "name": "No token: low-stock report",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "low-stock"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "3b0fc759-27f0-4a33-9107-c0ac06ffc916",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "e6421489-10e2-46f5-928d-bec31be96c87",
+            "name": "No token: create category",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"X\"\n}"
+              },
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "aebaa7fa-bb4f-43ae-8c83-6d3867f1a948",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "2ab49eb3-35aa-4d6d-a35d-6c5a9f618cd7",
+            "name": "Malformed token: create product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": 1,\n  \"name\": \"X\",\n  \"sku\": \"X-1\",\n  \"price\": \"1.00\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "not-a-jwt",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a3cb6cd9-d76f-4cf6-baa2-d7f3599c530f",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "d278a791-de66-4f13-bca5-50a55807bee8",
+            "name": "Malformed token: update product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "1"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"price\": \"0.01\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "not-a-jwt",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "e46e3937-5b47-48e0-811f-8d172cce5cc5",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "e1fa4b81-fad3-41c4-b83e-ccf91b451e74",
+            "name": "Malformed token: delete product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "1"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "DELETE",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "not-a-jwt",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "1836ca63-a1e7-418f-9f67-b89082e9e016",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "c5825550-29ca-4f92-9a82-7cfc6b3f6043",
+            "name": "Malformed token: stock-in",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "1",
+                  "stock-in"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 1\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "not-a-jwt",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "6e99f32a-79ae-4d1b-a56f-a06019008a0b",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "5e7e2e6f-0750-4b3d-8ad8-aa98159a61c7",
+            "name": "Malformed token: history",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "1",
+                  "history"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "not-a-jwt",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "9ebdcca1-e4bb-4f59-be28-9747a03f9b50",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "b859f595-201b-481f-8a55-0dc0a1417577",
+            "name": "Malformed token: low-stock report",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "low-stock"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "not-a-jwt",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a5f306d3-730c-4059-8169-83ed74ef85f0",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "4f45d244-d460-46a1-bbfd-5390054f6210",
+            "name": "Malformed token: create category",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"X\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "not-a-jwt",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "5e577ac4-ac9a-4eac-9a1f-70544d675a28",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "840016a8-02a2-45ba-8de3-33dd86c4a790",
+            "name": "Forged token: create product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": 1,\n  \"name\": \"X\",\n  \"sku\": \"X-1\",\n  \"price\": \"1.00\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{forged_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "97f6d5aa-d66b-4931-a6e5-a6d188c1c1bf",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "97aa804b-3e38-4918-baa4-307b04c7ef35",
+            "name": "Forged token: update product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "1"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"price\": \"0.01\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{forged_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "556b8196-eab2-42cc-b42c-2541b297f2d8",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "8c79e1c4-c77f-4de0-862a-455a2a214423",
+            "name": "Forged token: delete product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "1"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "DELETE",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{forged_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "94b98630-180a-435e-a5c7-7ef186ed3953",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "55555510-c649-4649-bd58-cc37767c72d3",
+            "name": "Forged token: stock-in",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "1",
+                  "stock-in"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 1\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{forged_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a2d4c6cb-8da3-4d61-93a2-3efdf7e0ac45",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "614ba4e7-6c1e-47a8-bec8-6d0a60c90e06",
+            "name": "Forged token: history",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "1",
+                  "history"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{forged_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "4a7709b3-5d8f-49a5-aa04-9efe748bff28",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "a5446517-74d4-4efe-80be-2938212ef78b",
+            "name": "Forged token: low-stock report",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "low-stock"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{forged_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a981a0cd-e9be-4483-b014-42bb2c8bd69e",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "76b0e05c-030a-4ff5-b546-7fcbb43c6dba",
+            "name": "Forged token: create category",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"X\"\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{forged_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "6929901e-7d2f-4d50-8051-80aa116ca21e",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 401', () => pm.response.to.have.status(401));",
+                    "pm.test('detail: Could not validate credentials', () => pm.expect(pm.response.json().detail).to.eql(\"Could not validate credentials\"));",
+                    "pm.test('WWW-Authenticate: Bearer', () => pm.expect(pm.response.headers.get('WWW-Authenticate')).to.eql('Bearer'));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "a6f5e5cb-9f84-459c-b941-878700b12171",
+        "name": "20a Simultaneous stock updates: setup",
+        "item": [
+          {
+            "id": "68812e0f-8cc5-489a-b77a-fd7eefe34e2a",
+            "name": "Product with stock 5",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"category_id\": \"{{category_id}}\",\n  \"name\": \"PM{{run_id}} Concurrency\",\n  \"sku\": \"PM{{run_id}}-CONC\",\n  \"price\": \"1.00\",\n  \"initial_stock\": 5\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "a225a7e3-87d8-4e94-bc6b-0b82f6f59f9b",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 201', () => pm.response.to.have.status(201));",
+                    "if (pm.response.code < 300) pm.environment.set('conc_id', pm.response.json().id);"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "f09e0401-5979-4a9b-84b8-3b4d64c501f1",
+        "name": "20b Simultaneous stock updates: one stock-out (run many at once)",
+        "item": [
+          {
+            "id": "7916508a-89a2-416c-91b2-d04f5ab291c2",
+            "name": "Stock-out 1",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{conc_id}}",
+                  "stock-out"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"quantity\": 1\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "e888bfcb-19c8-4140-b75d-f3032b4aa276",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('201, or 409 Insufficient stock', () => { pm.expect([201, 409]).to.include(pm.response.code); if (pm.response.code === 409) pm.expect(pm.response.json().detail).to.match(/^Insufficient stock: 0 available/); });"
+                  ],
+                  "_lastExecutionId": "e5ed9d46-d5df-4e82-8d5e-7283b56498fc"
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "a71faf18-1944-44f7-97e3-167236cbf0a4",
+        "name": "20c Simultaneous stock updates: verify consistency",
+        "item": [
+          {
+            "id": "dfca9b40-7e72-4b9a-b3e2-c9a3bd34c107",
+            "name": "Stock is 0",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{conc_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "fb6f3e34-cff9-4934-9925-356f89eef980",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "pm.test('0', () => pm.expect(pm.response.json().stock_quantity).to.eql(0));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "b3b16a9a-af4b-4afe-b271-6173d3a1b36d",
+            "name": "History: initial 5 and exactly 5 stock-outs",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "inventory",
+                  "{{conc_id}}",
+                  "history"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "page_size",
+                    "value": "100"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "4a2f4d3a-c8fa-416e-8f0d-06bbd134436c",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "const h = pm.response.json();",
+                    "pm.test('6 transactions: 1 IN, 5 OUT', () => { pm.expect(h.total).to.eql(6); pm.expect(h.items.filter(t => t.transaction_type === 'OUT').length).to.eql(5); });",
+                    "const rows = pm.response.json().items.slice().reverse();\nlet level = 0, broken = [];\nrows.forEach(r => { const s = r.transaction_type === 'IN' ? 1 : -1;\n  if (r.previous_stock !== level || r.updated_stock !== level + s * r.quantity || r.updated_stock < 0) broken.push(r.id);\n  level = r.updated_stock; });\npm.test('history replays without a gap: ' + rows.map(r => r.updated_stock).join(' > '), () => pm.expect(broken).to.eql([]));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "06559852-42ca-4e58-b57d-6e1f1b87adc3",
+        "name": "L Live service: public reads",
+        "item": [
+          {
+            "id": "c5ecb9f5-3423-431f-a892-42091bc98ff7",
+            "name": "Health",
+            "request": {
+              "url": {
+                "path": [
+                  "health"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "cf7fb2c9-92c8-46c4-869a-ca6634b898b8",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "62ec0be6-013c-4c97-ad2f-e7a1d70b0b8a",
+            "name": "Database health",
+            "request": {
+              "url": {
+                "path": [
+                  "health",
+                  "db"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "1eb741be-17e9-4153-8478-2866821130bb",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "ba1c851b-4a22-4f11-8c93-004f471e7789",
+            "name": "List products",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "b4e7b571-2e3d-4228-8bf6-8fdba68e4514",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "const b = pm.response.json();",
+                    "pm.test('paging fields', () => pm.expect(b).to.have.all.keys('items', 'total', 'page', 'page_size', 'total_pages'));",
+                    "pm.test('only active products', () => pm.expect(b.items.every(p => p.is_active)).to.be.true);"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "4052a457-82c9-4d85-a470-6b8fa4347c17",
+            "name": "Search, filter, page and sort",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [
+                  {
+                    "key": "search",
+                    "value": "mobile"
+                  },
+                  {
+                    "key": "min_price",
+                    "value": "1000"
+                  },
+                  {
+                    "key": "max_price",
+                    "value": "5000"
+                  },
+                  {
+                    "key": "availability",
+                    "value": "in_stock"
+                  },
+                  {
+                    "key": "page",
+                    "value": "1"
+                  },
+                  {
+                    "key": "page_size",
+                    "value": "10"
+                  },
+                  {
+                    "key": "sort_by",
+                    "value": "price"
+                  },
+                  {
+                    "key": "sort_order",
+                    "value": "asc"
+                  }
+                ],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "cb453d64-4db4-45ae-a2d6-4d1c23795161",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));",
+                    "const b = pm.response.json();",
+                    "pm.test('page 1 of size 10', () => pm.expect([b.page, b.page_size]).to.eql([1, 10]));",
+                    "pm.test('ascending prices', () => { const p = b.items.map(x => Number(x.price)); pm.expect(p).to.eql(p.slice().sort((a, c) => a - c)); });"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "48cf1177-99a1-43e6-bf9c-947ee9f8524b",
+            "name": "List categories",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  ""
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "GET",
+              "auth": {
+                "type": "noauth",
+                "noauth": []
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "f071c454-7876-4382-b8ca-f2ca701d401b",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      {
+        "id": "72dcaa5c-8c92-4ef4-9a85-7ad91fd9fb7d",
+        "name": "99 Cleanup (deactivate what this run created)",
+        "item": [
+          {
+            "id": "8dd36dce-d68a-423b-8216-7b3737ad0b05",
+            "name": "Deactivate product",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "products",
+                  "{{product_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "DELETE",
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "f3b490d3-a45f-4e02-b78c-ce46bea90b67",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "4b1819e2-33d2-42c2-8e28-de20392a349b",
+            "name": "Deactivate category Phones",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  "{{category_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"is_active\": false\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "3d44ea2d-ca6d-47e4-946a-82e5ccc61f0b",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "975e079c-f16b-4b1d-b75b-a29ed3daa602",
+            "name": "Deactivate category Laptops",
+            "request": {
+              "url": {
+                "path": [
+                  "api",
+                  "categories",
+                  "{{laptop_category_id}}"
+                ],
+                "host": [
+                  "{{base_url}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "method": "PATCH",
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"is_active\": false\n}"
+              },
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "type": "string",
+                    "value": "{{admin_token}}",
+                    "key": "token"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "20a10cac-ca85-4605-8e68-af905f886af1",
+                  "type": "text/javascript",
+                  "exec": [
+                    "pm.test('status 200', () => pm.response.to.have.status(200));"
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      }
+    ],
+    "event": [
+      {
+        "listen": "prerequest",
+        "script": {
+          "id": "1e9b5dd3-592c-4f7b-96fe-dee04b85e580",
+          "type": "text/javascript",
+          "exec": [
+            "if (!pm.environment.get('run_id')) pm.environment.set('run_id', String(Date.now()).slice(-9));"
+          ],
+          "_lastExecutionId": "cb2b02a1-5507-4dd7-966b-32c92b4cbfbc"
+        }
+      },
+      {
+        "listen": "test",
+        "script": {
+          "id": "f7814b62-d8df-4fef-b4da-c1e1b26a4619",
+          "type": "text/javascript",
+          "exec": [
+            "pm.test('no internal details in the response', () => pm.expect(pm.response.text()).to.not.match(/Traceback|sqlalchemy|pymysql|IntegrityError|SELECT |INSERT /));"
+          ],
+          "_lastExecutionId": "900cd5ca-1526-49fe-9304-916a789ce597"
+        }
+      }
+    ],
+    "variable": [
+      {
+        "type": "string",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzAwMDAwMDAwLCJleHAiOjQxMDAwMDAwMDB9.4ACUJLouI-yOP8kAKmzlGscota9QQ5cnq1zTsVfU2Hc",
+        "key": "forged_token"
+      }
+    ],
+    "info": {
+      "_postman_id": "66f1bd8c-1107-4769-ab76-9e34a796982d",
+      "name": "ShopEase Product Catalog Service",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": {
+        "content": "The 20 mandatory test scenarios of the Product Catalog Service (Task 11), in order. Set admin_token and customer_token in the environment (ADMIN and USER accounts of the Authentication Service). Folder L runs against any instance without tokens.",
+        "type": "text/plain"
+      }
+    }
+  },
+  "environment": {
+    "_": {
+      "postman_variable_scope": "environment",
+      "postman_exported_at": "2026-11-12T14:04:45.346Z",
+      "postman_exported_using": "Newman/6.2.1"
+    },
+    "id": "062a8676-704f-4486-a36c-27841f983945",
+    "name": "stand-in run",
+    "values": [
+      {
+        "type": "any",
+        "value": "http://127.0.0.1:8016",
+        "key": "base_url"
+      },
+      {
+        "type": "any",
+        "value": "<stand-in token removed>",
+        "key": "admin_token"
+      },
+      {
+        "type": "any",
+        "value": "<stand-in token removed>",
+        "key": "customer_token"
+      },
+      {
+        "type": "any",
+        "value": "794492268",
+        "key": "run_id"
+      },
+      {
+        "type": "any",
+        "value": 3140,
+        "key": "category_id"
+      },
+      {
+        "type": "any",
+        "value": 3141,
+        "key": "laptop_category_id"
+      },
+      {
+        "type": "any",
+        "value": 3142,
+        "key": "archive_category_id"
+      },
+      {
+        "type": "any",
+        "value": 3787,
+        "key": "product_id"
+      },
+      {
+        "type": "any",
+        "value": 3788,
+        "key": "hidden_id"
+      },
+      {
+        "type": "any",
+        "value": 3789,
+        "key": "delete_id"
+      },
+      {
+        "type": "any",
+        "value": 3793,
+        "key": "conc_id"
+      }
+    ]
+  },
+  "globals": {
+    "id": "df461464-17c5-4307-a95c-c618914564fc",
+    "values": []
+  },
+  "run": {
+    "stats": {
+      "iterations": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "items": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "scripts": {
+        "total": 3,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequests": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "requests": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "tests": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "assertions": {
+        "total": 2,
+        "pending": 0,
+        "failed": 0
+      },
+      "testScripts": {
+        "total": 2,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequestScripts": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      }
+    },
+    "timings": {
+      "responseAverage": 116,
+      "responseMin": 116,
+      "responseMax": 116,
+      "responseSd": 0,
+      "dnsAverage": 0,
+      "dnsMin": 0,
+      "dnsMax": 0,
+      "dnsSd": 0,
+      "firstByteAverage": 0,
+      "firstByteMin": 0,
+      "firstByteMax": 0,
+      "firstByteSd": 0,
+      "started": 1794492300940,
+      "completed": 1794492301280
+    },
+    "executions": [
+      {
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 1,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "844c0d26-2b72-4416-b0d1-b8529f3fea2c",
+          "httpRequestId": "54f67fbc-954a-439c-b110-b67c11aa837e"
+        },
+        "item": {
+          "id": "7916508a-89a2-416c-91b2-d04f5ab291c2",
+          "name": "Stock-out 1",
+          "request": {
+            "url": {
+              "path": [
+                "api",
+                "inventory",
+                "{{conc_id}}",
+                "stock-out"
+              ],
+              "host": [
+                "{{base_url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 1\n}"
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "type": "string",
+                  "value": "{{admin_token}}",
+                  "key": "token"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e888bfcb-19c8-4140-b75d-f3032b4aa276",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('201, or 409 Insufficient stock', () => { pm.expect([201, 409]).to.include(pm.response.code); if (pm.response.code === 409) pm.expect(pm.response.json().detail).to.match(/^Insufficient stock: 0 available/); });"
+                ],
+                "_lastExecutionId": "e5ed9d46-d5df-4e82-8d5e-7283b56498fc"
+              }
+            }
+          ]
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "port": "8016",
+            "path": [
+              "api",
+              "inventory",
+              "3793",
+              "stock-out"
+            ],
+            "host": [
+              "127",
+              "0",
+              "0",
+              "1"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer <stand-in token removed>",
+              "system": true
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "66fec90e-eedf-4502-91f6-648c75b25564",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "127.0.0.1:8016",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "19",
+              "system": true
+            }
+          ],
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"quantity\": 1\n}"
+          },
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "<stand-in token removed>",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": {
+          "id": "eee7b835-a591-4e51-bab5-9d91f228bbcf",
+          "status": "Conflict",
+          "code": 409,
+          "header": [
+            {
+              "key": "date",
+              "value": "Thu, 12 Nov 2026 14:05:01 GMT"
+            },
+            {
+              "key": "content-length",
+              "value": "57"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              100,
+              101,
+              116,
+              97,
+              105,
+              108,
+              34,
+              58,
+              34,
+              73,
+              110,
+              115,
+              117,
+              102,
+              102,
+              105,
+              99,
+              105,
+              101,
+              110,
+              116,
+              32,
+              115,
+              116,
+              111,
+              99,
+              107,
+              58,
+              32,
+              48,
+              32,
+              97,
+              118,
+              97,
+              105,
+              108,
+              97,
+              98,
+              108,
+              101,
+              44,
+              32,
+              49,
+              32,
+              114,
+              101,
+              113,
+              117,
+              101,
+              115,
+              116,
+              101,
+              100,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 116,
+          "responseSize": 57
+        },
+        "id": "7916508a-89a2-416c-91b2-d04f5ab291c2",
+        "assertions": [
+          {
+            "assertion": "no internal details in the response",
+            "skipped": false
+          },
+          {
+            "assertion": "201, or 409 Insufficient stock",
+            "skipped": false
+          }
+        ]
+      }
+    ],
+    "transfers": {
+      "responseTotal": 57
+    },
+    "failures": [],
+    "error": null
+  }
+}

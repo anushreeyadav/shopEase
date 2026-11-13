@@ -1,0 +1,10 @@
+# Recorded 2026-11-12 13:09:11 UTC
+$ docker compose ps
+NAME                                                 IMAGE                                  COMMAND                  SERVICE           CREATED          STATUS                    PORTS
+shopease-product-catalog-service-catalog-mysql-1     mysql:8.4                              "docker-entrypoint.s…"   catalog-mysql     24 seconds ago   Up 20 seconds (healthy)   3306/tcp, 33060/tcp
+shopease-product-catalog-service-catalog-service-1   shopease-product-catalog-service:dev   "sh -c 'python -m ap…"   catalog-service   21 seconds ago   Up 14 seconds (healthy)   127.0.0.1:8006->8006/tcp
+
+$ docker compose ps --format "table {{.Service}}\t{{.State}}\t{{.Health}}\t{{.Ports}}"
+SERVICE           STATE     <no value>   PORTS
+catalog-mysql     running   healthy      3306/tcp, 33060/tcp
+catalog-service   running   healthy      127.0.0.1:8006->8006/tcp

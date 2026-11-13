@@ -1,0 +1,26 @@
+# Optional: reach the Authentication Service over an explicitly shared Docker network instead of
+# through host.docker.internal.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.auth-network.yml up -d --build
+#
+# The Auth Service Compose project (shopease-auth-service) must already be running: its network
+# is declared "external", so this project only joins it and never creates or removes it.
+# Its default network is "shopease-auth-service_default" and its API service is "auth-service",
+# listening on 8001 inside its container. Set AUTH_DOCKER_NETWORK / AUTH_DOCKER_VERIFY_URL in
+# .env if the Auth Service project uses different names.
+#
+# catalog-service stays on this project's own network too, so it still reaches catalog-mysql.
+# The Auth Service gains no access to the catalog database (catalog-mysql is not on that network).
+
+services:
+  catalog-service:
+    environment:
+      AUTH_SERVICE_VERIFY_URL: ${AUTH_DOCKER_VERIFY_URL:-http://auth-service:8001/api/auth/verify-token}
+    networks:
+      - default
+      - auth
+
+networks:
+  auth:
+    name: ${AUTH_DOCKER_NETWORK:-shopease-auth-service_default}
+    external: true

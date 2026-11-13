@@ -1,0 +1,18 @@
+# Recorded 2026-11-12 13:10:52 UTC
+## 1. MySQL stopped: the wait step retries, then gives up (exit 1), so migrations and the server never start
+$ docker compose stop catalog-mysql
+ Container shopease-product-catalog-service-catalog-mysql-1 Stopping 
+ Container shopease-product-catalog-service-catalog-mysql-1 Stopped 
+$ docker compose run --rm --no-deps catalog-service python -m app.database.wait --timeout 6
+2026-11-12 13:11:01,790 INFO app.database.wait: Database not ready yet (OperationalError); retrying in 2 s
+2026-11-12 13:11:07,787 ERROR app.database.wait: Database not ready after 2 attempt(s) in 6 s: OperationalError
+
+exit code: 1
+
+## 2. MySQL started at the same moment as the wait step: it retries until MySQL accepts the service's user
+$ docker compose start catalog-mysql; docker compose run --rm --no-deps catalog-service python -m app.database.wait --timeout 90
+ Container shopease-product-catalog-service-catalog-mysql-1 Starting 
+ Container shopease-product-catalog-service-catalog-mysql-1 Started 
+2026-11-12 13:11:11,472 INFO app.database.wait: Database not ready yet (OperationalError); retrying in 2 s
+2026-11-12 13:11:13,509 INFO app.database.wait: Database ready after 2 attempt(s)
+exit code: 0

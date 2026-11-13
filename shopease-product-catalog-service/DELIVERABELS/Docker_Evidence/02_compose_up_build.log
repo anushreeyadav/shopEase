@@ -1,0 +1,80 @@
+# Recorded 2026-11-12 13:08:41 UTC
+$ docker compose up --build -d
+ Image shopease-product-catalog-service:dev Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 663B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.86kB 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.11-slim-bookworm
+#3 DONE 2.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 932B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 13.88kB 0.0s done
+#5 DONE 0.1s
+
+#6 [1/8] FROM docker.io/library/python:3.11-slim-bookworm@sha256:a83ba18aef0f865b1a4a611c2cf460fe446f2795673bbb9fe43be570439e3b39
+#6 resolve docker.io/library/python:3.11-slim-bookworm@sha256:a83ba18aef0f865b1a4a611c2cf460fe446f2795673bbb9fe43be570439e3b39 0.1s done
+#6 DONE 0.1s
+
+#6 [1/8] FROM docker.io/library/python:3.11-slim-bookworm@sha256:a83ba18aef0f865b1a4a611c2cf460fe446f2795673bbb9fe43be570439e3b39
+#6 DONE 0.1s
+
+#7 [2/8] WORKDIR /app
+#7 CACHED
+
+#8 [3/8] COPY requirements.txt .
+#8 CACHED
+
+#9 [4/8] RUN pip install -r requirements.txt
+#9 CACHED
+
+#10 [5/8] RUN groupadd --system app && useradd --system --gid app --no-create-home app
+#10 CACHED
+
+#11 [6/8] COPY app/ ./app/
+#11 DONE 0.1s
+
+#12 [7/8] COPY alembic/ ./alembic/
+#12 DONE 0.1s
+
+#13 [8/8] COPY alembic.ini .
+#13 DONE 0.1s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 0.5s done
+#14 exporting manifest sha256:2a4312cbc80f977f346ad6024b1680cf319aa160a9aea82214fd6a30790fdcb0 0.0s done
+#14 exporting config sha256:146d820e018a45ed4eda570f2d0c3eb343f3aa49c94c9cf57ae997e8afb39173 0.0s done
+#14 exporting attestation manifest sha256:ffaa7b1dd8b2366b8ecd08822a9345e02423e42fdadc1fb4637266e325121d42
+#14 exporting attestation manifest sha256:ffaa7b1dd8b2366b8ecd08822a9345e02423e42fdadc1fb4637266e325121d42 0.1s done
+#14 exporting manifest list sha256:ddb7ad3e00c0b5a5ac51346bfa6f0605ae8d8e39e46246419f480276b67c44f0 0.0s done
+#14 naming to docker.io/library/shopease-product-catalog-service:dev
+#14 naming to docker.io/library/shopease-product-catalog-service:dev done
+#14 unpacking to docker.io/library/shopease-product-catalog-service:dev
+#14 unpacking to docker.io/library/shopease-product-catalog-service:dev 0.2s done
+#14 DONE 1.0s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image shopease-product-catalog-service:dev Built 
+ Container shopease-product-catalog-service-catalog-service-1 Stopping 
+ Container shopease-product-catalog-service-catalog-service-1 Stopped 
+ Container shopease-product-catalog-service-catalog-mysql-1 Recreate 
+ Container shopease-product-catalog-service-catalog-mysql-1 Recreated 
+ Container shopease-product-catalog-service-catalog-service-1 Recreate 
+ Container shopease-product-catalog-service-catalog-service-1 Recreated 
+ Container shopease-product-catalog-service-catalog-mysql-1 Starting 
+ Container shopease-product-catalog-service-catalog-mysql-1 Started 
+ Container shopease-product-catalog-service-catalog-mysql-1 Waiting 
+ Container shopease-product-catalog-service-catalog-mysql-1 Healthy 
+ Container shopease-product-catalog-service-catalog-service-1 Starting 
+ Container shopease-product-catalog-service-catalog-service-1 Started 
+exit code: 0

@@ -1,0 +1,15 @@
+12 Newman processes started together, each sending one stock-out of 1 unit (stock was 5).
+Times in ms from the first process start (run start/end per process; response = request time).
+
+run start +    0  run end + 1832  status 201  response 993 ms
+run start +  110  run end + 1450  status 201  response 635 ms
+run start +  955  run end + 2022  status 201  response 667 ms
+run start + 1282  run end + 2355  status 201  response 454 ms
+run start + 1523  run end + 2559  status 201  response 455 ms
+run start + 1629  run end + 2632  status 409  response 373 ms
+run start + 2022  run end + 2738  status 409  response 293 ms
+run start + 2038  run end + 2737  status 409  response 313 ms
+run start + 2536  run end + 3082  status 409  response 161 ms
+run start + 3153  run end + 3598  status 409  response 188 ms
+run start + 3412  run end + 3752  status 409  response 116 ms
+run start + 4010  run end + 4197  status 409  response 63 ms

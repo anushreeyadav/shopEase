@@ -1,0 +1,7 @@
+database: shopease_catalog_db  utf8mb4/utf8mb4_0900_ai_ci  tables=4
+database: shopease_product_catalog_db  utf8mb4/utf8mb4_0900_ai_ci  tables=0
+database: shopease_product_catalog_test_db  utf8mb4/utf8mb4_0900_ai_ci  tables=0
+GRANT USAGE ON *.* TO `catalog_svc`@`%`
+GRANT ALL PRIVILEGES ON `shopease\\_catalog\\_db`.* TO `catalog_svc`@`%`
+GRANT ALL PRIVILEGES ON `shopease_product_catalog_db`.* TO `catalog_svc`@`%`
+GRANT ALL PRIVILEGES ON `shopease_product_catalog_test_db`.* TO `catalog_svc`@`%`

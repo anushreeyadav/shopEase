@@ -1,0 +1,151 @@
+Run: 2026-11-12 07:13:42 UTC
+Command: pytest tests/test_category_api.py -v -p no:warnings  (SQLite)
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.0, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\Administrator\ShopEase\shopease-product-catalog-service\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: c:\Users\Administrator\ShopEase\shopease-product-catalog-service
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collecting ... collected 60 items
+
+tests/test_category_api.py::test_create_category PASSED                  [  1%]
+tests/test_category_api.py::test_collection_is_served_with_and_without_slash[/api/categories/] PASSED [  3%]
+tests/test_category_api.py::test_collection_is_served_with_and_without_slash[/api/categories] PASSED [  5%]
+tests/test_category_api.py::test_description_is_optional PASSED          [  6%]
+tests/test_category_api.py::test_timestamps_are_utc_in_responses PASSED  [  8%]
+tests/test_category_api.py::test_name_whitespace_is_normalised PASSED    [ 10%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body0-name-Field required] PASSED [ 11%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body1-name-String should have at least 1 character] PASSED [ 13%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body2-name-String should have at least 1 character] PASSED [ 15%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body3-name-String should have at most 100 characters] PASSED [ 16%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body4-name-must contain at least one letter or digit] PASSED [ 18%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body5-name-must not contain control characters] PASSED [ 20%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body6-name-must not contain control characters] PASSED [ 21%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body7-name-must not contain control characters] PASSED [ 23%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body8-name-Input should be a valid string] PASSED [ 25%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body9-description-String should have at most 5000 characters] PASSED [ 26%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body10-description-must not contain control characters] PASSED [ 28%]
+tests/test_category_api.py::test_unknown_or_read_only_fields_are_rejected[id] PASSED [ 30%]
+tests/test_category_api.py::test_unknown_or_read_only_fields_are_rejected[slug] PASSED [ 31%]
+tests/test_category_api.py::test_unknown_or_read_only_fields_are_rejected[parent_id] PASSED [ 33%]
+tests/test_category_api.py::test_unknown_or_read_only_fields_are_rejected[created_at] PASSED [ 35%]
+tests/test_category_api.py::test_unknown_or_read_only_fields_are_rejected[is_active] PASSED [ 36%]
+tests/test_category_api.py::test_body_must_be_json PASSED                [ 38%]
+tests/test_category_api.py::test_duplicate_name_is_rejected_ignoring_case_and_spacing PASSED [ 40%]
+tests/test_category_api.py::test_duplicate_found_only_by_the_database_is_409 PASSED [ 41%]
+tests/test_category_api.py::test_mysql_treats_accented_names_as_duplicates SKIPPED [ 43%]
+tests/test_category_api.py::test_other_integrity_errors_get_a_generic_conflict PASSED [ 45%]
+tests/test_category_api.py::test_list_is_sorted_by_name PASSED           [ 46%]
+tests/test_category_api.py::test_customers_and_visitors_see_only_active_categories PASSED [ 48%]
+tests/test_category_api.py::test_include_inactive_needs_admin PASSED     [ 50%]
+tests/test_category_api.py::test_include_inactive_must_be_a_boolean PASSED [ 51%]
+tests/test_category_api.py::test_get_category PASSED                     [ 53%]
+tests/test_category_api.py::test_inactive_category_is_404_except_for_admin_with_include_inactive PASSED [ 55%]
+tests/test_category_api.py::test_missing_category_is_404 PASSED          [ 56%]
+tests/test_category_api.py::test_invalid_ids_are_422_on_every_endpoint[0] PASSED [ 58%]
+tests/test_category_api.py::test_invalid_ids_are_422_on_every_endpoint[-1] PASSED [ 60%]
+tests/test_category_api.py::test_invalid_ids_are_422_on_every_endpoint[abc] PASSED [ 61%]
+tests/test_category_api.py::test_invalid_ids_are_422_on_every_endpoint[1.5] PASSED [ 63%]
+tests/test_category_api.py::test_invalid_ids_are_422_on_every_endpoint[2147483648] PASSED [ 65%]
+tests/test_category_api.py::test_put_replaces_every_field PASSED         [ 66%]
+tests/test_category_api.py::test_put_requires_every_field PASSED         [ 68%]
+tests/test_category_api.py::test_put_with_null_description_clears_it PASSED [ 70%]
+tests/test_category_api.py::test_put_validates_like_create PASSED        [ 71%]
+tests/test_category_api.py::test_put_rename_to_existing_name_is_409 PASSED [ 73%]
+tests/test_category_api.py::test_put_deactivates_and_reactivates PASSED  [ 75%]
+tests/test_category_api.py::test_put_missing_category_is_404 PASSED      [ 76%]
+tests/test_category_api.py::test_patch_changes_only_the_fields_sent PASSED [ 78%]
+tests/test_category_api.py::test_patch_rename_to_existing_name_is_409 PASSED [ 80%]
+tests/test_category_api.py::test_patch_requires_a_field_and_rejects_null_name PASSED [ 81%]
+tests/test_category_api.py::test_patch_missing_category_is_404 PASSED    [ 83%]
+tests/test_category_api.py::test_delete_empty_category PASSED            [ 85%]
+tests/test_category_api.py::test_delete_inactive_empty_category PASSED   [ 86%]
+tests/test_category_api.py::test_delete_category_with_products_is_refused PASSED [ 88%]
+tests/test_category_api.py::test_inactive_products_also_block_deletion PASSED [ 90%]
+tests/test_category_api.py::test_delete_after_moving_products_away PASSED [ 91%]
+tests/test_category_api.py::test_delete_race_is_stopped_by_the_foreign_key PASSED [ 93%]
+tests/test_category_api.py::test_delete_missing_category_is_404 PASSED   [ 95%]
+tests/test_category_api.py::test_writes_need_a_token PASSED              [ 96%]
+tests/test_category_api.py::test_customers_cannot_write PASSED           [ 98%]
+tests/test_category_api.py::test_auth_is_checked_before_the_body PASSED  [100%]
+
+======================== 59 passed, 1 skipped in 2.47s ========================
+
+Command: CATALOG_SERVICE_TEST_DB=mysql MYSQL_DATABASE=shopease_product_catalog_test_db pytest tests/test_category_api.py -v -p no:warnings  (MySQL 8.4 test database)
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.0, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\Administrator\ShopEase\shopease-product-catalog-service\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: c:\Users\Administrator\ShopEase\shopease-product-catalog-service
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collecting ... collected 60 items
+
+tests/test_category_api.py::test_create_category PASSED                  [  1%]
+tests/test_category_api.py::test_collection_is_served_with_and_without_slash[/api/categories/] PASSED [  3%]
+tests/test_category_api.py::test_collection_is_served_with_and_without_slash[/api/categories] PASSED [  5%]
+tests/test_category_api.py::test_description_is_optional PASSED          [  6%]
+tests/test_category_api.py::test_timestamps_are_utc_in_responses PASSED  [  8%]
+tests/test_category_api.py::test_name_whitespace_is_normalised PASSED    [ 10%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body0-name-Field required] PASSED [ 11%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body1-name-String should have at least 1 character] PASSED [ 13%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body2-name-String should have at least 1 character] PASSED [ 15%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body3-name-String should have at most 100 characters] PASSED [ 16%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body4-name-must contain at least one letter or digit] PASSED [ 18%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body5-name-must not contain control characters] PASSED [ 20%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body6-name-must not contain control characters] PASSED [ 21%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body7-name-must not contain control characters] PASSED [ 23%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body8-name-Input should be a valid string] PASSED [ 25%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body9-description-String should have at most 5000 characters] PASSED [ 26%]
+tests/test_category_api.py::test_invalid_data_gets_a_clear_message[body10-description-must not contain control characters] PASSED [ 28%]
+tests/test_category_api.py::test_unknown_or_read_only_fields_are_rejected[id] PASSED [ 30%]
+tests/test_category_api.py::test_unknown_or_read_only_fields_are_rejected[slug] PASSED [ 31%]
+tests/test_category_api.py::test_unknown_or_read_only_fields_are_rejected[parent_id] PASSED [ 33%]
+tests/test_category_api.py::test_unknown_or_read_only_fields_are_rejected[created_at] PASSED [ 35%]
+tests/test_category_api.py::test_unknown_or_read_only_fields_are_rejected[is_active] PASSED [ 36%]
+tests/test_category_api.py::test_body_must_be_json PASSED                [ 38%]
+tests/test_category_api.py::test_duplicate_name_is_rejected_ignoring_case_and_spacing PASSED [ 40%]
+tests/test_category_api.py::test_duplicate_found_only_by_the_database_is_409 PASSED [ 41%]
+tests/test_category_api.py::test_mysql_treats_accented_names_as_duplicates PASSED [ 43%]
+tests/test_category_api.py::test_other_integrity_errors_get_a_generic_conflict PASSED [ 45%]
+tests/test_category_api.py::test_list_is_sorted_by_name PASSED           [ 46%]
+tests/test_category_api.py::test_customers_and_visitors_see_only_active_categories PASSED [ 48%]
+tests/test_category_api.py::test_include_inactive_needs_admin PASSED     [ 50%]
+tests/test_category_api.py::test_include_inactive_must_be_a_boolean PASSED [ 51%]
+tests/test_category_api.py::test_get_category PASSED                     [ 53%]
+tests/test_category_api.py::test_inactive_category_is_404_except_for_admin_with_include_inactive PASSED [ 55%]
+tests/test_category_api.py::test_missing_category_is_404 PASSED          [ 56%]
+tests/test_category_api.py::test_invalid_ids_are_422_on_every_endpoint[0] PASSED [ 58%]
+tests/test_category_api.py::test_invalid_ids_are_422_on_every_endpoint[-1] PASSED [ 60%]
+tests/test_category_api.py::test_invalid_ids_are_422_on_every_endpoint[abc] PASSED [ 61%]
+tests/test_category_api.py::test_invalid_ids_are_422_on_every_endpoint[1.5] PASSED [ 63%]
+tests/test_category_api.py::test_invalid_ids_are_422_on_every_endpoint[2147483648] PASSED [ 65%]
+tests/test_category_api.py::test_put_replaces_every_field PASSED         [ 66%]
+tests/test_category_api.py::test_put_requires_every_field PASSED         [ 68%]
+tests/test_category_api.py::test_put_with_null_description_clears_it PASSED [ 70%]
+tests/test_category_api.py::test_put_validates_like_create PASSED        [ 71%]
+tests/test_category_api.py::test_put_rename_to_existing_name_is_409 PASSED [ 73%]
+tests/test_category_api.py::test_put_deactivates_and_reactivates PASSED  [ 75%]
+tests/test_category_api.py::test_put_missing_category_is_404 PASSED      [ 76%]
+tests/test_category_api.py::test_patch_changes_only_the_fields_sent PASSED [ 78%]
+tests/test_category_api.py::test_patch_rename_to_existing_name_is_409 PASSED [ 80%]
+tests/test_category_api.py::test_patch_requires_a_field_and_rejects_null_name PASSED [ 81%]
+tests/test_category_api.py::test_patch_missing_category_is_404 PASSED    [ 83%]
+tests/test_category_api.py::test_delete_empty_category PASSED            [ 85%]
+tests/test_category_api.py::test_delete_inactive_empty_category PASSED   [ 86%]
+tests/test_category_api.py::test_delete_category_with_products_is_refused PASSED [ 88%]
+tests/test_category_api.py::test_inactive_products_also_block_deletion PASSED [ 90%]
+tests/test_category_api.py::test_delete_after_moving_products_away PASSED [ 91%]
+tests/test_category_api.py::test_delete_race_is_stopped_by_the_foreign_key PASSED [ 93%]
+tests/test_category_api.py::test_delete_missing_category_is_404 PASSED   [ 95%]
+tests/test_category_api.py::test_writes_need_a_token PASSED              [ 96%]
+tests/test_category_api.py::test_customers_cannot_write PASSED           [ 98%]
+tests/test_category_api.py::test_auth_is_checked_before_the_body PASSED  [100%]
+
+============================= 60 passed in 3.80s ==============================
+
+Whole suite, SQLite:
+259 passed, 1 skipped in 9.51s
+Whole suite, MySQL test database:
+260 passed in 15.38s

@@ -1,0 +1,17 @@
+MySQL server 8.4.11 at 127.0.0.1:3310, database shopease_product_catalog_db
+[PASS] server is MySQL 8 (8.4.11)
+[PASS] tables present: ['categories', 'inventory_transactions', 'products']
+[PASS] alembic_version = ['5b8e2f0c9d14']
+[PASS] primary keys: 3/3 expected present
+[PASS] unique: 2/2 expected present
+[PASS] foreign keys: 2/2 expected present
+[PASS] checks: 11/11 expected present
+[PASS] indexes: 5/5 expected present
+       categories: id, name, description, is_active, created_at, updated_at
+       products: id, category_id, name, description, sku, price, discount_price, stock_quantity, image_url, brand, is_active, created_at, updated_at
+       inventory_transactions: id, product_id, transaction_type, quantity, previous_stock, updated_stock, remarks, created_at
+[PASS] storage engine InnoDB (required for foreign keys and transactions): categories=InnoDB/utf8mb4_0900_ai_ci, inventory_transactions=InnoDB/utf8mb4_0900_ai_ci, products=InnoDB/utf8mb4_0900_ai_ci
+No new upgrade operations detected.
+[PASS] alembic check: models and database match
+
+ALL CHECKS PASSED

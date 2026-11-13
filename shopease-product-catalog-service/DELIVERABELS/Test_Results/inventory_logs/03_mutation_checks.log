@@ -1,0 +1,7 @@
+# Recorded 2026-11-12 12:51:32 UTC. Each line: one deliberate bug put into the code, the tests run, the code restored.
+no FOR UPDATE lock: 4 failed in 2.66s
+no rollback on failure: 3 failed, 83 passed in 7.12s
+no rollback on refusal: 2 failed, 84 passed in 6.60s
+guard disabled: 3 failed, 83 passed in 6.61s
+low stock strictly below: 3 failed, 83 passed in 7.02s
+overdraw by one allowed: 2 failed, 84 passed in 5.97s

@@ -1,0 +1,18 @@
+== docker compose ps
+shopease-product-catalog-service-catalog-mysql-1  mysql:8.4  Up 5 minutes (healthy)  127.0.0.1:3310->3306/tcp
+shopease-product-catalog-service-catalog-service-1  shopease-product-catalog-service:dev  Up 14 seconds (healthy)  127.0.0.1:8006->8006/tcp
+
+== catalog-service container log (startup)
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8006 (Press CTRL+C to quit)
+
+== GET http://127.0.0.1:8006/health
+{"status":"ok","service":"ShopEase Product Catalog Service","version":"1.0.0"}
+== GET http://127.0.0.1:8006/health/db
+{"status":"ok","database":"connected"}
+== GET http://127.0.0.1:8006/api/products
+{"items":[],"total":0,"page":1,"size":20,"pages":0}

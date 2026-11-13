@@ -1,0 +1,648 @@
+newman
+
+ShopEase Product Catalog Service
+
+Folder 00 Setup
+Sub-folder Health
+  GET http://127.0.0.1:8016/health [200 OK, 186B, 37ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+Sub-folder Database health
+  GET http://127.0.0.1:8016/health/db [200 OK, 146B, 78ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+Sub-folder Create category Phones
+  POST http://127.0.0.1:8016/api/categories/ [201 Created, 261B, 196ms]
+  Pass  no internal details in the response
+  Pass  status 201
+
+Sub-folder Create category Laptops
+  POST http://127.0.0.1:8016/api/categories/ [201 Created, 262B, 32ms]
+  Pass  no internal details in the response
+  Pass  status 201
+
+Sub-folder Create category Archive
+  POST http://127.0.0.1:8016/api/categories/ [201 Created, 262B, 42ms]
+  Pass  no internal details in the response
+  Pass  status 201
+
+Sub-folder Deactivate category Archive
+  PATCH http://127.0.0.1:8016/api/categories/3142 [200 OK, 258B, 34ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+Folder 01 Create a product with valid information
+Sub-folder Create product
+  POST http://127.0.0.1:8016/api/products/ [201 Created, 455B, 51ms]
+  Pass  no internal details in the response
+  Pass  status 201
+  Pass  SKU stored upper-case
+  Pass  prices as two-place decimals
+  Pass  stock 7, active, in its category
+
+Sub-folder Initial stock was recorded as an IN transaction
+  GET http://127.0.0.1:8016/api/inventory/3787/history [200 OK, 336B, 27ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  one IN 7 from 0, remarks Initial stock
+
+Folder 02 Create a product with a duplicate SKU
+Sub-folder Same SKU
+  POST http://127.0.0.1:8016/api/products/ [409 Conflict, 165B, 16ms]
+  Pass  no internal details in the response
+  Pass  status 409
+  Pass  detail: A product with this SKU already exists
+
+Sub-folder Same SKU, other letter case
+  POST http://127.0.0.1:8016/api/products/ [409 Conflict, 165B, 15ms]
+  Pass  no internal details in the response
+  Pass  status 409
+  Pass  detail: A product with this SKU already exists
+
+Folder 03 Create a product with an invalid category
+Sub-folder Category does not exist
+  POST http://127.0.0.1:8016/api/products/ [422 Unprocessable Entity, 255B, 24ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on category_id
+
+Sub-folder Category is inactive
+  POST http://127.0.0.1:8016/api/products/ [422 Unprocessable Entity, 247B, 25ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on category_id
+
+Sub-folder Category ID not a number
+  POST http://127.0.0.1:8016/api/products/ [422 Unprocessable Entity, 274B, 16ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on category_id
+
+Folder 04 Create a product with a negative price
+Sub-folder Negative price
+  POST http://127.0.0.1:8016/api/products/ [422 Unprocessable Entity, 241B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on price
+
+Sub-folder Negative discount price
+  POST http://127.0.0.1:8016/api/products/ [422 Unprocessable Entity, 250B, 13ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on discount_price
+
+Folder 05 Retrieve all active products
+Sub-folder Setup: product to be hidden
+  POST http://127.0.0.1:8016/api/products/ [201 Created, 446B, 60ms]
+  Pass  no internal details in the response
+  Pass  status 201
+
+Sub-folder Setup: deactivate it
+  DELETE http://127.0.0.1:8016/api/products/3788 [200 OK, 141B, 32ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+Sub-folder List products, anonymous
+  GET http://127.0.0.1:8016/api/products/?category_id=3140 [200 OK, 512B, 23ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  only active products
+  Pass  includes the new product
+  Pass  leaves out the deactivated one
+  Pass  paging fields
+
+Sub-folder Products of an inactive category are hidden
+  GET http://127.0.0.1:8016/api/products/?category_id=3142 [200 OK, 170B, 12ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  empty
+
+Sub-folder Admin with include_inactive also sees it
+  GET http://127.0.0.1:8016/api/products/?category_id=3140&include_inactive=true [200 OK, 846B, 17ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  includes the deactivated product
+
+Folder 06 Retrieve product details using an invalid ID
+Sub-folder ID not a number
+  GET http://127.0.0.1:8016/api/products/abc [422 Unprocessable Entity, 273B, 4ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on product_id
+
+Sub-folder ID 0
+  GET http://127.0.0.1:8016/api/products/0 [422 Unprocessable Entity, 246B, 4ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on product_id
+
+Sub-folder ID above the database range
+  GET http://127.0.0.1:8016/api/products/2147483648 [422 Unprocessable Entity, 252B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on product_id
+
+Sub-folder ID that does not exist
+  GET http://127.0.0.1:8016/api/products/999999 [404 Not Found, 145B, 17ms]
+  Pass  no internal details in the response
+  Pass  status 404
+  Pass  detail: Product not found
+
+Folder 07 Update a product
+Sub-folder Replace product (PUT)
+  PUT http://127.0.0.1:8016/api/products/3787 [200 OK, 453B, 44ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  fields replaced, stock unchanged
+
+Sub-folder PUT without every field
+  PUT http://127.0.0.1:8016/api/products/3787 [422 Unprocessable Entity, 555B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on sku
+  Pass  error on price
+
+Sub-folder PUT a missing product
+  PUT http://127.0.0.1:8016/api/products/999999 [404 Not Found, 145B, 14ms]
+  Pass  no internal details in the response
+  Pass  status 404
+
+Folder 08 Partially update a product
+Sub-folder Change the price only (PATCH)
+  PATCH http://127.0.0.1:8016/api/products/3787 [200 OK, 453B, 29ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  price changed, the rest kept
+
+Sub-folder stock_quantity cannot be patched
+  PATCH http://127.0.0.1:8016/api/products/3787 [422 Unprocessable Entity, 238B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on stock_quantity
+
+Sub-folder Discount not below price
+  PATCH http://127.0.0.1:8016/api/products/3787 [422 Unprocessable Entity, 247B, 17ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on discount_price
+
+Folder 09 Delete or deactivate a product
+Sub-folder Setup: product to delete
+  POST http://127.0.0.1:8016/api/products/ [201 Created, 436B, 56ms]
+  Pass  no internal details in the response
+  Pass  status 201
+
+Sub-folder Delete (deactivate)
+  DELETE http://127.0.0.1:8016/api/products/3789 [200 OK, 141B, 37ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  message
+
+Sub-folder Customers no longer see it
+  GET http://127.0.0.1:8016/api/products/3789 [404 Not Found, 145B, 23ms]
+  Pass  no internal details in the response
+  Pass  status 404
+
+Sub-folder The record is kept, inactive
+  GET http://127.0.0.1:8016/api/products/3789?include_inactive=true [200 OK, 432B, 24ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  is_active false
+
+Sub-folder Its stock history is kept
+  GET http://127.0.0.1:8016/api/inventory/3789/history [200 OK, 336B, 19ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  1 transaction
+
+Sub-folder Delete a missing product
+  DELETE http://127.0.0.1:8016/api/products/999999 [404 Not Found, 145B, 22ms]
+  Pass  no internal details in the response
+  Pass  status 404
+
+Folder 10 Create a duplicate category
+Sub-folder Same name, other letter case
+  POST http://127.0.0.1:8016/api/categories/ [409 Conflict, 167B, 19ms]
+  Pass  no internal details in the response
+  Pass  status 409
+  Pass  detail: A category with this name already exists
+
+Sub-folder Same name with extra spaces
+  POST http://127.0.0.1:8016/api/categories/ [409 Conflict, 167B, 16ms]
+  Pass  no internal details in the response
+  Pass  status 409
+  Pass  detail: A category with this name already exists
+
+Folder 11 Search and filter products
+Sub-folder Setup: Budget Phone 800, stock 12
+  POST http://127.0.0.1:8016/api/products/ [201 Created, 444B, 43ms]
+  Pass  no internal details in the response
+  Pass  status 201
+
+Sub-folder Setup: Pixel Mobile 4500, stock 0
+  POST http://127.0.0.1:8016/api/products/ [201 Created, 446B, 32ms]
+  Pass  no internal details in the response
+  Pass  status 201
+
+Sub-folder Setup: Ultrabook 5000, stock 7 (Laptops)
+  POST http://127.0.0.1:8016/api/products/ [201 Created, 442B, 40ms]
+  Pass  no internal details in the response
+  Pass  status 201
+
+Sub-folder search=mobile in Phones
+  GET http://127.0.0.1:8016/api/products/?search=mobile&category_id=3140 [200 OK, 848B, 21ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  SKUs in order: MOB-1, MOB-2
+
+Sub-folder search by SKU part
+  GET http://127.0.0.1:8016/api/products/?search=pm794492268-lap [200 OK, 499B, 16ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  SKUs in order: LAP-1
+
+Sub-folder category_id=Laptops
+  GET http://127.0.0.1:8016/api/products/?category_id=3141 [200 OK, 499B, 18ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  SKUs in order: LAP-1
+
+Sub-folder min_price=1000&max_price=5000
+  GET http://127.0.0.1:8016/api/products/?search=PM794492268&min_price=1000&max_price=5000 [200 OK, 1.18kB, 22ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  SKUs in order: MOB-1, MOB-2, LAP-1
+
+Sub-folder availability=out_of_stock
+  GET http://127.0.0.1:8016/api/products/?search=PM794492268&availability=out_of_stock [200 OK, 503B, 21ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  SKUs in order: MOB-2
+
+Sub-folder Combined: mobile, Phones, in stock
+  GET http://127.0.0.1:8016/api/products/?search=mobile&category_id=3140&availability=in_stock [200 OK, 515B, 15ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  SKUs in order: MOB-1
+
+Sub-folder max_price below min_price
+  GET http://127.0.0.1:8016/api/products/?min_price=50&max_price=10 [422 Unprocessable Entity, 245B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on max_price
+
+Folder 12 Test pagination and sorting
+Sub-folder Page 1, 2 per page, by price
+  GET http://127.0.0.1:8016/api/products/?search=PM794492268&page=1&page_size=2&sort_by=price&sort_order=asc [200 OK, 845B, 14ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  SKUs in order: PHN-1, MOB-1
+  Pass  total 4, 2 pages
+
+Sub-folder Page 2
+  GET http://127.0.0.1:8016/api/products/?search=PM794492268&page=2&page_size=2&sort_by=price&sort_order=asc [200 OK, 831B, 19ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  SKUs in order: MOB-2, LAP-1
+
+Sub-folder Price descending
+  GET http://127.0.0.1:8016/api/products/?search=PM794492268&sort_by=price&sort_order=desc [200 OK, 1.51kB, 20ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  SKUs in order: LAP-1, MOB-2, MOB-1, PHN-1
+
+Sub-folder Name ascending (default)
+  GET http://127.0.0.1:8016/api/products/?search=PM794492268 [200 OK, 1.51kB, 21ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  SKUs in order: PHN-1, MOB-1, MOB-2, LAP-1
+
+Sub-folder Page past the end
+  GET http://127.0.0.1:8016/api/products/?search=PM794492268&page=9 [200 OK, 170B, 20ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  no items, total 4
+
+Sub-folder page=0
+  GET http://127.0.0.1:8016/api/products/?page=0 [422 Unprocessable Entity, 240B, 6ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on page
+
+Sub-folder page_size=101
+  GET http://127.0.0.1:8016/api/products/?page_size=101 [422 Unprocessable Entity, 244B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on page_size
+
+Sub-folder sort_by not allowed
+  GET http://127.0.0.1:8016/api/products/?sort_by=id [422 Unprocessable Entity, 248B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on sort_by
+
+Folder 13 Increase product stock
+Sub-folder Stock-in 5
+  POST http://127.0.0.1:8016/api/inventory/3787/stock-in [201 Created, 454B, 34ms]
+  Pass  no internal details in the response
+  Pass  status 201
+  Pass  IN 5: 7 -> 12
+
+Sub-folder Current stock is 12
+  GET http://127.0.0.1:8016/api/inventory/3787 [200 OK, 254B, 12ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  12
+
+Folder 14 Decrease product stock
+Sub-folder Stock-out 4
+  POST http://127.0.0.1:8016/api/inventory/3787/stock-out [201 Created, 447B, 43ms]
+  Pass  no internal details in the response
+  Pass  status 201
+  Pass  OUT 4: 12 -> 8
+
+Folder 15 Attempt to reduce stock below zero
+Sub-folder Stock-out 9 with 8 available
+  POST http://127.0.0.1:8016/api/inventory/3787/stock-out [409 Conflict, 171B, 15ms]
+  Pass  no internal details in the response
+  Pass  status 409
+  Pass  detail: Insufficient stock: 8 available, 9 requested
+
+Sub-folder Stock is still 8
+  GET http://127.0.0.1:8016/api/inventory/3787 [200 OK, 253B, 13ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  8
+
+Sub-folder Quantity 0
+  POST http://127.0.0.1:8016/api/inventory/3787/stock-out [422 Unprocessable Entity, 244B, 7ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on quantity
+
+Sub-folder Negative quantity
+  POST http://127.0.0.1:8016/api/inventory/3787/stock-out [422 Unprocessable Entity, 244B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 422
+  Pass  error on quantity
+
+Folder 16 Verify inventory transaction history
+Sub-folder History
+  GET http://127.0.0.1:8016/api/inventory/3787/history [200 OK, 672B, 14ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  3 transactions, newest first
+  Pass  every field
+  Pass  history replays without a gap: 7 > 12 > 8
+
+Folder 17 Retrieve low-stock products
+Sub-folder Stock-out 4: down to 4
+  POST http://127.0.0.1:8016/api/inventory/3787/stock-out [201 Created, 437B, 45ms]
+  Pass  no internal details in the response
+  Pass  status 201
+  Pass  is_low_stock
+
+Sub-folder Low-stock report
+  GET http://127.0.0.1:8016/api/inventory/low-stock [200 OK, 397B, 12ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  this run: Pixel (0) and Galaxy (4); not Ultrabook (7) or Budget Phone (12)
+  Pass  all at or below the threshold
+
+Folder 18 Access administrative APIs as a CUSTOMER
+Sub-folder Customer can view a product
+  GET http://127.0.0.1:8016/api/products/3787 [200 OK, 453B, 11ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+Sub-folder Customer: create category
+  POST http://127.0.0.1:8016/api/categories/ [403 Forbidden, 147B, 6ms]
+  Pass  no internal details in the response
+  Pass  status 403
+  Pass  detail: Admin role required
+
+Sub-folder Customer: create product
+  POST http://127.0.0.1:8016/api/products/ [403 Forbidden, 147B, 7ms]
+  Pass  no internal details in the response
+  Pass  status 403
+  Pass  detail: Admin role required
+
+Sub-folder Customer: update product
+  PATCH http://127.0.0.1:8016/api/products/3787 [403 Forbidden, 147B, 8ms]
+  Pass  no internal details in the response
+  Pass  status 403
+  Pass  detail: Admin role required
+
+Sub-folder Customer: delete product
+  DELETE http://127.0.0.1:8016/api/products/3787 [403 Forbidden, 147B, 10ms]
+  Pass  no internal details in the response
+  Pass  status 403
+  Pass  detail: Admin role required
+
+Sub-folder Customer: stock-in
+  POST http://127.0.0.1:8016/api/inventory/3787/stock-in [403 Forbidden, 147B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 403
+  Pass  detail: Admin role required
+
+Sub-folder Customer: stock-out
+  POST http://127.0.0.1:8016/api/inventory/3787/stock-out [403 Forbidden, 147B, 6ms]
+  Pass  no internal details in the response
+  Pass  status 403
+  Pass  detail: Admin role required
+
+Sub-folder Customer: history
+  GET http://127.0.0.1:8016/api/inventory/3787/history [403 Forbidden, 147B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 403
+  Pass  detail: Admin role required
+
+Sub-folder Customer: low-stock report
+  GET http://127.0.0.1:8016/api/inventory/low-stock [403 Forbidden, 147B, 12ms]
+  Pass  no internal details in the response
+  Pass  status 403
+  Pass  detail: Admin role required
+
+Sub-folder Nothing changed
+  GET http://127.0.0.1:8016/api/inventory/3787 [200 OK, 252B, 13ms]
+  Pass  no internal details in the response
+  Pass  status 200
+  Pass  stock still 4
+
+Folder 19 Access protected APIs without a JWT and with an invalid token
+Sub-folder No token: create product
+  POST http://127.0.0.1:8016/api/products/ [401 Unauthorized, 187B, 6ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: update product
+  PATCH http://127.0.0.1:8016/api/products/1 [401 Unauthorized, 187B, 4ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: delete product
+  DELETE http://127.0.0.1:8016/api/products/1 [401 Unauthorized, 187B, 4ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: stock-in
+  POST http://127.0.0.1:8016/api/inventory/1/stock-in [401 Unauthorized, 187B, 2ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: history
+  GET http://127.0.0.1:8016/api/inventory/1/history [401 Unauthorized, 187B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: low-stock report
+  GET http://127.0.0.1:8016/api/inventory/low-stock [401 Unauthorized, 187B, 3ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder No token: create category
+  POST http://127.0.0.1:8016/api/categories/ [401 Unauthorized, 187B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: create product
+  POST http://127.0.0.1:8016/api/products/ [401 Unauthorized, 187B, 4ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: update product
+  PATCH http://127.0.0.1:8016/api/products/1 [401 Unauthorized, 187B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: delete product
+  DELETE http://127.0.0.1:8016/api/products/1 [401 Unauthorized, 187B, 6ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: stock-in
+  POST http://127.0.0.1:8016/api/inventory/1/stock-in [401 Unauthorized, 187B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: history
+  GET http://127.0.0.1:8016/api/inventory/1/history [401 Unauthorized, 187B, 6ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: low-stock report
+  GET http://127.0.0.1:8016/api/inventory/low-stock [401 Unauthorized, 187B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Malformed token: create category
+  POST http://127.0.0.1:8016/api/categories/ [401 Unauthorized, 187B, 5ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: create product
+  POST http://127.0.0.1:8016/api/products/ [401 Unauthorized, 187B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: update product
+  PATCH http://127.0.0.1:8016/api/products/1 [401 Unauthorized, 187B, 9ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: delete product
+  DELETE http://127.0.0.1:8016/api/products/1 [401 Unauthorized, 187B, 7ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: stock-in
+  POST http://127.0.0.1:8016/api/inventory/1/stock-in [401 Unauthorized, 187B, 11ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: history
+  GET http://127.0.0.1:8016/api/inventory/1/history [401 Unauthorized, 187B, 7ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: low-stock report
+  GET http://127.0.0.1:8016/api/inventory/low-stock [401 Unauthorized, 187B, 6ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder Forged token: create category
+  POST http://127.0.0.1:8016/api/categories/ [401 Unauthorized, 187B, 7ms]
+  Pass  no internal details in the response
+  Pass  status 401
+  Pass  detail: Could not validate credentials
+  Pass  WWW-Authenticate: Bearer
+
+Folder 20a Simultaneous stock updates: setup
+Sub-folder Product with stock 5
+  POST http://127.0.0.1:8016/api/products/ [201 Created, 437B, 36ms]
+  Pass  no internal details in the response
+  Pass  status 201
+
+------------------------------------------------------------------
+|                         |          executed |           failed |
+--------------------------+-------------------+-------------------
+|              iterations |                 1 |                0 |
+--------------------------+-------------------+-------------------
+|                requests |                98 |                0 |
+--------------------------+-------------------+-------------------
+|            test-scripts |               196 |                0 |
+--------------------------+-------------------+-------------------
+|      prerequest-scripts |                98 |                0 |
+--------------------------+-------------------+-------------------
+|              assertions |               308 |                0 |
+------------------------------------------------------------------
+| total run duration: 10s                                        |
+------------------------------------------------------------------
+| total data received: 20.01kB (approx)                          |
+------------------------------------------------------------------
+| average response time: 19ms [min: 2ms, max: 196ms, s.d.: 22ms] |
+------------------------------------------------------------------
+(node:27676) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)

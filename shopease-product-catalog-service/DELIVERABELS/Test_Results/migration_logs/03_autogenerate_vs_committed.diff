@@ -1,0 +1,39 @@
+7,8c7,8
+< sa.Column('created_at', app.database.types.UTCDateTime(), server_default=sa.text('now()'), nullable=False),
+< sa.Column('updated_at', app.database.types.UTCDateTime(), server_default=sa.text('now()'), nullable=False),
+---
+> sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
+> sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
+25,29c25,26
+< sa.Column('created_at', app.database.types.UTCDateTime(), server_default=sa.text('now()'), nullable=False),
+< sa.Column('updated_at', app.database.types.UTCDateTime(), server_default=sa.text('now()'), nullable=False),
+< sa.CheckConstraint("TRIM(name) <> ''", name=op.f('ck_products_name_not_blank')),
+< sa.CheckConstraint("TRIM(sku) <> ''", name=op.f('ck_products_sku_not_blank')),
+< sa.CheckConstraint('discount_price IS NULL OR (discount_price >= 0 AND discount_price < price)', name=op.f('ck_products_discount_price_valid')),
+---
+> sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
+> sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
+30a28
+> sa.CheckConstraint('discount_price IS NULL OR (discount_price >= 0 AND discount_price < price)', name=op.f('ck_products_discount_price_valid')),
+31a30,31
+> sa.CheckConstraint("TRIM(name) <> ''", name=op.f('ck_products_name_not_blank')),
+> sa.CheckConstraint("TRIM(sku) <> ''", name=op.f('ck_products_sku_not_blank')),
+41c41
+< sa.Column('transaction_type', sa.Enum('IN', 'OUT', name='transaction_type', native_enum=False, create_constraint=True), nullable=False),
+---
+> sa.Column('transaction_type', sa.Enum('IN', 'OUT', name='transaction_type', native_enum=False, create_constraint=True, length=3), nullable=False),
+46,48c46
+< sa.Column('created_at', app.database.types.UTCDateTime(), server_default=sa.text('now()'), nullable=False),
+< sa.CheckConstraint("(transaction_type = 'IN' AND updated_stock = previous_stock + quantity) OR (transaction_type = 'OUT' AND updated_stock = previous_stock - quantity)", name=op.f('ck_inventory_transactions_stock_arithmetic')),
+< sa.CheckConstraint('previous_stock >= 0', name=op.f('ck_inventory_transactions_previous_stock_non_negative')),
+---
+> sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
+49a48
+> sa.CheckConstraint('previous_stock >= 0', name=op.f('ck_inventory_transactions_previous_stock_non_negative')),
+50a50
+> sa.CheckConstraint("(transaction_type = 'IN' AND updated_stock = previous_stock + quantity) OR (transaction_type = 'OUT' AND updated_stock = previous_stock - quantity)", name=op.f('ck_inventory_transactions_stock_arithmetic')),
+56d55
+< op.drop_index(op.f('ix_inventory_transactions_product_id_created_at'), table_name='inventory_transactions')
+58,59d56
+< op.drop_index(op.f('ix_products_name'), table_name='products')
+< op.drop_index(op.f('ix_products_category_id'), table_name='products')

@@ -1,0 +1,22 @@
+# Recorded 2026-11-12 13:11:21 UTC
+$ docker compose down        # without -v: named volumes are kept
+ Container shopease-product-catalog-service-catalog-service-1 Stopping 
+ Container shopease-product-catalog-service-catalog-service-1 Stopped 
+ Container shopease-product-catalog-service-catalog-service-1 Removing 
+ Container shopease-product-catalog-service-catalog-service-1 Removed 
+ Container shopease-product-catalog-service-catalog-mysql-1 Stopping 
+ Container shopease-product-catalog-service-catalog-mysql-1 Stopped 
+ Container shopease-product-catalog-service-catalog-mysql-1 Removing 
+ Container shopease-product-catalog-service-catalog-mysql-1 Removed 
+ Network shopease-product-catalog-service_default Removing 
+ Network shopease-product-catalog-service_default Removed 
+exit code: 0
+
+$ docker compose ps -a
+NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
+
+$ docker volume ls --filter name=catalog_mysql_data
+DRIVER    VOLUME NAME
+local     shopease-product-catalog-service_catalog_mysql_data
+$ docker volume inspect ... --format "name created"
+name=shopease-product-catalog-service_catalog_mysql_data created=2026-11-11T15:28:47Z

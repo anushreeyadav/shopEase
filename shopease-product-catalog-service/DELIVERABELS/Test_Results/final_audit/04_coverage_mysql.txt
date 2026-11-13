@@ -1,0 +1,75 @@
+Recorded 2026-11-13 11:37:53 UTC
+Command: CATALOG_SERVICE_TEST_DB=mysql MYSQL_DATABASE=shopease_product_catalog_test_db python -m pytest -q --cov=app --cov-report=term-missing
+
+........................................................................ [ 13%]
+........................................................................ [ 27%]
+........................................................................ [ 40%]
+........................................................................ [ 54%]
+........................................................................ [ 67%]
+........................................................................ [ 81%]
+........................................................................ [ 94%]
+...........................                                              [100%]
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\Administrator\ShopEase\shopease-product-catalog-service\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/test_models.py::test_product_sku_is_unique_and_required
+tests/test_models.py::test_product_requires_name_price_and_category
+tests/test_models.py::test_negative_price_is_refused
+tests/test_models.py::test_invalid_discount_is_refused[100.00]
+tests/test_models.py::test_invalid_discount_is_refused[150.00]
+tests/test_models.py::test_invalid_discount_is_refused[-1.00]
+  c:\Users\Administrator\ShopEase\shopease-product-catalog-service\tests\test_models.py:38: SAWarning: Object of type <Product> not in session, add operation along 'Category.products' will not proceed
+    with db.begin_nested():
+
+tests/test_models.py::test_inconsistent_transactions_are_refused[IN-0-5-5]
+tests/test_models.py::test_inconsistent_transactions_are_refused[IN--2-5-3]
+tests/test_models.py::test_inconsistent_transactions_are_refused[IN-5-0-4]
+tests/test_models.py::test_inconsistent_transactions_are_refused[OUT-5-10-6]
+tests/test_models.py::test_inconsistent_transactions_are_refused[OUT-5-3--2]
+tests/test_models.py::test_inconsistent_transactions_are_refused[IN-1--1-0]
+  c:\Users\Administrator\ShopEase\shopease-product-catalog-service\tests\test_models.py:38: SAWarning: Object of type <InventoryTransaction> not in session, add operation along 'Product.inventory_transactions' will not proceed
+    with db.begin_nested():
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.11.0-final-0 _______________
+
+Name                                Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------
+app\__init__.py                         0      0   100%
+app\__main__.py                         7      7     0%   6-24
+app\core\__init__.py                    0      0   100%
+app\core\config.py                     46      0   100%
+app\core\security.py                  120      2    98%   77, 79
+app\database\__init__.py                0      0   100%
+app\database\base.py                   13      0   100%
+app\database\connection.py             48      3    94%   115-118
+app\database\types.py                  18      3    83%   24, 27, 34
+app\database\wait.py                   35      6    83%   52-56, 60
+app\main.py                            82      6    93%   36-38, 141-142, 167
+app\models\__init__.py                  5      0   100%
+app\models\category_model.py           15      1    93%   38
+app\models\inventory_model.py          22      1    95%   64
+app\models\product_model.py            34      1    97%   83
+app\models\stock_guard.py              33      1    97%   35
+app\routers\__init__.py                 0      0   100%
+app\routers\category_routes.py         37      0   100%
+app\routers\inventory_routes.py        32      0   100%
+app\routers\product_routes.py          39      0   100%
+app\routers\responses.py                7      0   100%
+app\schemas\__init__.py                 0      0   100%
+app\schemas\category_schema.py         43      0   100%
+app\schemas\common_schema.py           80      4    95%   29, 35-36, 38
+app\schemas\inventory_schema.py        35      0   100%
+app\schemas\product_schema.py         125      0   100%
+app\services\__init__.py                0      0   100%
+app\services\category_service.py       80      1    99%   102
+app\services\errors.py                 10      0   100%
+app\services\inventory_service.py      67      1    99%   63
+app\services\product_service.py       131      4    97%   158-160, 185
+-----------------------------------------------------------------
+TOTAL                                1164     41    96%
+531 passed, 13 warnings in 180.43s (0:03:00)
+exit code 0

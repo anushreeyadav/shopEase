@@ -1,0 +1,23 @@
+# Recorded 2026-11-12 13:09:11 UTC
+$ docker compose logs --no-color
+catalog-mysql-1    | 2026-11-12 13:08:51+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.4.11-1.el9 started.
+catalog-mysql-1    | 2026-11-12 13:08:52+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+catalog-mysql-1    | 2026-11-12 13:08:52+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.4.11-1.el9 started.
+catalog-mysql-1    | '/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+catalog-service-1  | 2026-11-12 13:08:58,640 INFO app.database.wait: Database ready after 1 attempt(s)
+catalog-mysql-1    | 2026-11-12T13:08:52.689588Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+catalog-service-1  | INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+catalog-service-1  | INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+catalog-service-1  | INFO:     Started server process [1]
+catalog-service-1  | INFO:     Waiting for application startup.
+catalog-service-1  | INFO:     Application startup complete.
+catalog-service-1  | INFO:     Uvicorn running on http://0.0.0.0:8006 (Press CTRL+C to quit)
+catalog-service-1  | INFO:     127.0.0.1:35368 - "GET /health HTTP/1.1" 200 OK
+catalog-mysql-1    | 2026-11-12T13:08:53.173368Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.4.11) starting as process 1
+catalog-mysql-1    | 2026-11-12T13:08:53.192399Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+catalog-mysql-1    | 2026-11-12T13:08:54.157551Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+catalog-mysql-1    | 2026-11-12T13:08:54.654365Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+catalog-mysql-1    | 2026-11-12T13:08:54.654420Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+catalog-mysql-1    | 2026-11-12T13:08:54.663758Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+catalog-mysql-1    | 2026-11-12T13:08:54.698505Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+catalog-mysql-1    | 2026-11-12T13:08:54.698715Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.4.11'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.

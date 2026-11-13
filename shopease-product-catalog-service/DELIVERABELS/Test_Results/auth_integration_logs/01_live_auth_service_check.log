@@ -1,0 +1,39 @@
+Run: 2026-11-12 06:51:45 UTC
+Command: python -m scripts.auth_integration_check
+(stderr and stdout combined; the one stderr line is the service's own log message for the unreachable check)
+
+Authentication service request failed: ConnectTimeout
+Authentication Service: http://127.0.0.1:8001/api/auth/verify-token
+Catalog Service:        http://127.0.0.1:8006
+
+== Services
+[PASS] Authentication Service /health  (HTTP 200 {"status":"ok","service":"ShopEase Auth Service","version":"0.1.0"})
+[PASS] Catalog Service /health  (HTTP 200 {"status":"ok","service":"ShopEase Product Catalog Service","version":"1.0.0"})
+
+== The real Authentication Service, called directly
+[PASS] verify-token without a token -> 401  (HTTP 401 {"detail":"Could not validate credentials"})
+[PASS] verify-token with a forged token -> 401  (HTTP 401 {"detail":"Could not validate credentials"})
+[PASS] verify-token with an expired forged token -> 401  (HTTP 401 {"detail":"Could not validate credentials"})
+
+== Catalog Service: missing and invalid tokens
+[PASS] no token, browse products -> 200  (HTTP 200 {"items":[],"total":0,"page":1,"size":20,"pages":0})
+[PASS] no token, browse categories -> 200  (HTTP 200 [])
+[PASS] no token, create category -> 401  (HTTP 401 {"detail":"Could not validate credentials"})
+[PASS] no token, inventory -> 401  (HTTP 401 {"detail":"Could not validate credentials"})
+[PASS] Basic credentials -> 401  (HTTP 401 {"detail":"Could not validate credentials"})
+[PASS] garbage token -> 401  (HTTP 401 {"detail":"Could not validate credentials"})
+[PASS] alg none token claiming ADMIN -> 401  (HTTP 401 {"detail":"Could not validate credentials"})
+[PASS] forged HS256 token claiming ADMIN -> 401 (rejected by the Authentication Service)  (HTTP 401 {"detail":"Could not validate credentials"})
+[PASS] expired forged token -> 401  (HTTP 401 {"detail":"Could not validate credentials"})
+[PASS] forged token on a public route -> 401, not ignored  (HTTP 401 {"detail":"Could not validate credentials"})
+
+== Catalog Service: real accounts
+[SKIP] CHECK_CUSTOMER_EMAIL / CHECK_CUSTOMER_PASSWORD not set
+[SKIP] CHECK_ADMIN_EMAIL / CHECK_ADMIN_PASSWORD not set
+
+== Authentication Service unreachable (real connection to a closed port)
+[PASS] verification with the Authentication Service down -> 503, refused  (HTTP 503 Authentication service unavailable)
+
+16 passed, 0 failed
+
+exit code: 0

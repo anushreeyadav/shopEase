@@ -1,0 +1,33 @@
+# Virtual environment
+.venv/
+venv/
+
+# Local configuration and secrets (the template is committed)
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Logs (the evidence logs under DELIVERABELS/ are part of the submission and are kept)
+*.log
+!DELIVERABELS/**/*.log
+
+# Office lock files in DELIVERABELS/Word_Documents
+~$*
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

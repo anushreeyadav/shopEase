@@ -1,0 +1,76 @@
+# Final audit, 2026-11-13 12:38:28 UTC, python -m scripts.final_audit
+
+== 1. Required endpoints (live container, port 8006) ==
+[PASS] every required route is published: 20 of 20 present; missing none
+[PASS] no unexpected route: extra none
+[PASS] GET /health without a token: 200 (expected 200)
+[PASS] GET /health/db without a token: 200 (expected 200)
+[PASS] GET /docs without a token: 200 (expected 200)
+[PASS] GET /api/categories/ without a token: 200 (expected 200)
+[PASS] GET /api/products/ without a token: 200 (expected 200)
+[PASS] GET /api/products/?search=mobile&min_price=1000&max_price=5000&sort_by=price&sort_order=asc&page=1&page_size=10 without a token: 200 (expected 200)
+[PASS] GET /api/products/999999 without a token: 404 (expected 404)
+[PASS] GET /api/products/abc without a token: 422 (expected 422)
+[PASS] POST /api/categories/ without a token: 401 (expected 401)
+[PASS] POST /api/products/ without a token: 401 (expected 401)
+[PASS] PATCH /api/products/1 without a token: 401 (expected 401)
+[PASS] DELETE /api/products/1 without a token: 401 (expected 401)
+[PASS] GET /api/inventory/1 without a token: 401 (expected 401)
+[PASS] POST /api/inventory/1/stock-in without a token: 401 (expected 401)
+[PASS] POST /api/inventory/1/stock-out without a token: 401 (expected 401)
+[PASS] GET /api/inventory/1/history without a token: 401 (expected 401)
+[PASS] GET /api/inventory/low-stock without a token: 401 (expected 401)
+
+== 2. Database migration ==
+[INFO] alembic heads: c4a7d2e91b30 (head)
+[PASS] configured database (inside the container), alembic current: c4a7d2e91b30 (head)
+[PASS] configured database, alembic check (models match the database): No new upgrade operations detected.
+[PASS] tables in shopease_product_catalog_db: alembic_version, categories, inventory_transactions, products
+[PASS] alembic_version row: c4a7d2e91b30
+[INFO] rows in categories: 0
+[INFO] rows in products: 0
+[INFO] rows in inventory_transactions: 0
+[PASS] foreign keys: inventory_transactions -> products ON DELETE RESTRICT; products -> categories ON DELETE RESTRICT
+[PASS] CHECK constraints (categories 1, products 5, inventory_transactions 5): 11
+[INFO] schema reference written: DELIVERABELS\Database_Evidence\schema_reference.sql
+
+== 3. JWT integration with the running Authentication Service (no account used) ==
+[PASS] Authentication Service /health: 200
+[PASS] Auth Service verify-token without a token: 401
+[PASS] Auth Service verify-token with a forged ADMIN token: 401
+[PASS] Catalog POST /api/products/ with the forged token (decided by the real Auth Service): 401 {"detail":"Could not validate credentials"}
+[INFO] AUTH_SERVICE_VERIFY_URL in the container: http://host.docker.internal:8001/api/auth/verify-token
+[INFO] Not checked live: a real ADMIN token and a real USER token. The Authentication Service has no ADMIN account and no password was available (see the API testing report).
+
+== 4. Docker Compose ==
+catalog-mysql	running	Up 23 hours (healthy)	127.0.0.1:3310->3306/tcp
+catalog-service	running	Up 23 hours (healthy)	127.0.0.1:8006->8006/tcp
+[PASS] both containers running and healthy: 2 healthy
+[PASS] named volume present: shopease-product-catalog-service_catalog_mysql_data
+[PASS] .env not in the running image: no .env
+
+== 5. Secrets and .env in the deliverables ==
+[INFO] secret values read from .env: 2 (never printed)
+[PASS] no secret value in DELIVERABELS: 162 files searched, 0 with a match
+[PASS] no secret value in postman: 3 files searched, 0 with a match
+[PASS] no secret value in README.md: 1 files searched, 0 with a match
+[PASS] no secret value in app: 31 files searched, 0 with a match
+[PASS] no secret value in alembic: 5 files searched, 0 with a match
+[PASS] no secret value in tests: 15 files searched, 0 with a match
+[PASS] no secret value in scripts: 20 files searched, 0 with a match
+[PASS] no secret value in Dockerfile: 1 files searched, 0 with a match
+[PASS] no secret value in docker-compose.yml: 1 files searched, 0 with a match
+[PASS] no secret value in docker-compose.dev.yml: 1 files searched, 0 with a match
+[PASS] no secret value in docker-compose.auth-network.yml: 1 files searched, 0 with a match
+[PASS] no secret value in .env.example: 1 files searched, 0 with a match
+[PASS] no secret value in alembic.ini: 1 files searched, 0 with a match
+[PASS] only .env (local, ignored) and .env.example exist: .env, .env.example
+[PASS] no .env file inside DELIVERABELS: 0 found
+[PASS] .env listed in .gitignore and .dockerignore: yes
+[PASS] 28 evidence .log files in DELIVERABELS not ignored by Git ('*.log' rule with the '!DELIVERABELS/**/*.log' exception): exception present
+
+== 6. Git (no Git command is run by this script) ==
+[PASS] this folder has no .git directory of its own: absent
+[INFO] The folder sits inside the parent ShopEase repository. Whether anything was committed or pushed can only be confirmed with Git; this script does not run Git (see the completion report).
+
+Result: 0 check(s) failed

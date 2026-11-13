@@ -1,0 +1,20 @@
+== configured database (from .env): MYSQL_DATABASE=shopease_product_catalog_db
+== alembic history
+Rev: 5b8e2f0c9d14 (head)
+Parent: <base>
+Path: C:\Users\Administrator\ShopEase\shopease-product-catalog-service\alembic\versions\5b8e2f0c9d14_create_catalog_tables.py
+
+    create catalog tables
+    
+    Revision ID: 5b8e2f0c9d14
+    Revises: (none, initial migration)
+== alembic current (before)
+(no revision line above = database not yet migrated)
+== alembic upgrade head
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 5b8e2f0c9d14, create catalog tables
+exit=0
+== alembic current (after)
+5b8e2f0c9d14 (head)
+NOTE (added afterwards): the 'exit=0' line above is the exit status of the grep filter, not of alembic. Success is shown by 'alembic current' reporting 5b8e2f0c9d14 (head) and by 07_configured_db_verification.log.

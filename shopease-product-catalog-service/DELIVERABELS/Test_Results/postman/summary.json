@@ -1,0 +1,56 @@
+{
+  "run_id": "794492268",
+  "started": "2026-11-12T14:04:28+00:00",
+  "A1 sequential": {
+    "requests": 98,
+    "requests_failed": 0,
+    "assertions": 308,
+    "assertions_failed": 0,
+    "failures": []
+  },
+  "A2 burst": {
+    "processes": 12,
+    "status_codes": [
+      201,
+      201,
+      201,
+      201,
+      201,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409,
+      409
+    ],
+    "201": 5,
+    "409": 7,
+    "assertions_failed": 0
+  },
+  "A3 verify": {
+    "requests": 2,
+    "requests_failed": 0,
+    "assertions": 7,
+    "assertions_failed": 0,
+    "failures": []
+  },
+  "A4 screenshots": "exit code 0",
+  "A5 cleanup requests": {
+    "requests": 3,
+    "requests_failed": 0,
+    "assertions": 6,
+    "assertions_failed": 0,
+    "failures": []
+  },
+  "A6 database": "PASS",
+  "A7 delete run rows": "Deleted 8 products with their history and the run's categories; left: products 0, categories 0",
+  "B live": {
+    "requests": 30,
+    "requests_failed": 0,
+    "assertions": 110,
+    "assertions_failed": 0,
+    "failures": []
+  },
+  "finished": "2026-11-12T14:05:48+00:00"
+}

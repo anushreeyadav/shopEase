@@ -1,0 +1,41 @@
+newman
+
+ShopEase Product Catalog Service
+
+Folder 99 Cleanup (deactivate what this run created)
+Sub-folder Deactivate product
+  DELETE http://127.0.0.1:8016/api/products/3787 [200 OK, 141B, 73ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+Sub-folder Deactivate category Phones
+  PATCH http://127.0.0.1:8016/api/categories/3140 [200 OK, 257B, 42ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+Sub-folder Deactivate category Laptops
+  PATCH http://127.0.0.1:8016/api/categories/3141 [200 OK, 258B, 52ms]
+  Pass  no internal details in the response
+  Pass  status 200
+
+------------------------------------------------------------------
+|                         |          executed |           failed |
+--------------------------+-------------------+-------------------
+|              iterations |                 1 |                0 |
+--------------------------+-------------------+-------------------
+|                requests |                 3 |                0 |
+--------------------------+-------------------+-------------------
+|            test-scripts |                 6 |                0 |
+--------------------------+-------------------+-------------------
+|      prerequest-scripts |                 3 |                0 |
+--------------------------+-------------------+-------------------
+|              assertions |                 6 |                0 |
+------------------------------------------------------------------
+| total run duration: 485ms                                      |
+------------------------------------------------------------------
+| total data received: 330B (approx)                             |
+------------------------------------------------------------------
+| average response time: 55ms [min: 42ms, max: 73ms, s.d.: 12ms] |
+------------------------------------------------------------------
+(node:17736) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)

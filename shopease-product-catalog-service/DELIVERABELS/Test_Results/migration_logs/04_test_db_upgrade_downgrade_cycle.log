@@ -1,0 +1,55 @@
+INFO  [alembic.runtime.migration] Running downgrade 5b8e2f0c9d14 -> , create catalog tables
+INFO  [alembic.runtime.migration] Running upgrade  -> 5b8e2f0c9d14, create catalog tables
+MySQL server 8.4.11 at 127.0.0.1:3310, database shopease_product_catalog_test_db
+[PASS] server is MySQL 8 (8.4.11)
+
+== alembic upgrade head
+[PASS] tables present: ['categories', 'inventory_transactions', 'products']
+[PASS] alembic_version = ['5b8e2f0c9d14']
+[PASS] primary keys: 3/3 expected present
+[PASS] unique: 2/2 expected present
+[PASS] foreign keys: 2/2 expected present
+[PASS] checks: 11/11 expected present
+[PASS] indexes: 5/5 expected present
+       categories: id, name, description, is_active, created_at, updated_at
+       products: id, category_id, name, description, sku, price, discount_price, stock_quantity, image_url, brand, is_active, created_at, updated_at
+       inventory_transactions: id, product_id, transaction_type, quantity, previous_stock, updated_stock, remarks, created_at
+[PASS] storage engine InnoDB (required for foreign keys and transactions): categories=InnoDB/utf8mb4_0900_ai_ci, inventory_transactions=InnoDB/utf8mb4_0900_ai_ci, products=InnoDB/utf8mb4_0900_ai_ci
+No new upgrade operations detected.
+[PASS] alembic check: models and database match
+
+== alembic downgrade base
+[PASS] after downgrade, catalog tables left: []
+[PASS] alembic_version is empty after downgrade
+
+== alembic upgrade head (again)
+[PASS] tables present: ['categories', 'inventory_transactions', 'products']
+[PASS] alembic_version = ['5b8e2f0c9d14']
+[PASS] primary keys: 3/3 expected present
+[PASS] unique: 2/2 expected present
+[PASS] foreign keys: 2/2 expected present
+[PASS] checks: 11/11 expected present
+[PASS] indexes: 5/5 expected present
+       categories: id, name, description, is_active, created_at, updated_at
+       products: id, category_id, name, description, sku, price, discount_price, stock_quantity, image_url, brand, is_active, created_at, updated_at
+       inventory_transactions: id, product_id, transaction_type, quantity, previous_stock, updated_stock, remarks, created_at
+[PASS] storage engine InnoDB (required for foreign keys and transactions): categories=InnoDB/utf8mb4_0900_ai_ci, inventory_transactions=InnoDB/utf8mb4_0900_ai_ci, products=InnoDB/utf8mb4_0900_ai_ci
+No new upgrade operations detected.
+[PASS] alembic check: models and database match
+
+== constraint probes (one transaction, rolled back)
+[PASS] valid category, product and IN transaction accepted
+[PASS] server default created_at is UTC (2026-11-12 05:31:11 vs UTC_TIMESTAMP() 2026-11-12 05:31:11)
+[PASS] negative stock_quantity: refused by MySQL with error 3819
+[PASS] discount_price >= price: refused by MySQL with error 3819
+[PASS] negative price: refused by MySQL with error 3819
+[PASS] duplicate SKU: refused by MySQL with error 1062
+[PASS] duplicate category name: refused by MySQL with error 1062
+[PASS] product with unknown category: refused by MySQL with error 1452
+[PASS] transaction type other than IN/OUT: refused by MySQL with error 3819
+[PASS] transaction arithmetic wrong: refused by MySQL with error 3819
+[PASS] transaction with zero quantity: refused by MySQL with error 3819
+[PASS] delete category that has products: refused by MySQL with error 1451
+[PASS] probe rows rolled back (none left behind)
+
+ALL CHECKS PASSED

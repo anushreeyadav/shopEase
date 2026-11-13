@@ -1,0 +1,17 @@
+# Recorded 2026-11-12 13:08:31 UTC
+$ docker version --format ...
+Client 29.6.2, Server 29.6.2 (linux/amd64)
+$ docker compose version
+Docker Compose version v5.3.1
+
+# State before the run (stack running from the previous task)
+$ docker volume inspect shopease-product-catalog-service_catalog_mysql_data --format ...
+name=shopease-product-catalog-service_catalog_mysql_data created=2026-11-11T15:28:47Z driver=local
+# Databases in the volume (queried inside catalog-mysql):
+schema shopease_catalog_db
+schema shopease_product_catalog_db
+schema shopease_product_catalog_test_db
+shopease_product_catalog_db alembic_version = c4a7d2e91b30
+shopease_product_catalog_db rows: categories 0, products 0, inventory_transactions 0
+shopease_product_catalog_test_db alembic_version = 5b8e2f0c9d14
+user catalog_svc exists: 1

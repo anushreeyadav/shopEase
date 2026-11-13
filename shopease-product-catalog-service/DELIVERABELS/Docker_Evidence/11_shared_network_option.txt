@@ -1,0 +1,42 @@
+# Recorded 2026-11-12 13:12:03 UTC
+# Optional: explicit shared network with the Auth Service project (its stack is already running).
+$ docker compose -f docker-compose.yml -f docker-compose.auth-network.yml up -d
+ Container shopease-product-catalog-service-catalog-mysql-1 Running 
+ Container shopease-product-catalog-service-catalog-service-1 Recreate 
+ Container shopease-product-catalog-service-catalog-service-1 Recreated 
+ Container shopease-product-catalog-service-catalog-mysql-1 Waiting 
+ Container shopease-product-catalog-service-catalog-mysql-1 Healthy 
+ Container shopease-product-catalog-service-catalog-service-1 Starting 
+ Container shopease-product-catalog-service-catalog-service-1 Started 
+catalog-service: healthy
+$ docker inspect catalog-service-1 --format networks
+shopease-auth-service_default
+shopease-product-catalog-service_default
+
+# catalog-mysql stays on this project's network only:
+shopease-product-catalog-service_default
+
+$ docker compose exec catalog-service python - < check.py   (same script as 05)
+GET /health -> 200 application/json
+  {"status":"ok","service":"ShopEase Product Catalog Service","version":"1.0.0"}
+--
+POST http://auth-service:8001/api/auth/verify-token (no token, straight from this container) -> 401
+  {"detail":"Could not validate credentials"}
+# Through the API from this machine, forged token:
+{"detail":"Could not validate credentials"}  -> 401
+
+$ docker compose -f docker-compose.yml -f docker-compose.auth-network.yml down   (no -v)
+ Container shopease-product-catalog-service-catalog-service-1 Stopping 
+ Container shopease-product-catalog-service-catalog-service-1 Stopped 
+ Container shopease-product-catalog-service-catalog-service-1 Removing 
+ Container shopease-product-catalog-service-catalog-service-1 Removed 
+ Container shopease-product-catalog-service-catalog-mysql-1 Stopping 
+ Container shopease-product-catalog-service-catalog-mysql-1 Stopped 
+ Container shopease-product-catalog-service-catalog-mysql-1 Removing 
+ Container shopease-product-catalog-service-catalog-mysql-1 Removed 
+ Network shopease-product-catalog-service_default Removing 
+ Network shopease-product-catalog-service_default Removed 
+# The Auth Service network is external, so it was not removed:
+shopease-auth-service_default
+shopease-auth-service-auth-service-1 Up 8 hours (healthy)
+shopease-auth-service-auth-mysql-1 Up 8 hours (healthy)
